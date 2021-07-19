@@ -1,0 +1,10 @@
+#应用名
+spring:
+  application:
+    name: walle-app
+  profiles:
+    active: dev
+
+#应用端口
+server:
+  port: 80

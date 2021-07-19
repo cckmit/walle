@@ -1,0 +1,14 @@
+#nacos配置
+nacos:
+  discovery:
+    server-addr: 10.10.1.30:8848
+  config:
+    server-addr: 10.10.1.30:8848
+
+#dubbo配置
+dubbo:
+  registry:
+    address: nacos://10.10.1.30:8848
+
+logging:
+  config: classpath:logback.xml
