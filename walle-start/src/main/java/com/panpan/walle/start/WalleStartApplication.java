@@ -1,7 +1,5 @@
 package com.panpan.walle.start;
 
-import com.alibaba.nacos.spring.context.annotation.EnableNacos;
-import com.alibaba.nacos.spring.context.annotation.config.EnableNacosConfig;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.panpan.walle.infrastructure.constant.AppConstant;
 import org.springframework.boot.SpringApplication;
