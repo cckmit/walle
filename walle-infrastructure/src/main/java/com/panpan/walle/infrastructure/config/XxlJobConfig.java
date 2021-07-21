@@ -40,12 +40,16 @@ public class XxlJobConfig {
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
         xxlJobSpringExecutor.setAdminAddresses(adminAddresses);
         xxlJobSpringExecutor.setAppname(appName);
-        xxlJobSpringExecutor.setIp(getIpAddress());
+        xxlJobSpringExecutor.setIp(getFixIpAddress());
         xxlJobSpringExecutor.setPort(port);
         xxlJobSpringExecutor.setAccessToken(accessToken);
         xxlJobSpringExecutor.setLogPath(logPath);
         xxlJobSpringExecutor.setLogRetentionDays(logRetentionDays);
         return xxlJobSpringExecutor;
+    }
+
+    public static String getFixIpAddress(){
+        return "10.10.1.1";
     }
 
     public static String getIpAddress() {

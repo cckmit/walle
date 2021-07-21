@@ -93,8 +93,8 @@ public class ESTest {
             JSONArray fileList = item.getJSONArray("filelist");
             int fileCount = 0;
             for (int j =0; j < fileList.size();j++){
-                JSONObject eachFile = jsonArray.getJSONObject(j);
-                System.out.println(eachFile.getString("ossFileUrls"));
+                JSONObject eachFile = fileList.getJSONObject(j);
+                Integer delFlag = eachFile.getInteger("delFlag");
                 if (1 == eachFile.getIntValue("delFlag")){
                     continue;
                 }
