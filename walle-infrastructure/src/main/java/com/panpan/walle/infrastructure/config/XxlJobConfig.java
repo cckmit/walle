@@ -1,5 +1,6 @@
 package com.panpan.walle.infrastructure.config;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,22 +17,22 @@ import java.util.Enumeration;
 @Slf4j
 public class XxlJobConfig {
 
-    @Value("${xxl.job.admin.addresses}")
+    @NacosValue("${xxl.job.admin.addresses}")
     private String adminAddresses;
 
-    @Value("${xxl.job.executor.appname}")
+    @NacosValue("${xxl.job.executor.appname}")
     private String appName;
 
-    @Value("${xxl.job.executor.port}")
+    @NacosValue("${xxl.job.executor.port}")
     private int port;
 
-    @Value("${xxl.job.accessToken}")
+    @NacosValue("${xxl.job.accessToken}")
     private String accessToken;
 
-    @Value("${xxl.job.executor.logpath}")
+    @NacosValue("${xxl.job.executor.logpath}")
     private String logPath;
 
-    @Value("${xxl.job.executor.logretentiondays}")
+    @NacosValue("${xxl.job.executor.logretentiondays}")
     private int logRetentionDays = -1;
 
     @Bean
