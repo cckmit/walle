@@ -9,6 +9,5 @@ public class OOMTest {
         while (true){
             list.add(new byte[100]);
         }
-
     }
 }
