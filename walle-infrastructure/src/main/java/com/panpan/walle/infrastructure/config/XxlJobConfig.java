@@ -3,7 +3,7 @@ package com.panpan.walle.infrastructure.config;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,6 +15,7 @@ import java.util.Enumeration;
 @SuppressWarnings("ALL")
 @Configuration
 @Slf4j
+@ConditionalOnProperty(prefix="walle-app",name = "enableXxlJob", havingValue = "true")
 public class XxlJobConfig {
 
     @NacosValue("${xxl.job.admin.addresses}")
