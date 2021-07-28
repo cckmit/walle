@@ -10,4 +10,6 @@ server:
   port: 80
 
 walle-app:
-  enableXxlJob: false
+  xxlJob:
+    enable: true
+    fixIpAddress: 10.10.1.21

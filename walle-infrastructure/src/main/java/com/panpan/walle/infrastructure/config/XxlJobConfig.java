@@ -1,8 +1,12 @@
 package com.panpan.walle.infrastructure.config;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
+import com.panpan.walle.infrastructure.constant.AppConstant;
 import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +19,8 @@ import java.util.Enumeration;
 @SuppressWarnings("ALL")
 @Configuration
 @Slf4j
-@ConditionalOnProperty(prefix="walle-app",name = "enableXxlJob", havingValue = "true")
+@Data
+@ConditionalOnProperty(prefix= AppConstant.APP_NAME, name = "xxlJob.enable", havingValue = "true")
 public class XxlJobConfig {
 
     @NacosValue("${xxl.job.admin.addresses}")
@@ -36,13 +41,16 @@ public class XxlJobConfig {
     @NacosValue("${xxl.job.executor.logretentiondays}")
     private int logRetentionDays = -1;
 
+    @Value("${walle-app.xxlJob.fixIpAddress}")
+    private String fixIpAddress;
+
     @Bean
     public XxlJobSpringExecutor xxlJobExecutor() {
         log.info("==> xxl-job config init.");
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
         xxlJobSpringExecutor.setAdminAddresses(adminAddresses);
         xxlJobSpringExecutor.setAppname(appName);
-        xxlJobSpringExecutor.setIp(getFixIpAddress());
+        xxlJobSpringExecutor.setIp(getIpAddress());
         xxlJobSpringExecutor.setPort(port);
         xxlJobSpringExecutor.setAccessToken(accessToken);
         xxlJobSpringExecutor.setLogPath(logPath);
@@ -50,11 +58,13 @@ public class XxlJobConfig {
         return xxlJobSpringExecutor;
     }
 
-    public static String getFixIpAddress(){
-        return "10.10.1.1";
-    }
+    public String getIpAddress() {
 
-    public static String getIpAddress() {
+        //判断是否有固定IP地址（多网卡的情况）
+        if (StrUtil.isNotEmpty(fixIpAddress)) {
+            return fixIpAddress;
+        }
+
         try {
             Enumeration<NetworkInterface> allNetInterfaces = NetworkInterface.getNetworkInterfaces();
             InetAddress ip = null;
