@@ -6,7 +6,7 @@ import com.panpan.walle.infrastructure.constant.AppConstant;
 import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ import java.util.Enumeration;
 @Configuration
 @Slf4j
 @Data
-@ConditionalOnProperty(prefix= AppConstant.APP_NAME, name = "xxlJob.enable", havingValue = "true")
+@ConditionalOnProperty(prefix= AppConstant.APP_NAME, name = "xxljob.enable", havingValue = "true")
 public class XxlJobConfig {
 
     @NacosValue("${xxl.job.admin.addresses}")
@@ -41,8 +41,8 @@ public class XxlJobConfig {
     @NacosValue("${xxl.job.executor.logretentiondays}")
     private int logRetentionDays = -1;
 
-    @Value("${walle-app.xxlJob.fixIpAddress}")
-    private String fixIpAddress;
+    @Autowired
+    private WalleConfig walleConfig;
 
     @Bean
     public XxlJobSpringExecutor xxlJobExecutor() {
@@ -61,8 +61,8 @@ public class XxlJobConfig {
     public String getIpAddress() {
 
         //判断是否有固定IP地址（多网卡的情况）
-        if (StrUtil.isNotEmpty(fixIpAddress)) {
-            return fixIpAddress;
+        if (StrUtil.isNotEmpty(walleConfig.getXxlConfig().getFixIpAddress())) {
+            return walleConfig.getXxlConfig().getFixIpAddress();
         }
 
         try {
