@@ -8,7 +8,6 @@ public class BiSearchTest {
     @Test
     public void Test() {
         int[] array = new int[]{1,2,3,4,5,6,7};
-        int[] emptyArray = new int[]{};
         int[] nullArray = null;
 
         Assert.assertEquals(-1, BiSearch.biSearch(nullArray, 3));
