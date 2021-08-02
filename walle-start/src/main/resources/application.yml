@@ -11,5 +11,5 @@ server:
 
 walleapp:
   xxljob:
-    enable: true
+    enable: false
     fixIpAddress: 10.10.1.21
