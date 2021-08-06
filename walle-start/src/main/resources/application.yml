@@ -3,7 +3,7 @@ spring:
   application:
     name: walle-app
   profiles:
-    active: dev
+    active: lp
 
 #应用端口
 server:
