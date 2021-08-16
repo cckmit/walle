@@ -39,6 +39,30 @@ public class ListNode {
     }
 
     /**
+     * 生成随机列表
+     *
+     * @param len
+     * @param maxValue 最大值
+     * @return
+     */
+    public static ListNode generateRandomLinkedList(int len, int maxValue) {
+        int size = (int) (Math.random() * (len + 1));
+        if (size == 0) {
+            return null;
+        }
+        size--;
+        ListNode head = new ListNode((int) (Math.random() * (maxValue + 1)));
+        ListNode pre = head;
+        while (size != 0) {
+            ListNode cur = new ListNode((int) (Math.random() * (maxValue + 1)));
+            pre.next = cur;
+            pre = cur;
+            size--;
+        }
+        return head;
+    }
+
+    /**
      * 打印链表
      */
     public static void printListNode(ListNode head){

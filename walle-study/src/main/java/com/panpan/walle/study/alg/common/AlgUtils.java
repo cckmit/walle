@@ -1,6 +1,36 @@
 package com.panpan.walle.study.alg.common;
 
+import java.util.Arrays;
+
 public class AlgUtils {
+    /**
+     * 生成随机数组
+     * @param maxSize 最大数组长度
+     * @param maxValue 最大值
+     * @return
+     */
+    public static int[] generateRandomArray(int maxSize, int maxValue) {
+        int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
+        }
+        return arr;
+    }
+    /**
+     * 复制数组
+     * @param origArr 待复制数组
+     * @return
+     */
+    public static int[] copyOfArray(int[] origArr) {
+        return Arrays.copyOf(origArr, origArr.length);
+    }
+
+    public static int[] sort(int[] arr){
+        Arrays.sort(arr);
+
+        return arr;
+    }
+
     /**
      * 交换数组两个元素
      *
