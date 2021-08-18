@@ -1,22 +1,22 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.ListNode;
+import com.panpan.walle.study.alg.common.Node;
 
 /**
  * 合并两个有序列表
  * 参考链接 <a>https://leetcode-cn.com/problems/merge-two-sorted-lists/</a>
  */
 public class MergeTwoList {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public Node mergeTwoLists(Node l1, Node l2) {
         if (l1 == null)
             return l2;
         if (l2 == null)
             return l1;
 
-        ListNode dummy = new ListNode();
-        ListNode l1Ptr = l1;
-        ListNode l2Ptr = l2;
-        ListNode dummyPtr = dummy;
+        Node dummy = new Node();
+        Node l1Ptr = l1;
+        Node l2Ptr = l2;
+        Node dummyPtr = dummy;
 
         while (l1Ptr != null && l2Ptr != null){
             //L1节点比较小

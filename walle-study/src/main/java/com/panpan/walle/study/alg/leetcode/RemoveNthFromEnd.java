@@ -1,15 +1,16 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.ListNode;
+import com.panpan.walle.study.alg.common.Node;
+import com.panpan.walle.study.alg.utils.NodeUtil;
 
 import java.util.Arrays;
 
 public class RemoveNthFromEnd {
 
     public static void main(String[] args) {
-        ListNode listNode = ListNode.buildList(Arrays.asList(1,2,3,4,5,6,7,8));
+        Node listNode = NodeUtil.buildList(Arrays.asList(1,2,3,4,5,6,7,8));
         listNode = removeNthFromEnd(listNode, 5);
-        ListNode.printListNode(listNode);
+        NodeUtil.printList(listNode);
     }
 
     /**
@@ -22,17 +23,17 @@ public class RemoveNthFromEnd {
      *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
      * }
      */
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
+    public static Node removeNthFromEnd(Node head, int n) {
 
         if (head == null || n < 0){
             return head;
         }
 
-        ListNode dummyNode = new ListNode();
+        Node dummyNode = new Node();
         dummyNode.next = head;
 
-        ListNode first = head;
-        ListNode second = dummyNode;//n-1
+        Node first = head;
+        Node second = dummyNode;//n-1
 
         while (n-- > 0 && first != null){
             first = first.next;

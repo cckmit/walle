@@ -1,6 +1,6 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.AlgUtils;
+import com.panpan.walle.study.alg.utils.ArrayUtil;
 
 /**
  * 矩阵旋转90度
@@ -27,11 +27,11 @@ public class RotateSolution {
         };
 
         System.out.println("转换前：");
-        AlgUtils.printMatrix(matrix);
+        ArrayUtil.printMatrix(matrix);
 
         new RotateSolution().rotate(matrix);
         System.out.println("转换后：");
-        AlgUtils.printMatrix(matrix);
+        ArrayUtil.printMatrix(matrix);
     }
 
     public void rotate(int[][] matrix) {

@@ -1,7 +1,7 @@
 package com.panpan.walle.study.alg.zcy.study.class01;
 
 
-import com.panpan.walle.study.alg.common.AlgUtils;
+import com.panpan.walle.study.alg.utils.ArrayUtil;
 
 import java.util.Arrays;
 
@@ -21,7 +21,7 @@ public class Code01_SelectionSort {
                 }
             }
 
-            AlgUtils.swap(arr, i, minIndex);
+            ArrayUtil.swap(arr, i, minIndex);
         }
     }
 
@@ -29,8 +29,8 @@ public class Code01_SelectionSort {
 
         Code01_SelectionSort solution = new Code01_SelectionSort();
         for (int i = 0; i < 1000; i++){
-            int[] arr1 = AlgUtils.generateRandomArray(1000, 100);
-            int[] arr2 = AlgUtils.copyOfArray(arr1);
+            int[] arr1 = ArrayUtil.generateRandomArray(1000, 100);
+            int[] arr2 = ArrayUtil.copyOfArray(arr1);
 
             solution.selectSort(arr1);
             Arrays.sort(arr2);

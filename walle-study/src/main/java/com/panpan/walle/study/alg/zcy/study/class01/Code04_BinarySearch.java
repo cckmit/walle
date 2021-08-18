@@ -1,7 +1,7 @@
 package com.panpan.walle.study.alg.zcy.study.class01;
 
 import cn.hutool.core.util.StrUtil;
-import com.panpan.walle.study.alg.common.AlgUtils;
+import com.panpan.walle.study.alg.utils.ArrayUtil;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -39,8 +39,8 @@ public class Code04_BinarySearch {
 
 
         for (int i = 0; i < 1000; i++){
-            int[] arr = AlgUtils.generateRandomArray(1000, 1000);
-            AlgUtils.sort(arr);
+            int[] arr = ArrayUtil.generateRandomArray(1000, 1000);
+            ArrayUtil.sort(arr);
             int target = new Random().nextInt(1200);
 
             boolean r1 = exist(arr, target);

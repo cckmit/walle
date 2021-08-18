@@ -1,19 +1,19 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.ListNode;
+import com.panpan.walle.study.alg.common.Node;
 
 /**
  * 160: 相交链表
  */
 public class GetIntersectionNodeSolution {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public Node getIntersectionNode(Node headA, Node headB) {
         if (headA == null || headB == null)
             return null;
 
         int aLen = 0;
         int bLen = 0;
-        ListNode pA = headA;
-        ListNode pB = headB;
+        Node pA = headA;
+        Node pB = headB;
         while (pA != null) {
             pA = pA.next;
             aLen++;

@@ -1,4 +1,6 @@
-package com.panpan.walle.study.alg.common;
+package com.panpan.walle.study.alg.utils;
+
+import com.panpan.walle.study.alg.common.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

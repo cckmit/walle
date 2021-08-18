@@ -1,6 +1,7 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.ListNode;
+import com.panpan.walle.study.alg.common.Node;
+import com.panpan.walle.study.alg.utils.NodeUtil;
 
 /**
  * 142: 环形链表II
@@ -13,12 +14,12 @@ import com.panpan.walle.study.alg.common.ListNode;
  * </p>
  */
 public class DetectCycleSolution {
-    public ListNode detectCycle(ListNode head) {
+    public Node detectCycle(Node head) {
         if (head == null || head.next == null)
             return null;
 
-        ListNode fast = head.next.next;
-        ListNode slow = head.next;
+        Node fast = head.next.next;
+        Node slow = head.next;
 
         while (slow != fast){
             if (fast == null || fast.next == null)

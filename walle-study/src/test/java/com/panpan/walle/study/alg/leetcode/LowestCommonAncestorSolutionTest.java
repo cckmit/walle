@@ -1,11 +1,9 @@
 package com.panpan.walle.study.alg.leetcode;
 
 import com.panpan.walle.study.alg.common.TreeNode;
-import com.panpan.walle.study.alg.common.TreeUtils;
+import com.panpan.walle.study.alg.utils.TreeUtils;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class LowestCommonAncestorSolutionTest {
 

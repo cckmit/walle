@@ -1,6 +1,5 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.ListNode;
 import com.panpan.walle.study.alg.common.TreeNode;
 
 /**

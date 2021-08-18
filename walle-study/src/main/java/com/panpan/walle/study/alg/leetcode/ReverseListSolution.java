@@ -1,6 +1,6 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.ListNode;
+import com.panpan.walle.study.alg.common.Node;
 
 /**
  * 206:反转链表
@@ -14,12 +14,12 @@ import com.panpan.walle.study.alg.common.ListNode;
  * 都迭代完了(cur 变成 null 了)，pre 就是最后一个节点了。
  */
 public class ReverseListSolution {
-    public ListNode reverseList(ListNode head) {
-        ListNode pre = null;
-        ListNode curr = head;
+    public Node reverseList(Node head) {
+        Node pre = null;
+        Node curr = head;
 
         while (curr != null){
-            ListNode tmp = curr.next;
+            Node tmp = curr.next;
             curr.next = pre;
             pre = curr;
             curr = tmp;

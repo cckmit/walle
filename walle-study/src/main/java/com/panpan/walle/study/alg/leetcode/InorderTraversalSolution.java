@@ -1,8 +1,6 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import cn.hutool.core.lang.tree.TreeUtil;
 import com.panpan.walle.study.alg.common.TreeNode;
-import com.panpan.walle.study.alg.common.TreeUtils;
 
 import java.util.ArrayList;
 import java.util.List;

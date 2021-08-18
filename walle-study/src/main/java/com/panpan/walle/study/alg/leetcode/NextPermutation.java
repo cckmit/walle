@@ -1,6 +1,6 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.AlgUtils;
+import com.panpan.walle.study.alg.utils.ArrayUtil;
 
 import java.util.Arrays;
 
@@ -18,7 +18,7 @@ public class NextPermutation {
         int[] nums = new int[]{1,2,7,4,3,1};
         new NextPermutation().nextPermutation(nums);
 
-        AlgUtils.printArray(nums);
+        ArrayUtil.printArray(nums);
     }
 
     public void nextPermutation(int[] nums) {

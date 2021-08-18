@@ -1,8 +1,8 @@
-package com.panpan.walle.study.alg.common;
+package com.panpan.walle.study.alg.utils;
 
 import java.util.Arrays;
 
-public class AlgUtils {
+public class ArrayUtil {
     /**
      * 生成随机数组
      * @param maxSize 最大数组长度
@@ -16,6 +16,7 @@ public class AlgUtils {
         }
         return arr;
     }
+
     /**
      * 复制数组
      * @param origArr 待复制数组
@@ -59,6 +60,7 @@ public class AlgUtils {
             System.out.printf("%d ", e);
         }
     }
+
     /**
      * 打印数组对象
      *
@@ -74,18 +76,6 @@ public class AlgUtils {
                 System.out.printf("%d ", e);
             }
             System.out.println();
-        }
-    }
-
-    /**
-     * 打印链表
-     */
-    public static void printListNode(ListNode head){
-        System.out.println("======== listNode 数据 =========");
-        ListNode curr = head;
-        while (curr != null){
-            System.out.printf("%d ", curr.val);
-            curr = curr.next;
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.ListNode;
+import com.panpan.walle.study.alg.common.Node;
 
 /**
  * 问题描述
@@ -9,14 +9,14 @@ import com.panpan.walle.study.alg.common.ListNode;
  * 处理思路：分解成两个列表的合并
  */
 public class MergeKLists {
-    public ListNode mergeKLists(ListNode[] lists) {
+    public Node mergeKLists(Node[] lists) {
         if (lists == null || lists.length == 0)
             return null;
 
         return mergeKLists(lists, 0, lists.length -1);
     }
 
-    private ListNode mergeKLists(ListNode[] lists, int start, int end){
+    private Node mergeKLists(Node[] lists, int start, int end){
         //一个节点的情况
         if (start == end){
             return lists[start];
@@ -28,22 +28,22 @@ public class MergeKLists {
         //超过两个节点
         else {
           int mid = (start + end) / 2;
-             ListNode left = mergeKLists(lists, start, mid);
-             ListNode right = mergeKLists(lists, mid+1, end);
+            Node left = mergeKLists(lists, start, mid);
+            Node right = mergeKLists(lists, mid+1, end);
          return mergeTwoLists(left, right);
         }
     }
 
-    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    private Node mergeTwoLists(Node l1, Node l2) {
         if (l1 == null)
             return l2;
         if (l2 == null)
             return l1;
 
-        ListNode dummy = new ListNode();
-        ListNode l1Ptr = l1;
-        ListNode l2Ptr = l2;
-        ListNode dummyPtr = dummy;
+        Node dummy = new Node();
+        Node l1Ptr = l1;
+        Node l2Ptr = l2;
+        Node dummyPtr = dummy;
 
         while (l1Ptr != null && l2Ptr != null){
             //L1节点比较小

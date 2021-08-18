@@ -1,7 +1,7 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.panpan.walle.study.alg.common.AlgUtils;
-import com.panpan.walle.study.alg.common.ListNode;
+import com.panpan.walle.study.alg.common.Node;
+import com.panpan.walle.study.alg.utils.NodeUtil;
 
 import java.util.Arrays;
 
@@ -14,31 +14,31 @@ import java.util.Arrays;
  */
 public class SortListSolution {
     public static void main(String[] args) {
-        ListNode head = ListNode.buildList(Arrays.asList(-1,5,3,4,0,2,3,45,67,11,1));
-        ListNode result = new SortListSolution().sortList(head);
-        ListNode.printListNode(result);
+        Node head = NodeUtil.buildList(Arrays.asList(-1,5,3,4,0,2,3,45,67,11,1));
+        Node result = new SortListSolution().sortList(head);
+        NodeUtil.printList(result);
     }
-    public ListNode sortList(ListNode head) {
+    public Node sortList(Node head) {
         if (head == null || head.next == null)
             return head;
 
         //p节点每次走两步，q节点每次走一步
         //则p走到终点时，q为中间节点
-        ListNode fast = head.next;
-        ListNode slow = head;
+        Node fast = head.next;
+        Node slow = head;
         while (fast.next != null && fast.next.next != null){
             fast = fast.next.next;
             slow = slow.next;
         }
 
         //对左右子链表分别排序
-        ListNode right = sortList(slow.next);
+        Node right = sortList(slow.next);
         slow.next = null;
-        ListNode left = sortList(head);
+        Node left = sortList(head);
 
         //对排序后的子列表进行排序
-        ListNode h = new ListNode();
-        ListNode res = h;
+        Node h = new Node();
+        Node res = h;
         while (left != null  && right != null){
             if (left.val < right.val){
                 h.next = left;
