@@ -10,6 +10,14 @@ public class Code03_DoubleEndsQueueToQueueAndStack {
 
         public void addFromHead(T value) {
             DNode<T> newNode = new DNode<>(value);
+            if (head == null) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                newNode.next = head;
+                head.last = newNode;
+                head = newNode;
+            }
         }
 
         public void addFromBottom(T value){
