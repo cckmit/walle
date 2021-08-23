@@ -1,5 +1,6 @@
 package com.panpan.walle.start;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +10,15 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = WalleStartApplication.class)
-@Profile({"lp"})
-public class HelloTest {
+public class HelloTest extends BaseTest{
+
     @Autowired
     private StringRedisTemplate redisTemplate;
+
+    @Override
+    @Before
+    public void setUp() throws Exception {
+    }
 
     @Test
     public void test(){
