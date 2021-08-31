@@ -2,6 +2,10 @@ package com.panpan.walle.study.alg.zcy.zdemo.class06;
 
 import java.util.ArrayList;
 
+/**
+ * 1,1->2->3->4->5->NULL
+ * 2,1->2->3->4->NULL
+ */
 public class Code01_LinkedListMid {
 
 	public static class Node {
@@ -13,6 +17,13 @@ public class Code01_LinkedListMid {
 		}
 	}
 
+
+	/**
+	 * 奇数节点，取中间节点
+	 * 偶数节点，取上一个节点
+	 * @param head
+	 * @return
+	 */
 	public static Node midOrUpMidNode(Node head) {
 		if (head == null || head.next == null || head.next.next == null) {
 			return head;
@@ -26,6 +37,12 @@ public class Code01_LinkedListMid {
 		return slow;
 	}
 
+	/**
+	 * 奇数节点，取中间节点
+	 * 偶数节点，取下一个节点
+	 * @param head
+	 * @return
+	 */
 	public static Node midOrDownMidNode(Node head) {
 		if (head == null || head.next == null) {
 			return head;
