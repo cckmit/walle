@@ -30,7 +30,7 @@
         <!-- mysql -->
         <mysql.version>5.1.40</mysql.version>
         <!-- hutool -->
-        <hutool.version>5.0.4</hutool.version>
+        <hutool.version>5.7.10</hutool.version>
         <fastjson.version>1.2.70</fastjson.version>
         <knife4j-version>2.0.8</knife4j-version>
         <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
@@ -42,7 +42,6 @@
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>com.panpan.walle</groupId>
                 <artifactId>walle-infrastructure</artifactId>
@@ -133,7 +132,7 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
-                <version>5.7.5</version>
+                <version>${hutool.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
             <dependency>
