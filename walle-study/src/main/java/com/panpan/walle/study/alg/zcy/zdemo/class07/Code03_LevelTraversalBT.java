@@ -15,6 +15,7 @@ public class Code03_LevelTraversalBT {
 		}
 	}
 
+	//层序遍历
 	public static void level(Node head) {
 		if (head == null) {
 			return;

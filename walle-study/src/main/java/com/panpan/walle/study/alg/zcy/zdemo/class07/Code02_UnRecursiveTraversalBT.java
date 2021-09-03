@@ -82,10 +82,13 @@ public class Code02_UnRecursiveTraversalBT {
 			Node c = null;
 			while (!stack.isEmpty()) {
 				c = stack.peek();
+				//左子树没有处理完的情况
 				if (c.left != null && h != c.left && h != c.right) {
 					stack.push(c.left);
+				//右子树没有处理完的情况
 				} else if (c.right != null && h != c.right) {
 					stack.push(c.right);
+				//左右子树都处理完的情况
 				} else {
 					System.out.print(stack.pop().value + " ");
 					h = c;

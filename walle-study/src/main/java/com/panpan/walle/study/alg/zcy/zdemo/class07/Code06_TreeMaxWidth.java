@@ -16,6 +16,12 @@ public class Code06_TreeMaxWidth {
 		}
 	}
 
+	/**
+	 * 使用map统计最宽层是多少
+	 *
+	 * @param head
+	 * @return
+	 */
 	public static int maxWidthUseMap(Node head) {
 		if (head == null) {
 			return 0;
@@ -41,11 +47,13 @@ public class Code06_TreeMaxWidth {
 			if (curNodeLevel == curLevel) {
 				curLevelNodes++;
 			} else {
+				//新层的时候，结算老层
 				max = Math.max(max, curLevelNodes);
 				curLevel++;
 				curLevelNodes = 1;
 			}
 		}
+		//处理最后一层（因为它之后没有新层了）
 		max = Math.max(max, curLevelNodes);
 		return max;
 	}
@@ -56,8 +64,8 @@ public class Code06_TreeMaxWidth {
 		}
 		Queue<Node> queue = new LinkedList<>();
 		queue.add(head);
-		Node curEnd = head;
-		Node nextEnd = null;
+		Node curEnd = head; //当前层最右节点
+		Node nextEnd = null;//下一层的最右节点
 		int max = 0;
 		int curLevelNodes = 0;
 		while (!queue.isEmpty()) {
