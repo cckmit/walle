@@ -3,6 +3,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class07;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 序列化和反序列化
+ */
 public class Code04_SerializeAndReconstructTree {
 
 	public static class Node {
@@ -15,6 +18,11 @@ public class Code04_SerializeAndReconstructTree {
 		}
 	}
 
+	/**
+	 * 先序 序列化过程
+	 * @param head
+	 * @return
+	 */
 	public static Queue<String> preSerial(Node head) {
 		Queue<String> ans = new LinkedList<>();
 		pres(head, ans);
@@ -31,6 +39,11 @@ public class Code04_SerializeAndReconstructTree {
 		}
 	}
 
+	/**
+	 * 先序 反序列化过程
+	 * @param prelist
+	 * @return
+	 */
 	public static Node buildByPreQueue(Queue<String> prelist) {
 		if (prelist == null || prelist.size() == 0) {
 			return null;
