@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class08;
 
 import java.util.LinkedList;
 
+/**
+ * 是否完全二叉树
+ */
 public class Code06_IsCBT {
 
 	public static class Node {

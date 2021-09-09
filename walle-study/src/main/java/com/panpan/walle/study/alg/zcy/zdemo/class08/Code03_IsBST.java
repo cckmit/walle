@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class08;
 
 import java.util.ArrayList;
 
+/**
+ * 二叉查找树
+ */
 public class Code03_IsBST {
 
 	public static class Node {
@@ -14,6 +17,11 @@ public class Code03_IsBST {
 		}
 	}
 
+	/**
+	 * 中序遍历，结果应该是升序
+	 * @param head
+	 * @return
+	 */
 	public static boolean isBST1(Node head) {
 		if (head == null) {
 			return true;
@@ -44,6 +52,9 @@ public class Code03_IsBST {
 		return process(head).isBST;
 	}
 
+	/**
+	 * 左右必须都是BST, 并且leftInfo.max < head.value < rightInfo.min
+	 */
 	public static class Info {
 		boolean isBST;
 		public int min;

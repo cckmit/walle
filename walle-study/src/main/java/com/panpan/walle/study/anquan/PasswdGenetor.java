@@ -1,6 +1,5 @@
 package com.panpan.walle.study.anquan;
 
-import cn.hutool.core.math.MathUtil;
 import cn.hutool.core.util.StrUtil;
 
 import java.util.ArrayList;

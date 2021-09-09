@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * 最低公共祖先
+ */
 public class Code07_lowestAncestor {
 
 	public static class Node {
@@ -73,6 +76,11 @@ public class Code07_lowestAncestor {
 
 		boolean findO1 = head == o1 || leftInfo.findO1 || rightInfo.findO1;
 		boolean findO2 = head == o2 || leftInfo.findO2 || rightInfo.findO2;
+		// O1,O2最初的交汇点在哪里
+		// 1) 左树提前交汇
+		// 2) 右树提前交汇
+		// 3) 在X点交汇
+		// 4) 没有交汇
 		Node ans = null;
 		if (leftInfo.ans != null) {
 			ans = leftInfo.ans;
