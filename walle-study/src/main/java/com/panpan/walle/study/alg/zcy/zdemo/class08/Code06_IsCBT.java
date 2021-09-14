@@ -17,6 +17,7 @@ public class Code06_IsCBT {
 		}
 	}
 
+	//正常的思路
 	public static boolean isCBT1(Node head) {
 		if (head == null) {
 			return true;
@@ -33,7 +34,10 @@ public class Code06_IsCBT {
 			r = head.right;
 			if (
 			// 如果遇到了不双全的节点之后，又发现当前节点不是叶节点
-			(leaf && !(l == null && r == null)) || (l == null && r != null)) {
+			(leaf && !(l == null && r == null))
+					//左节点为空，而右节点不为空的情况
+					|| (l == null && r != null)
+			) {
 				return false;
 			}
 			if (l != null) {
@@ -49,6 +53,7 @@ public class Code06_IsCBT {
 		return true;
 	}
 
+	//二叉数递归
 	public static boolean isCBT2(Node head) {
 		if (head == null) {
 			return true;
@@ -57,9 +62,9 @@ public class Code06_IsCBT {
 	}
 
 	public static class Info {
-		public boolean isFull;
-		public boolean isCBT;
-		public int height;
+		public boolean isFull;//是否是满二叉树
+		public boolean isCBT;//是否是完全二叉树
+		public int height;//高度
 
 		public Info(boolean full, boolean cbt, int h) {
 			isFull = full;
@@ -68,6 +73,15 @@ public class Code06_IsCBT {
 		}
 	}
 
+	/**
+	 * 递归处理
+	 * 1，满二叉树，高度相同
+	 * 2，左侧是完全二叉树，右侧是满二叉树，左侧高度=右侧高度+1
+	 * 3,左侧是满二叉树，右侧是满二叉树，左侧高度=右侧高度+1
+	 * 4，左侧是满二叉树，右侧是完全二叉树，左侧高度=右侧高度
+	 * @param head
+	 * @return
+	 */
 	public static Info process(Node head) {
 		if (head == null) {
 			return new Info(true, true, 0);
@@ -80,13 +94,17 @@ public class Code06_IsCBT {
 		if (isFull) {
 			isCBT = true;
 		} else {
+			//两边必须是完全二叉树
 			if (leftInfo.isCBT && rightInfo.isCBT) {
+				//条件2
 				if (leftInfo.isCBT && rightInfo.isFull && leftInfo.height == rightInfo.height + 1) {
 					isCBT = true;
 				}
+				//条件3
 				if (leftInfo.isFull && rightInfo.isFull && leftInfo.height == rightInfo.height + 1) {
 					isCBT = true;
 				}
+				//条件4
 				if (leftInfo.isFull && rightInfo.isCBT && leftInfo.height == rightInfo.height) {
 					isCBT = true;
 				}

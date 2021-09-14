@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 
+/**
+ * 最小字典序
+ */
 public class Code01_LowestLexicography {
 
 	public static String lowestString1(String[] strs) {
@@ -23,6 +26,19 @@ public class Code01_LowestLexicography {
 		return lowest;
 	}
 
+	/**
+	 * 全排列算法(深度优先遍历）
+	 *
+	 * srs里放着所有的字符串
+	 * 已经使用过的字符串索引，在use里登记，不再使用了
+	 * 之前使用过的字符串，拼接成path
+	 * 用all收集所有的拼接结果
+	 *
+	 * @param strs
+	 * @param use
+	 * @param path
+	 * @param all
+	 */
 	public static void process(String[] strs, HashSet<Integer> use, String path, ArrayList<String> all) {
 		if (use.size() == strs.length) {
 			all.add(path);
