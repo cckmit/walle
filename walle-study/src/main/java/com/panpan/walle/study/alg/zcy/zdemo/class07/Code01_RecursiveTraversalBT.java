@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class07;
 
+/**
+ * 递归遍历
+ */
 public class Code01_RecursiveTraversalBT {
 
 	public static class Node {

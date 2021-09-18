@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class07;
 
 import java.util.Stack;
 
+/**
+ * 非递归遍历
+ */
 public class Code02_UnRecursiveTraversalBT {
 
 	public static class Node {
@@ -14,6 +17,14 @@ public class Code02_UnRecursiveTraversalBT {
 		}
 	}
 
+	/**
+	 * 先序遍历
+	 *
+	 * 基于栈实现
+	 * - 压入头结点
+	 * - 弹出并访问，访问，压入右树，压入左树
+	 * @param head
+	 */
 	public static void pre(Node head) {
 		System.out.print("pre-order: ");
 		if (head != null) {
@@ -33,6 +44,11 @@ public class Code02_UnRecursiveTraversalBT {
 		System.out.println();
 	}
 
+	/**
+	 * 中序遍历
+	 *
+	 * @param head
+	 */
 	public static void in(Node head) {
 		System.out.print("in-order: ");
 		if (head != null) {

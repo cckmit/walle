@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class07;
 
+/**
+ * 折纸问题
+ */
 public class Code08_PaperFolding {
 
 	public static void printAllFolds(int N) {
