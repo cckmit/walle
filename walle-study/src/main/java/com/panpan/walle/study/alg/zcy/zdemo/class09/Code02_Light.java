@@ -2,6 +2,11 @@ package com.panpan.walle.study.alg.zcy.zdemo.class09;
 
 import java.util.HashSet;
 
+/**
+ * 点灯问题
+ * 街道：XX..X.XXX
+ * 如何点最少的灯把街道全部点亮
+ */
 public class Code02_Light {
 
 	public static int minLight1(String road) {
@@ -42,12 +47,12 @@ public class Code02_Light {
 				index++;
 			} else {
 				light++;
-				if (index + 1 == str.length) {
+				if (index + 1 == str.length) { //.$的情况
 					break;
 				} else {
-					if (str[index + 1] == 'X') {
+					if (str[index + 1] == 'X') { //.X的情况
 						index = index + 2;
-					} else {
+					} else { //..的情况
 						index = index + 3;
 					}
 				}

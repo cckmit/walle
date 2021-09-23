@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * 计算一棵树的最大距离
+ *
+ */
 public class Code08_MaxDistance {
 
 	public static class Node {
