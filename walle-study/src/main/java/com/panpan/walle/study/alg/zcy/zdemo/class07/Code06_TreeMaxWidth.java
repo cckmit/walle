@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 最大宽度
+ */
 public class Code06_TreeMaxWidth {
 
 	public static class Node {
@@ -58,6 +61,14 @@ public class Code06_TreeMaxWidth {
 		return max;
 	}
 
+	/**
+	 * 不使用Map实现统计二叉树的最大宽度
+	 *
+	 * curEnd 当前节点的最右节点
+	 * nextEnd 下一层节点的最右节点
+	 * @param head
+	 * @return
+	 */
 	public static int maxWidthNoMap(Node head) {
 		if (head == null) {
 			return 0;
@@ -69,7 +80,7 @@ public class Code06_TreeMaxWidth {
 		int max = 0;
 		int curLevelNodes = 0;
 		while (!queue.isEmpty()) {
-			Node cur = queue.poll();
+			Node cur = queue.poll();//当前正在处理的节点
 			if (cur.left != null) {
 				queue.add(cur.left);
 				nextEnd = cur.left;

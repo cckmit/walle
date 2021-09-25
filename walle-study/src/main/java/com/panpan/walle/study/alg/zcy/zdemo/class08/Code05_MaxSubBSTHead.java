@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class08;
 
 import java.util.ArrayList;
 
+/**
+ * 最大搜索树的头结点
+ */
 public class Code05_MaxSubBSTHead {
 
 	public static class Node {

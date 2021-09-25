@@ -67,6 +67,13 @@ public class Code02_UnRecursiveTraversalBT {
 		System.out.println();
 	}
 
+	/**
+	 * 后续遍历
+	 * 基于两个stack实现的后续遍历
+	 * s1为辅助栈，s2为最终结果栈
+	 *
+	 * @param head
+	 */
 	public static void pos1(Node head) {
 		System.out.print("pos-order: ");
 		if (head != null) {
@@ -90,6 +97,12 @@ public class Code02_UnRecursiveTraversalBT {
 		System.out.println();
 	}
 
+	/**
+	 * 后续遍历
+	 * 基于一个stack实现
+	 *
+	 * @param h
+	 */
 	public static void pos2(Node h) {
 		System.out.print("pos-order: ");
 		if (h != null) {

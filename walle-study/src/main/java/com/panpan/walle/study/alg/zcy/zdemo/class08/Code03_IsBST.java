@@ -53,7 +53,8 @@ public class Code03_IsBST {
 	}
 
 	/**
-	 * 左右必须都是BST, 并且leftInfo.max < head.value < rightInfo.min
+	 * 左右必须都是BST
+	 * 并且leftInfo.max < head.value < rightInfo.min
 	 */
 	public static class Info {
 		boolean isBST;

@@ -2,6 +2,10 @@ package com.panpan.walle.study.alg.zcy.zdemo.class08;
 
 import java.util.ArrayList;
 
+/**
+ * 给定一棵二叉树的头节点head，
+ * 返回这颗二叉树中最大的二叉搜索子树的大小
+ */
 public class Code04_MaxSubBSTSize {
 
 	public static class Node {
@@ -56,10 +60,10 @@ public class Code04_MaxSubBSTSize {
 	}
 
 	public static class Info {
-		public boolean isBST;
-		public int maxSubBSTSize;
-		public int min;
-		public int max;
+		public boolean isBST;//是否是搜索树
+		public int maxSubBSTSize;//最大搜索子树大小
+		public int min;//最大值
+		public int max;//最小值
 
 		public Info(boolean is, int size, int mi, int ma) {
 			isBST = is;

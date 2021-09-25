@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class08;
 
+/**
+ * 是否平衡数
+ */
 public class Code01_IsBalanced {
 
 	public static class Node {
@@ -36,8 +39,8 @@ public class Code01_IsBalanced {
 	}
 
 	public static class Info {
-		public boolean isBalaced;
-		public int height;
+		public boolean isBalaced; //是否平衡
+		public int height;//树的高度
 
 		public Info(boolean b, int h) {
 			isBalaced = b;
@@ -45,6 +48,13 @@ public class Code01_IsBalanced {
 		}
 	}
 
+	/**
+	 * 1，左右子树都是平衡树
+	 * 2，高度差只差1
+	 *
+	 * @param head
+	 * @return
+	 */
 	public static Info process2(Node head) {
 		if (head == null) {
 			return new Info(true, 0);

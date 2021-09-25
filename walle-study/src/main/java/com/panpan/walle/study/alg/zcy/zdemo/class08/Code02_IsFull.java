@@ -38,6 +38,12 @@ public class Code02_IsFull {
 		return n(head.left) + n(head.right) + 1;
 	}
 
+	/**
+	 * 节点数 = 2 ^ 高度 - 1
+	 *
+	 * @param head
+	 * @return
+	 */
 	public static boolean isFull2(Node head) {
 		if (head == null) {
 			return true;
