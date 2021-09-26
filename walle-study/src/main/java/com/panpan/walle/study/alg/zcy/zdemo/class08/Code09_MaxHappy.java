@@ -3,6 +3,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class08;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 派对最大快乐值
+ */
 public class Code09_MaxHappy {
 
 	public static class Employee {

@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class07;
 
+/**
+ * 按照中序遍历，获取输入节点的后继节点
+ */
 public class Code07_SuccessorNode {
 
 	public static class Node {

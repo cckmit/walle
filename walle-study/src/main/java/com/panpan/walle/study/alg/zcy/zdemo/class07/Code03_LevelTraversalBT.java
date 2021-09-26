@@ -3,6 +3,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class07;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 层序遍历
+ */
 public class Code03_LevelTraversalBT {
 
 	public static class Node {

@@ -17,7 +17,14 @@ public class Code06_IsCBT {
 		}
 	}
 
-	//正常的思路
+	/**
+	 * 算法描述
+	 * 1，按照层序遍历
+	 * 2，如果碰到过一个两个孩子不全的节点
+	 * 	  那么之后碰到的节点都必须是叶子节点
+	 * @param head
+	 * @return
+	 */
 	public static boolean isCBT1(Node head) {
 		if (head == null) {
 			return true;
