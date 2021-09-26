@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * 并查集（很重要）
+ */
 public class Code01_UnionFind {
 
 	public static class Node<V> {
@@ -15,9 +18,9 @@ public class Code01_UnionFind {
 	}
 
 	public static class UnionSet<V> {
-		public HashMap<V, Node<V>> nodes;
-		public HashMap<Node<V>, Node<V>> parents;
-		public HashMap<Node<V>, Integer> sizeMap;
+		public HashMap<V, Node<V>> nodes;//V值对应的Node
+		public HashMap<Node<V>, Node<V>> parents;//key-当前节点，value-代表节点
+		public HashMap<Node<V>, Integer> sizeMap; //集合的大小
 
 		public UnionSet(List<V> values) {
 			for (V value : values) {

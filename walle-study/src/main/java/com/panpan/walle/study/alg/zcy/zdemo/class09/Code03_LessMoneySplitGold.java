@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class09;
 
 import java.util.PriorityQueue;
 
+/**
+ * 最小成本 分割金条 （哈夫曼树）
+ */
 public class Code03_LessMoneySplitGold {
 
 	public static int lessMoney1(int[] arr) {

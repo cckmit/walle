@@ -3,6 +3,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class09;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+/**
+ * 最大利润
+ */
 public class Code05_IPO {
 
 	public static int findMaximizedCapital(int K, int W, int[] Profits, int[] Capital) {
@@ -24,8 +27,8 @@ public class Code05_IPO {
 	}
 
 	public static class Program {
-		public int p;
-		public int c;
+		public int p; //利润
+		public int c; //成本
 
 		public Program(int p, int c) {
 			this.p = p;

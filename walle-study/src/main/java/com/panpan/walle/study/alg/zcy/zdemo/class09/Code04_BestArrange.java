@@ -3,6 +3,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class09;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * 安排会议问题
+ */
 public class Code04_BestArrange {
 
 	public static class Program {
