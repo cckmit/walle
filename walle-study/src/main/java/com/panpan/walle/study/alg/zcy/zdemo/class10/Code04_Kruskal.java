@@ -11,6 +11,10 @@ import java.util.Set;
 import java.util.Stack;
 
 //undirected graph only
+
+/**
+ * 基于并查集 实现最小生成树
+ */
 public class Code04_Kruskal {
 	
 	public static class MySets{
