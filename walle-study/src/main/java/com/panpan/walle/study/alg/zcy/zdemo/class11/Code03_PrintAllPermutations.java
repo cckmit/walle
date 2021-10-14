@@ -3,6 +3,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class11;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 打印所有的组合
+ */
 public class Code03_PrintAllPermutations {
 
 	public static ArrayList<String> permutation(String str) {

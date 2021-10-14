@@ -1,0 +1,7 @@
+#foreach($field in $fields)
+    /**
+    * ${field.fieldDesc}
+    */
+    private ${field.fieldType} ${field.fieldName};
+
+#end

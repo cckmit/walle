@@ -1,0 +1,4 @@
+流水号	sqrnbr	String(10)
+客户参考号	yurref	String(30)
+票据业务代码	bilbus	String(2)
+服务平台键值	cltkey	String(11)
