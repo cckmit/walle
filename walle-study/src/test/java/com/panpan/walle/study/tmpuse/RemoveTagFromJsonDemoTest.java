@@ -1,6 +1,5 @@
 package com.panpan.walle.study.tmpuse;
 
-import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
@@ -12,8 +11,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class RemoveTagFromJsonDemoTest {
 
     @Test
@@ -23,7 +20,7 @@ class RemoveTagFromJsonDemoTest {
         String targetTag = "content_all";
         TimeInterval timeInterval = new TimeInterval();
         JSONObject json = JSON.parseObject(content);
-        String contentAll = json.getJSONObject("data").getJSONArray("content_all").toJSONString();
+        String contentAll = json.getJSONObject("guoxin/data").getJSONArray("content_all").toJSONString();
         System.out.println(StrUtil.format("step111-用时 {} ms", timeInterval.intervalRestart()));
         int[] pos = RemoveTagFromJsonDemo.splitByTag(content, targetTag);
         System.out.println(StrUtil.format("step222-用时 {} ms", timeInterval.intervalRestart()));

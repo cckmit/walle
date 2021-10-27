@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 打印全排列
+ * 打印所有的组合
  */
 public class Code03_PrintAllPermutations {
 
