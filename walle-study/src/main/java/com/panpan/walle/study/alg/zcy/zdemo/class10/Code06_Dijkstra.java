@@ -7,13 +7,13 @@ import java.util.Map.Entry;
 // no negative weight
 public class Code06_Dijkstra {
 
-	public static HashMap<Node, Integer> dijkstra1(Node head) {
+	public static HashMap<Node, Integer> dijkstra1(Node from) {
 		// 从head出发到所有点的最小距离
 		// key : 从head出发到达key
 		// value : 从head出发到达key的最小距离
 		// 如果在表中，没有T的记录，含义是从head出发到T这个点的距离为正无穷
 		HashMap<Node, Integer> distanceMap = new HashMap<>();
-		distanceMap.put(head, 0);
+		distanceMap.put(from, 0);
 		// 已经求过距离的节点，存在selectedNodes中，以后再也不碰
 		HashSet<Node> selectedNodes = new HashSet<>();
 		Node minNode = getMinDistanceAndUnselectedNode(distanceMap, selectedNodes);
@@ -79,16 +79,19 @@ public class Code06_Dijkstra {
 		// 有一个点叫node，现在发现了一个从源节点出发到达node的距离为distance
 		// 判断要不要更新，如果需要的话，就更新
 		public void addOrUpdateOrIgnore(Node node, int distance) {
+			//目前仍然在堆里
 			if (inHeap(node)) {
 				distanceMap.put(node, Math.min(distanceMap.get(node), distance));
 				insertHeapify(node, heapIndexMap.get(node));
 			}
+			//从来没有进入到堆
 			if (!isEntered(node)) {
 				nodes[size] = node;
 				heapIndexMap.put(node, size);
 				distanceMap.put(node, distance);
 				insertHeapify(node, size++);
 			}
+			//如果进来过，并且不再堆上，说明已经访问过了，所以这里就不需要处理了
 		}
 
 		public NodeRecord pop() {
@@ -142,11 +145,11 @@ public class Code06_Dijkstra {
 		}
 	}
 
-	// 改进后的dijkstra算法
+	// 改进后的dijkstra算法（通过优化后的最小堆来替代哈希表，O(n)->O(lgn))
 	// 从head出发，所有head能到达的节点，生成到达每个节点的最小路径记录并返回
-	public static HashMap<Node, Integer> dijkstra2(Node head, int size) {
+	public static HashMap<Node, Integer> dijkstra2(Node from, int size) {
 		NodeHeap nodeHeap = new NodeHeap(size);
-		nodeHeap.addOrUpdateOrIgnore(head, 0);
+		nodeHeap.addOrUpdateOrIgnore(from, 0);
 		HashMap<Node, Integer> result = new HashMap<>();
 		while (!nodeHeap.isEmpty()) {
 			NodeRecord record = nodeHeap.pop();

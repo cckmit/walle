@@ -3,6 +3,9 @@ package com.panpan.walle.study.alg.zcy.zdemo.class11;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 打印全排列
+ */
 public class Code03_PrintAllPermutations {
 
 	public static ArrayList<String> permutation(String str) {
@@ -36,6 +39,13 @@ public class Code03_PrintAllPermutations {
 		return res;
 	}
 
+	/**
+	 * 分支限界！！！！
+	 *
+	 * @param str
+	 * @param i
+	 * @param res
+	 */
 	public static void process2(char[] str, int i, ArrayList<String> res) {
 		if (i == str.length) {
 			res.add(String.valueOf(str));
