@@ -39,6 +39,13 @@ public class Code03_PrintAllPermutations {
 		return res;
 	}
 
+	/**
+	 * 分支限界！！！！
+	 *
+	 * @param str
+	 * @param i
+	 * @param res
+	 */
 	public static void process2(char[] str, int i, ArrayList<String> res) {
 		if (i == str.length) {
 			res.add(String.valueOf(str));

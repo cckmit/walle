@@ -1,5 +1,12 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class11;
 
+/**
+ * 汉诺塔问题
+ *
+ * 1,1~N-1移动到中间
+ * 2，N移动到右侧
+ * 3,1~N-1移动到右侧
+ */
 public class Code01_Hanoi {
 
 	public static void hanoi1(int n) {
