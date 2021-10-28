@@ -1,0 +1,3 @@
+#foreach($enum in $enums)
+${enum.id}("${enum.code}","${enum.desc}"),
+#end
