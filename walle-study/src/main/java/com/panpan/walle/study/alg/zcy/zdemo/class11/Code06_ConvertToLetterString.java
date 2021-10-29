@@ -1,5 +1,11 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class11;
 
+/**
+ * a-1,b-2,z-26
+ * 给定一串数字字，例如111可以转化为aaa,ak,ka
+ *
+ * 给定任意一串数字，可以有多少中转化方案
+ */
 public class Code06_ConvertToLetterString {
 
 	public static int number(String str) {

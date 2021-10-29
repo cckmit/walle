@@ -1,7 +1,18 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class11;
 
+/**
+ * 经典背包问题
+ */
 public class Code07_Knapsack {
 
+	/**
+	 * 采用暴力递归算法，计算经典背包问题
+	 *
+	 * @param w 重量数组
+	 * @param v 价值数组
+	 * @param bag 背包容量
+	 * @return
+	 */
 	public static int getMaxValue(int[] w, int[] v, int bag) {
 		return process(w, v, 0, 0, bag);
 	}
@@ -11,11 +22,13 @@ public class Code07_Knapsack {
 		if (alreadyW > bag) {
 			return -1;
 		}
-		// 重量没超
+		// 重量没超（已经没有物品可以放了）
 		if (index == w.length) {
 			return 0;
 		}
+		//第index的物品没有放入的情况,index+1...的最大价值
 		int p1 = process(w, v, index + 1, alreadyW, bag);
+		//放入第index个物品的情况下，不超过背包容量的情况下，最大价值为v[index]+p2next，否则价值为-1
 		int p2next = process(w, v, index + 1, alreadyW + w[index], bag);
 		int p2 = -1;
 		if (p2next != -1) {
