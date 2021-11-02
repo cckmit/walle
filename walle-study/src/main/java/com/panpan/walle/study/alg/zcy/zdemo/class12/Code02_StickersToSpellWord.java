@@ -7,6 +7,7 @@ public class Code02_StickersToSpellWord {
 
 	public static int minStickers1(String[] stickers, String target) {
 		int n = stickers.length;
+		//贴纸另外一种表示方式
 		int[][] map = new int[n][26];
 		HashMap<String, Integer> dp = new HashMap<>();
 		for (int i = 0; i < n; i++) {
@@ -34,6 +35,7 @@ public class Code02_StickersToSpellWord {
 			tmap[c - 'a']++;
 		}
 		for (int i = 0; i < n; i++) {
+			//target 0位置的字符，贴纸必须包含该字符
 			if (map[i][target[0] - 'a'] == 0) {
 				continue;
 			}

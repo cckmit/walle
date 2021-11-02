@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class11;
 
+/**
+ * 纸牌博弈  先拿还是后拿
+ */
 public class Code08_CardsInLine {
 
 	public static int win1(int[] arr) {

@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class12;
 
+/**
+ * 总共有N个位置，从M位置经过K步到达P位置
+ */
 public class Code01_RobotWalk {
 
 	public static int ways1(int N, int M, int K, int P) {
