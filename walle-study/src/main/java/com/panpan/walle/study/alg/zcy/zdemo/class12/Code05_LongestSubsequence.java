@@ -1,6 +1,9 @@
 package com.panpan.walle.study.alg.zcy.zdemo.class12;
 
-public class Code05_PalindromeSubsequence {
+/**
+ * 最长公共子序列
+ */
+public class Code05_LongestSubsequence {
 
 	public static int lcse(char[] str1, char[] str2) {
 		int[][] dp = new int[str1.length][str2.length];

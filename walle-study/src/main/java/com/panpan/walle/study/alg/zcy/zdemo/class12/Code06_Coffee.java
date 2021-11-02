@@ -95,12 +95,17 @@ public class Code06_Coffee {
 	// 方法二，洗咖啡杯的方式和原来一样，只是这个暴力版本减少了一个可变参数
 	public static int process(int[] drinks, int a, int b, int index, int washLine) {
 		if (index == drinks.length - 1) {
-			return Math.min(Math.max(washLine, drinks[index]) + a, drinks[index] + b);
+			return Math.min(
+					Math.max(washLine, drinks[index]) + a,  //咖啡机洗
+					drinks[index] + b); //自然挥发
 		}
 		// wash是我当前的咖啡杯，洗完的时间
+		//选择1：使用咖啡机洗
 		int wash = Math.max(washLine, drinks[index]) + a;
 		int next1 = process(drinks, a, b, index + 1, wash);
 		int p1 = Math.max(wash, next1);
+
+		//选择2：自然挥发
 		int dry = drinks[index] + b;
 		int next2 = process(drinks, a, b, index + 1, washLine);
 		int p2 = Math.max(dry, next2);
