@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.advance.term01.class01;
 
 import java.util.LinkedList;
 
+/**
+ * 滑动窗口算法
+ */
 public class Code01_SlidingWindowMaxArray {
 
 	public static int[] getMaxWindow(int[] arr, int w) {
