@@ -2,6 +2,14 @@ package com.panpan.walle.study.alg.zcy.advance.term01.class01;
 
 import java.util.Stack;
 
+/**
+ * 给定正整数数组arr
+ * 计算子数组i...j, sum(i,j)*min(i...j)取得的最大值是多少？
+ *
+ * 思路：
+ * 1，前缀和（预处理小技巧）
+ * 2，单调栈计算不超过已arr[i]作为最小数的最大范围
+ */
 public class Code04_AllTimesMinToMax {
 
 	public static int max1(int[] arr) {
@@ -24,6 +32,7 @@ public class Code04_AllTimesMinToMax {
 		int size = arr.length;
 		int[] sums = new int[size];
 		sums[0] = arr[0];
+		//计算前缀和
 		for (int i = 1; i < size; i++) {
 			sums[i] = sums[i - 1] + arr[i];
 		}

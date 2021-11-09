@@ -9,6 +9,11 @@ import java.util.Stack;
  */
 public class Code03_MonotonousStack {
 
+	/**
+	 * 最近最小（无重复）
+	 * @param arr
+	 * @return
+	 */
 	public static int[][] getNearLessNoRepeat(int[] arr) {
 		int[][] res = new int[arr.length][2];
 		Stack<Integer> stack = new Stack<>();
@@ -30,6 +35,11 @@ public class Code03_MonotonousStack {
 		return res;
 	}
 
+	/**
+	 * 最近最小（可以重复）
+	 * @param arr
+	 * @return
+	 */
 	public static int[][] getNearLess(int[] arr) {
 		int[][] res = new int[arr.length][2];
 		// List<Integer> -> 放的是位置，同样值的东西，位置压在一起

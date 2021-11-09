@@ -2,6 +2,10 @@ package com.panpan.walle.study.alg.zcy.advance.term01.class01;
 
 import java.util.LinkedList;
 
+/**
+ * 给定数组arr
+ * 求：子数组的最大值-最小值<=num，这样的数组有多少个？
+ */
 public class Code02_AllLessNumSubArray {
 
 	public static int getNum(int[] arr, int num) {
