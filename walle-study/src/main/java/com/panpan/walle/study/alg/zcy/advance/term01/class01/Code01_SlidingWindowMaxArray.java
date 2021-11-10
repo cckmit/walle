@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 /**
  * 滑动窗口算法
+ * 计算滑动窗口内的最大值
  */
 public class Code01_SlidingWindowMaxArray {
 
