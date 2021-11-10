@@ -2,6 +2,13 @@ package com.panpan.walle.study.alg.zcy.advance.term01.class01;
 
 import java.util.LinkedList;
 
+/**
+ * 问题描述
+ * 给定一个整型数组arr，和一个整数num
+ * 某个arr中的子数组sub，如果想达标，必须满足：
+ * sub中最大值 – sub中最小值 <= num，
+ * 返回arr中达标子数组的数量
+ */
 public class Code02_AllLessNumSubArray {
 
 	public static int getNum(int[] arr, int num) {
@@ -10,6 +17,7 @@ public class Code02_AllLessNumSubArray {
 		}
 		LinkedList<Integer> qmin = new LinkedList<Integer>();
 		LinkedList<Integer> qmax = new LinkedList<Integer>();
+		//窗口[L,R)
 		int L = 0;
 		int R = 0;
 		int res = 0;
