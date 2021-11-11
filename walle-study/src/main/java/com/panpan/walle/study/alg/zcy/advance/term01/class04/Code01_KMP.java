@@ -1,5 +1,9 @@
+
 package com.panpan.walle.study.alg.zcy.advance.term01.class04;
 
+/**
+ * KMP算法
+ */
 public class Code01_KMP {
 
 	public static int getIndexOf(String s, String m) {
