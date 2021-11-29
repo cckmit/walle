@@ -1,5 +1,9 @@
 package com.panpan.walle.study.alg.zcy.advance.term01.class06;
 
+/**
+ * morris遍历二叉树
+ * 遍历二叉树，时间复杂度O(n), 空间复杂度O(1)
+ */
 public class Code01_MorrisTraversal {
 	
 	public static class Node {
