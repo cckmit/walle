@@ -1,5 +1,9 @@
 package com.panpan.walle.study.alg.zcy.advance.term01.class05;
 
+/**
+ * 马拉车算法
+ * 计算一个字符串的最大回文子串的长度，时间复杂度O(n)
+ */
 public class Code01_Manacher {
 
 	public static int manacher(String s) {

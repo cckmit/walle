@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.advance.term01.class05;
 
+/**
+ * 在一个字符串的末尾添加最少的字符串，使得整个字符串为回文字符串
+ */
 public class Code02_AddShortestEnd {
 
 	public static String shortestEnd(String str) {
