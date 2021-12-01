@@ -7,12 +7,12 @@ public class Code01_KMP {
 			return -1;
 		}
 		char[] str1 = s.toCharArray();
-		char[] str2 = m.toCharArray();
+		char[] match = m.toCharArray();
 		int x = 0;
 		int y = 0;
-		int[] next = getNextArray(str2);
-		while (x < str1.length && y < str2.length) {
-			if (str1[x] == str2[y]) {
+		int[] next = getNextArray(match);
+		while (x < str1.length && y < match.length) {
+			if (str1[x] == match[y]) {
 				x++;
 				y++;
 			} else if (next[y] == -1) {
@@ -21,7 +21,7 @@ public class Code01_KMP {
 				y = next[y];
 			}
 		}
-		return y == str2.length ? x - y : -1;
+		return y == match.length ? x - y : -1;
 	}
 
 	public static int[] getNextArray(char[] ms) {

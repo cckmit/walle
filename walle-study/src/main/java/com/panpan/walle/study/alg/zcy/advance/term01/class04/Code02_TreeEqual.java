@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.advance.term01.class04;
 
 import java.util.ArrayList;
 
+/**
+ * 一颗大的二叉树big,是否包含小的二叉树small
+ */
 public class Code02_TreeEqual {
 
 	public static class Node {
