@@ -3,7 +3,7 @@ package com.panpan.walle.study.alg.zcy.advance.term01.class04;
 import java.util.ArrayList;
 
 /**
- * 一颗大的二叉树big,是否包含小的二叉树small
+ * 判断一颗二叉树small是否是另一个更大二叉树big的子树
  */
 public class Code02_TreeEqual {
 

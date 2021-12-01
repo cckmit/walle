@@ -1,7 +1,6 @@
 package com.panpan.walle.study.alg.leetcode;
 
 import com.alibaba.fastjson.JSON;
-import com.panpan.walle.study.tmpuse.conditiondemo.In;
 
 import java.util.*;
 
@@ -18,7 +17,7 @@ import java.util.*;
  * 3，从N个括号中删除M个括号总共有X种方案
  * 4，判断每种方案处理完成之后是否是一个有效的括号
  */
-public class No301_RemoveInvalidParentheses {
+public class No0301_RemoveInvalidParentheses {
     public List<String> removeInvalidParentheses(String s) {
         Map<String, Integer> dp = new HashMap<>();
         int removeCount = removeCount(s, dp);
@@ -135,7 +134,7 @@ public class No301_RemoveInvalidParentheses {
     }
 
     public static void main(String[] args) {
-        No301_RemoveInvalidParentheses solution = new No301_RemoveInvalidParentheses();
+        No0301_RemoveInvalidParentheses solution = new No0301_RemoveInvalidParentheses();
         List<String> result = solution.removeInvalidParentheses(")(");
         System.out.println(JSON.toJSONString(result));
     }
