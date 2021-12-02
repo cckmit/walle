@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.advance.term01.class07;
 
+/**
+ * 线段树
+ */
 public class Code01_SegmentTree {
 
 	public static class SegmentTree {
