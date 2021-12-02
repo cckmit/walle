@@ -73,6 +73,11 @@ public class Code02_FallingSquares {
 
 	}
 
+	/**
+	 *
+	 * @param positions
+	 * @return key-边界值，value-index索引
+	 */
 	public HashMap<Integer, Integer> index(int[][] positions) {
 		TreeSet<Integer> pos = new TreeSet<>();
 		for (int[] arr : positions) {
