@@ -1,21 +1,24 @@
 package com.panpan.walle.study.alg.zcy.advance.term02.class01;
 
+/**
+ * Z字形打印矩阵
+ */
 public class Code06_ZigZagPrintMatrix {
 
 	public static void printMatrixZigZag(int[][] matrix) {
-		int tR = 0;
-		int tC = 0;
-		int dR = 0;
-		int dC = 0;
-		int endR = matrix.length - 1;
-		int endC = matrix[0].length - 1;
+		int Arow = 0;
+		int Acol = 0;
+		int Brow = 0;
+		int Bcol = 0;
+		int endRow = matrix.length - 1;
+		int endCol = matrix[0].length - 1;
 		boolean fromUp = false;
-		while (tR != endR + 1) {
-			printLevel(matrix, tR, tC, dR, dC, fromUp);
-			tR = tC == endC ? tR + 1 : tR;
-			tC = tC == endC ? tC : tC + 1;
-			dC = dR == endR ? dC + 1 : dC;
-			dR = dR == endR ? dR : dR + 1;
+		while (Arow != endRow + 1) {
+			printLevel(matrix, Arow, Acol, Brow, Bcol, fromUp);
+			Arow = Acol == endCol ? Arow + 1 : Arow;
+			Acol = Acol == endCol ? Acol : Acol + 1;
+			Bcol = Brow == endRow ? Bcol + 1 : Bcol;
+			Brow = Brow == endRow ? Brow : Brow + 1;
 			fromUp = !fromUp;
 		}
 		System.out.println();
