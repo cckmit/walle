@@ -15,8 +15,8 @@ public class Code03_MonotonousStack {
 	 * @return
 	 */
 	public static int[][] getNearLessNoRepeat(int[] arr) {
-		int[][] res = new int[arr.length][2];
-		Stack<Integer> stack = new Stack<>();
+		int[][] res = new int[arr.length][2];//存储比arr[i]小的左边界和右边界
+		Stack<Integer> stack = new Stack<>();//从栈底到栈顶，递增；存储的内容是下标i
 		for (int i = 0; i < arr.length; i++) {
 			while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
 				int popIndex = stack.pop();
@@ -26,6 +26,8 @@ public class Code03_MonotonousStack {
 			}
 			stack.push(i);
 		}
+
+		//最后处理栈里剩余的数据
 		while (!stack.isEmpty()) {
 			int popIndex = stack.pop();
 			int leftLessIndex = stack.isEmpty() ? -1 : stack.peek();

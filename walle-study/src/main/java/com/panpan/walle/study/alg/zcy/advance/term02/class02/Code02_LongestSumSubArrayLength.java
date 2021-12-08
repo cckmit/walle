@@ -2,6 +2,14 @@ package com.panpan.walle.study.alg.zcy.advance.term02.class02;
 
 import java.util.HashMap;
 
+/**
+ * 给定一个整数组成的无序数组arr，值可能正、可能负、可能0
+ * 给定一个整数值K
+ * 找到arr的所有子数组里，哪个子数组的累加和等于K，并且是长度最大的
+ * 返回其长度
+ *
+ * 关键词：累加和
+ */
 public class Code02_LongestSumSubArrayLength {
 
 	public static int maxLength(int[] arr, int k) {
@@ -9,7 +17,7 @@ public class Code02_LongestSumSubArrayLength {
 			return 0;
 		}
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		map.put(0, -1); // important
+		map.put(0, -1); // important；-1位置的时候，累加和是-1
 		int len = 0;
 		int sum = 0;
 		for (int i = 0; i < arr.length; i++) {

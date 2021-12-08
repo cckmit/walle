@@ -1,7 +1,7 @@
 package com.panpan.walle.study.alg.zcy.advance.term01.class07;
 
 /**
- * 线段树
+ * 线段树（区间修改树）
  */
 public class Code01_SegmentTree {
 
@@ -37,21 +37,31 @@ public class Code01_SegmentTree {
 		// ln表示左子树元素结点个数，rn表示右子树结点个数
 		private void pushDown(int rt, int ln, int rn) {
 			if (update[rt]) {
+				//左分支
 				update[rt << 1] = true;
-				update[rt << 1 | 1] = true;
 				change[rt << 1] = change[rt];
-				change[rt << 1 | 1] = change[rt];
-				lazy[rt << 1] = 0;
-				lazy[rt << 1 | 1] = 0;
+				lazy[rt << 1] = 0;//如果有更新操作，那么之前的所有add操作都不用下发了
 				sum[rt << 1] = change[rt] * ln;
+
+				//右分支
+				update[rt << 1 | 1] = true;
+				change[rt << 1 | 1] = change[rt];
+				lazy[rt << 1 | 1] = 0;
 				sum[rt << 1 | 1] = change[rt] * rn;
+
+				//更新状态清空
 				update[rt] = false;
 			}
 			if (lazy[rt] != 0) {
+				//左分支
 				lazy[rt << 1] += lazy[rt];
 				sum[rt << 1] += lazy[rt] * ln;
+
+				//右分支
 				lazy[rt << 1 | 1] += lazy[rt];
 				sum[rt << 1 | 1] += lazy[rt] * rn;
+
+				//最后自己的值清0
 				lazy[rt] = 0;
 			}
 		}
@@ -67,6 +77,7 @@ public class Code01_SegmentTree {
 			int mid = (l + r) >> 1;
 			build(l, mid, rt << 1);
 			build(mid + 1, r, rt << 1 | 1);
+			//左右两边都处理好了之后，再计算rt位置的值
 			pushUp(rt);
 		}
 
@@ -97,7 +108,7 @@ public class Code01_SegmentTree {
 				int l, int r, 
 				int rt) {
 			// 任务的范围彻底覆盖了，当前表达的范围
-			if (L <= l && r <= R) {
+			if (L <= l &&  R>= r) {
 				sum[rt] += C * (r - l + 1);
 				lazy[rt] += C;
 				return;
@@ -109,13 +120,15 @@ public class Code01_SegmentTree {
 			pushDown(rt, mid - l + 1, r - mid);
 			// 左孩子是否需要接到任务
 			if (L <= mid) {
+				// 下发任务到左分支
 				add(L, R, C, l, mid, rt << 1);
 			}
 			// 右孩子是否需要接到任务
 			if (R > mid) {
+				// 下发任务到右分支
 				add(L, R, C, mid + 1, r, rt << 1 | 1);
 			}
-			// 左右孩子做完任务后，我更新我的sum信息
+			// 左右孩子做完任务后，更新我的sum信息
 			pushUp(rt);
 		}
 
@@ -137,6 +150,9 @@ public class Code01_SegmentTree {
 
 	}
 
+	/**
+	 * 对数器， 暴力但是正确的方法
+	 */
 	public static class Right {
 		public int[] arr;
 

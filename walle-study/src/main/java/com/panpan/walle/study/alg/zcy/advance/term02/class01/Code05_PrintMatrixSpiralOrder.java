@@ -1,43 +1,48 @@
 package com.panpan.walle.study.alg.zcy.advance.term02.class01;
 
+/**
+ * 转圈打印矩阵
+ *
+ * 关键词：宏观调度
+ */
 public class Code05_PrintMatrixSpiralOrder {
 
 	public static void spiralOrderPrint(int[][] matrix) {
-		int tR = 0;
-		int tC = 0;
-		int dR = matrix.length - 1;
-		int dC = matrix[0].length - 1;
-		while (tR <= dR && tC <= dC) {
-			printEdge(matrix, tR++, tC++, dR--, dC--);
+		int Arow = 0;
+		int Acol = 0;
+		int Brow = matrix.length - 1;
+		int Bcol = matrix[0].length - 1;
+		while (Arow <= Brow && Acol <= Bcol) {
+			printEdge(matrix, Arow++, Acol++, Brow--, Bcol--);
 		}
 	}
 
-	public static void printEdge(int[][] m, int tR, int tC, int dR, int dC) {
-		if (tR == dR) {
-			for (int i = tC; i <= dC; i++) {
-				System.out.print(m[tR][i] + " ");
+	public static void printEdge(int[][] m, int Arow, int Acol, int Brow, int Bcol) {
+		if (Arow == Brow) {
+			for (int i = Acol; i <= Bcol; i++) {
+				System.out.print(m[Arow][i] + " ");
 			}
-		} else if (tC == dC) {
-			for (int i = tR; i <= dR; i++) {
-				System.out.print(m[i][tC] + " ");
+		} else if (Acol == Bcol) {
+			for (int i = Arow; i <= Brow; i++) {
+				System.out.print(m[i][Acol] + " ");
 			}
 		} else {
-			int curC = tC;
-			int curR = tR;
-			while (curC != dC) {
-				System.out.print(m[tR][curC] + " ");
+			int curR = Arow;
+			int curC = Acol;
+			while (curC != Bcol) {
+				System.out.print(m[Arow][curC] + " ");
 				curC++;
 			}
-			while (curR != dR) {
-				System.out.print(m[curR][dC] + " ");
+			while (curR != Brow) {
+				System.out.print(m[curR][Bcol] + " ");
 				curR++;
 			}
-			while (curC != tC) {
-				System.out.print(m[dR][curC] + " ");
+			while (curC != Acol) {
+				System.out.print(m[Brow][curC] + " ");
 				curC--;
 			}
-			while (curR != tR) {
-				System.out.print(m[curR][tC] + " ");
+			while (curR != Arow) {
+				System.out.print(m[curR][Acol] + " ");
 				curR--;
 			}
 		}

@@ -2,6 +2,8 @@ package com.panpan.walle.study.alg.zcy.advance.term02.class01;
 
 /**
  * Z字形打印矩阵
+ *
+ * 关键词：宏观调度
  */
 public class Code06_ZigZagPrintMatrix {
 
@@ -24,15 +26,15 @@ public class Code06_ZigZagPrintMatrix {
 		System.out.println();
 	}
 
-	public static void printLevel(int[][] m, int tR, int tC, int dR, int dC,
-			boolean f) {
-		if (f) {
-			while (tR != dR + 1) {
-				System.out.print(m[tR++][tC--] + " ");
+	public static void printLevel(int[][] m, int Arow, int Acol, int Brow, int Bcol,
+			boolean fromUp) {
+		if (fromUp) {
+			while (Arow != Brow + 1) {
+				System.out.print(m[Arow++][Acol--] + " ");
 			}
 		} else {
-			while (dR != tR - 1) {
-				System.out.print(m[dR--][dC++] + " ");
+			while (Brow != Arow - 1) {
+				System.out.print(m[Brow--][Bcol++] + " ");
 			}
 		}
 	}

@@ -17,13 +17,17 @@ public class Code01_SlidingWindowMaxArray {
 		int[] res = new int[arr.length - w + 1];
 		int index = 0;
 		for (int i = 0; i < arr.length; i++) { // 当前让 i -> [i] 进窗口 ， i 就是 r
+			//把小于等于的值，从队尾弹出
 			while (!qmax.isEmpty() && arr[qmax.peekLast()] <= arr[i]) {
 				qmax.pollLast();
 			}
 			qmax.addLast(i);
+
+			//如果队首值过期，从队首弹出
 			if (qmax.peekFirst() == i - w) {
 				qmax.pollFirst();
 			}
+			//已经达到窗口大小，开始收集答案
 			if (i >= w - 1) {
 				res[index++] = arr[qmax.peekFirst()];
 			}
