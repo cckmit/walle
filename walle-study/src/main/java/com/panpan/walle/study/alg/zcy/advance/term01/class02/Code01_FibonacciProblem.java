@@ -1,5 +1,10 @@
 package com.panpan.walle.study.alg.zcy.advance.term01.class02;
 
+/**
+ * 斐波那契问题递归算法
+ *
+ * 斐波那契数列先行求解（矩阵乘法）
+ */
 public class Code01_FibonacciProblem {
 
 	public static int f1(int n) {
