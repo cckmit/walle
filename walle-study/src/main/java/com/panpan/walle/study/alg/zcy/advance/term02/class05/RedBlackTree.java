@@ -19,7 +19,7 @@ public class RedBlackTree extends AbstractSelfBalancingBinarySearchTree {
     protected static final RedBlackNode nilNode = new RedBlackNode(null, null, null, null, ColorEnum.BLACK);
 
     /**
-     * @see trees.AbstractBinarySearchTree#insert(int)
+     * @see AbstractBinarySearchTree#insert(int)
      */
     @Override
     public Node insert(int element) {
@@ -76,7 +76,7 @@ public class RedBlackTree extends AbstractSelfBalancingBinarySearchTree {
     }
     
     /**
-     * @see trees.AbstractBinarySearchTree#createNode(int, trees.AbstractBinarySearchTree.Node, trees.AbstractBinarySearchTree.Node, trees.AbstractBinarySearchTree.Node)
+     * @see AbstractBinarySearchTree#createNode(int, AbstractBinarySearchTree.Node, AbstractBinarySearchTree.Node, AbstractBinarySearchTree.Node)
      */
     @Override
     protected Node createNode(int value, Node parent, Node left, Node right) {

@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * 计算有多少个独立的岛屿（连续在一起的1视作一个岛屿）
+ */
 public class Code02_Islands {
 
 	public static int countIslands1(int[][] m) {
@@ -25,6 +28,16 @@ public class Code02_Islands {
 		return res;
 	}
 
+	/**
+	 * 感染过程
+	 * 把当前节点的所有临接的1都感染成2
+	 *
+	 * @param m 矩阵
+	 * @param i 当前行数
+	 * @param j 当前列数
+	 * @param N 矩阵行数
+	 * @param M 矩阵列数
+	 */
 	public static void infect(int[][] m, int i, int j, int N, int M) {
 		if (i < 0 || i >= N || j < 0 || j >= M || m[i][j] != 1) {
 			return;

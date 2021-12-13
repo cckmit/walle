@@ -20,7 +20,7 @@ package com.panpan.walle.study.alg.zcy.advance.term02.class05;
 public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 
 	/**
-	 * @see trees.AbstractBinarySearchTree#insert(int)
+	 * @see AbstractBinarySearchTree#insert(int)
 	 * 
 	 *      AVL tree insert method also balances tree if needed. Additional height
 	 *      parameter on node is used to track if one subtree is higher than other
@@ -35,7 +35,7 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 	}
 
 	/**
-	 * @see trees.AbstractBinarySearchTree#delete(int)
+	 * @see AbstractBinarySearchTree#delete(int)
 	 */
 	@Override
 	public Node delete(int element) {
@@ -59,10 +59,10 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 	}
 
 	/**
-	 * @see trees.AbstractBinarySearchTree#createNode(int,
-	 *      trees.AbstractBinarySearchTree.Node,
-	 *      trees.AbstractBinarySearchTree.Node,
-	 *      trees.AbstractBinarySearchTree.Node)
+	 * @see AbstractBinarySearchTree#createNode(int,
+	 *      AbstractBinarySearchTree.Node,
+	 *      AbstractBinarySearchTree.Node,
+	 *      AbstractBinarySearchTree.Node)
 	 */
 	@Override
 	protected Node createNode(int value, Node parent, Node left, Node right) {

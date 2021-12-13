@@ -24,6 +24,7 @@ public class Code03_ConsistencyHash {
         for (int i = 0; i < 10000000; i++){
             String tmpHashCode = getHashCode(String.valueOf(i));
             Map.Entry<String, Integer> res;
+            //获取下一个节点（按照key排序后，比当前节点大或者相等的key)
             res = treeMap.ceilingEntry(tmpHashCode);
             if (res == null) {
                 res = treeMap.firstEntry();

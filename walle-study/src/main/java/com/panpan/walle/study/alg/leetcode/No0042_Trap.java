@@ -1,7 +1,5 @@
 package com.panpan.walle.study.alg.leetcode;
 
-import com.alibaba.fastjson.JSON;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -11,42 +9,15 @@ import java.util.Stack;
  */
 public class No0042_Trap {
     public static void main(String[] args) {
-        trap(new int[]{0, 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1, 0});
+        trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1});
     }
 
     public static int trap(int[] height) {
         int[][] nearMore = getNearMore(height);
         int[] sumArr = getAccumSum(height);
 
-        int index = 0;
-        //丢弃前面无效的数据
-        while (index < height.length && height[index] == 0) {
-            index++;
-        }
-
         int result = 0;
-        for (int i = index; i < height.length;) {
-            //右侧比自己高的柱子
-            if (nearMore[i][1] > -1) {
-                //左侧高度 * 宽度 - 已有的柱子体积
-                int tmpSum = (height[i] * (nearMore[i][1] - i) - (sumArr[nearMore[i][1] - 1] - sumArr[i - 1]));
-                System.out.println("tmpSum1=" + tmpSum);
-                i = nearMore[i][1];
-            } else {
-                index = i + 1;
-                if (index < height.length - 1) {
-                    int curMostHeight = 0;
-                    while (index < height.length && nearMore[index][0] == i && height[index] > curMostHeight) {
-                        curMostHeight = height[index];
-                    }
-
-                    int tmpSum = (height[index] * (index - i - 1) - (sumArr[index - 1] - sumArr[i - 1]));
-                    i = index;
-                    System.out.println("tmpSum2=" + tmpSum);
-                }
-
-
-            }
+        for (int i = 0; i < height.length;i++) {
         }
         return result;
     }
