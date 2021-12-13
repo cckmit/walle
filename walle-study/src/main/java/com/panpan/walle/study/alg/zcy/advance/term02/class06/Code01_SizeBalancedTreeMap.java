@@ -41,20 +41,24 @@ public class Code01_SizeBalancedTreeMap {
 			if (cur == null) {
 				return null;
 			}
+			//LL
 			if (cur.l != null && cur.l.l != null && cur.r != null && cur.l.l.size > cur.r.size) {
 				cur = rightRotate(cur);
 				cur.r = maintain(cur.r);
 				cur = maintain(cur);
+			//LR
 			} else if (cur.l != null && cur.l.r != null && cur.r != null && cur.l.r.size > cur.r.size) {
 				cur.l = leftRotate(cur.l);
 				cur = rightRotate(cur);
 				cur.l = maintain(cur.l);
 				cur.r = maintain(cur.r);
 				cur = maintain(cur);
+			//RR
 			} else if (cur.r != null && cur.r.r != null && cur.l != null && cur.r.r.size > cur.l.size) {
 				cur = leftRotate(cur);
 				cur.l = maintain(cur.l);
 				cur = maintain(cur);
+			//RL
 			} else if (cur.r != null && cur.r.l != null && cur.l != null && cur.r.l.size > cur.l.size) {
 				cur.r = rightRotate(cur.r);
 				cur = leftRotate(cur);

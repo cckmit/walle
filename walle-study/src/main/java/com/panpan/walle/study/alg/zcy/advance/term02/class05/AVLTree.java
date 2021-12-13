@@ -86,19 +86,29 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 			int nodeBalance = rightHeight - leftHeight;
 			// rebalance (-2 means left subtree outgrow, 2 means right subtree)
 			if (nodeBalance == 2) {
-				if (node.right.right != null) {
-					node = (AVLNode) avlRotateLeft(node);
+				//RR
+				Node subNode = node.right;
+				int subRightHeight = (subNode.right == null ) ? -1 : ((AVLNode)subNode.right).height;
+				int subLeftHeight = (subNode.left == null ) ? -1 : ((AVLNode)subNode.left).height;
+				if (subRightHeight >=  subLeftHeight) {
+					avlRotateLeft(node);
 					break;
+				//RL
 				} else {
-					node = (AVLNode) doubleRotateRightLeft(node);
+					doubleRotateRightLeft(node);
 					break;
 				}
 			} else if (nodeBalance == -2) {
-				if (node.left.left != null) {
-					node = (AVLNode) avlRotateRight(node);
+				//LL
+				Node subNode = node.left;
+				int subRightHeight = (subNode.right == null ) ? -1 : ((AVLNode)subNode.right).height;
+				int subLeftHeight = (subNode.left == null ) ? -1 : ((AVLNode)subNode.left).height;
+				if (subLeftHeight >=  subRightHeight) {
+					avlRotateRight(node);
 					break;
+				//LR
 				} else {
-					node = (AVLNode) doubleRotateLeftRight(node);
+					doubleRotateLeftRight(node);
 					break;
 				}
 			} else {
@@ -196,7 +206,7 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 	 * 
 	 */
 	protected static class AVLNode extends Node {
-		public int height;
+		public int height; //叶子节点的height是0，有点坑
 
 		public AVLNode(int value, Node parent, Node left, Node right) {
 			super(value, parent, left, right);
