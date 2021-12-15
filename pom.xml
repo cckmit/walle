@@ -21,7 +21,6 @@
         <module>walle-infrastructure</module>
         <module>walle-study</module>
         <module>walle-schedule</module>
-        <module>walle-jjkj</module>
     </modules>
 
     <properties>

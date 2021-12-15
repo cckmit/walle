@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.advance.term02.class06;
 
 import java.util.ArrayList;
 
+/**
+ * 跳表经典实现（不设置最大层数）
+ */
 public class Code03_SkipListMap {
 
 	// 跳表的节点定义
@@ -88,6 +91,12 @@ public class Code03_SkipListMap {
 			return cur;
 		}
 
+		/**
+		 * 是否包含指定的key
+		 *
+		 * @param key
+		 * @return
+		 */
 		public boolean containsKey(K key) {
 			if (key == null) {
 				return false;
@@ -97,30 +106,41 @@ public class Code03_SkipListMap {
 			return next != null && next.isKeyEqual(key);
 		}
 
+		/**
+		 * 新增一个key
+		 *
+		 * @param key
+		 * @param value
+		 */
 		public void put(K key, V value) {
 			if (key == null) {
 				return;
 			}
 			SkipListNode<K, V> less = mostRightLessNodeInTree(key);
 			SkipListNode<K, V> find = less.nextNodes.get(0);
+			//如果key已经存在，更新值即可
 			if (find != null && find.isKeyEqual(key)) {
 				find.val = value;
 			} else {
 				size++;
+				//至少有一个节点
 				int newNodeLevel = 0;
 				while (Math.random() < PROBABILITY) {
 					newNodeLevel++;
 				}
+				//更新头结点的层数
 				while (newNodeLevel > maxLevel) {
 					head.nextNodes.add(null);
 					maxLevel++;
 				}
 				SkipListNode<K, V> newNode = new SkipListNode<K, V>(key, value);
+				//创建新节点的层数
 				for (int i = 0; i <= newNodeLevel; i++) {
 					newNode.nextNodes.add(null);
 				}
 				int level = maxLevel;
 				SkipListNode<K, V> pre = head;
+				//将新增的节点插入到跳表中
 				while (level >= 0) {
 					pre = mostRightLessNodeInLevel(key, pre, level);
 					if (level <= newNodeLevel) {
@@ -132,6 +152,12 @@ public class Code03_SkipListMap {
 			}
 		}
 
+		/**
+		 * 查找一个key
+		 *
+		 * @param key
+		 * @return
+		 */
 		public V get(K key) {
 			if (key == null) {
 				return null;
@@ -141,6 +167,11 @@ public class Code03_SkipListMap {
 			return next != null && next.isKeyEqual(key) ? next.val : null;
 		}
 
+		/**
+		 * 删除
+		 *
+		 * @param key
+		 */
 		public void remove(K key) {
 			if (containsKey(key)) {
 				size--;
@@ -166,10 +197,20 @@ public class Code03_SkipListMap {
 			}
 		}
 
+		/**
+		 * 获取第一个key
+		 *
+		 * @return
+		 */
 		public K firstKey() {
 			return head.nextNodes.get(0) != null ? head.nextNodes.get(0).key : null;
 		}
 
+		/**
+		 * 获取最后一个key
+		 *
+		 * @return
+		 */
 		public K lastKey() {
 			int level = maxLevel;
 			SkipListNode<K, V> cur = head;
@@ -184,6 +225,12 @@ public class Code03_SkipListMap {
 			return cur.key;
 		}
 
+		/**
+		 * 大于或者等于输入key的key
+		 *
+		 * @param key
+		 * @return
+		 */
 		public K ceillingKey(K key) {
 			if (key == null) {
 				return null;
@@ -193,6 +240,12 @@ public class Code03_SkipListMap {
 			return next != null ? next.key : null;
 		}
 
+		/**
+		 * 小于或者等于输入key的key
+		 *
+		 * @param key
+		 * @return
+		 */
 		public K floorKey(K key) {
 			if (key == null) {
 				return null;

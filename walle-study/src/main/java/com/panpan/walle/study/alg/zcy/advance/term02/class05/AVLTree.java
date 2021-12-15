@@ -87,10 +87,7 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 			// rebalance (-2 means left subtree outgrow, 2 means right subtree)
 			if (nodeBalance == 2) {
 				//RR
-				Node subNode = node.right;
-				int subRightHeight = (subNode.right == null ) ? -1 : ((AVLNode)subNode.right).height;
-				int subLeftHeight = (subNode.left == null ) ? -1 : ((AVLNode)subNode.left).height;
-				if (subRightHeight >=  subLeftHeight) {
+				if (node.right.right != null && (((AVLNode)node.right.right).height == leftHeight + 1)){
 					avlRotateLeft(node);
 					break;
 				//RL
@@ -100,10 +97,7 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 				}
 			} else if (nodeBalance == -2) {
 				//LL
-				Node subNode = node.left;
-				int subRightHeight = (subNode.right == null ) ? -1 : ((AVLNode)subNode.right).height;
-				int subLeftHeight = (subNode.left == null ) ? -1 : ((AVLNode)subNode.left).height;
-				if (subLeftHeight >=  subRightHeight) {
+				if (node.left.left != null && (((AVLNode)node.left.left).height == rightHeight + 1)){
 					avlRotateRight(node);
 					break;
 				//LR
@@ -210,6 +204,13 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 
 		public AVLNode(int value, Node parent, Node left, Node right) {
 			super(value, parent, left, right);
+		}
+	}
+
+	public static void main(String[] args) {
+		AVLTree root = new AVLTree();
+		for (int i = 0; i < 100; i++) {
+			root.insert(i);
 		}
 	}
 
