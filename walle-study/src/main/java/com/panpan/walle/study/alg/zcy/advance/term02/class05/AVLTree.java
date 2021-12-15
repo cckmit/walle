@@ -81,8 +81,8 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 
 			Node parent = node.parent;
 
-			int leftHeight = (node.left == null) ? -1 : ((AVLNode) node.left).height;
-			int rightHeight = (node.right == null) ? -1 : ((AVLNode) node.right).height;
+			int leftHeight = (node.left == null) ? 0 : ((AVLNode) node.left).height;
+			int rightHeight = (node.right == null) ? 0 : ((AVLNode) node.right).height;
 			int nodeBalance = rightHeight - leftHeight;
 			// rebalance (-2 means left subtree outgrow, 2 means right subtree)
 			if (nodeBalance == 2) {
@@ -171,9 +171,9 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 		if (node1 != null && node2 != null) {
 			return node1.height > node2.height ? node1.height : node2.height;
 		} else if (node1 == null) {
-			return node2 != null ? node2.height : -1;
+			return node2 != null ? node2.height : 0;
 		} else if (node2 == null) {
-			return node1 != null ? node1.height : -1;
+			return node1 != null ? node1.height : 0;
 		}
 		return -1;
 	}
@@ -184,8 +184,8 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 	 * @param node Node for which height and balance must be updated.
 	 */
 	private static final void updateHeight(AVLNode node) {
-		int leftHeight = (node.left == null) ? -1 : ((AVLNode) node.left).height;
-		int rightHeight = (node.right == null) ? -1 : ((AVLNode) node.right).height;
+		int leftHeight = (node.left == null) ? 0 : ((AVLNode) node.left).height;
+		int rightHeight = (node.right == null) ? 0 : ((AVLNode) node.right).height;
 		node.height = 1 + Math.max(leftHeight, rightHeight);
 	}
 
@@ -200,7 +200,7 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 	 * 
 	 */
 	protected static class AVLNode extends Node {
-		public int height; //叶子节点的height是0，有点坑
+		public int height; //叶子节点的height是1，有点坑
 
 		public AVLNode(int value, Node parent, Node left, Node right) {
 			super(value, parent, left, right);
@@ -209,7 +209,7 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
 
 	public static void main(String[] args) {
 		AVLTree root = new AVLTree();
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 10; i++) {
 			root.insert(i);
 		}
 	}
