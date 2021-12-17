@@ -2,6 +2,10 @@ package com.panpan.walle.study.alg.zcy.advance.term02.class07;
 
 import java.util.HashSet;
 
+/**
+ * 327. 区间和的个数
+ * https://leetcode-cn.com/problems/count-of-range-sum/
+ */
 public class Code01_CountofRangeSum {
 
 	public static int countRangeSum1(int[] nums, int lower, int upper) {
