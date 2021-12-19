@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ * AC自动机
+ */
 public class Code01_AC {
 
 	// 前缀树的节点
@@ -32,6 +35,10 @@ public class Code01_AC {
 			root = new Node();
 		}
 
+		/**
+		 * 插入过程 前缀树代码
+		 * @param s
+		 */
 		public void insert(String s) {
 			char[] str = s.toCharArray();
 			Node cur = root;
@@ -62,11 +69,13 @@ public class Code01_AC {
 					if (cur.nexts[i] != null) { // 找到所有有效的路
 						cur.nexts[i].fail = root; //
 						cfail = cur.fail;
+						//如果有向下的路，向下跳转
 						while (cfail != null) {
 							if (cfail.nexts[i] != null) {
 								cur.nexts[i].fail = cfail.nexts[i];
 								break;
 							}
+							//横向跳转
 							cfail = cfail.fail;
 						}
 						queue.add(cur.nexts[i]);
@@ -79,19 +88,22 @@ public class Code01_AC {
 			char[] str = content.toCharArray();
 			Node cur = root;
 			Node follow = null;
-			int index = 0;
+			int path = 0;
 			List<String> ans = new ArrayList<>();
-			for (int i = 0; i < str.length; i++) {
-				index = str[i] - 'a'; // 路
+			for (int i = 0; i < str.length; i++) {//依次遍历文章的每一个字符
+				path = str[i] - 'a'; // 路
 				// 如果当前字符在这条路上没配出来，就随着fail方向走向下条路径
-				while (cur.nexts[index] == null && cur != root) {
+				// 如果当前cur节点，没有path的路了，就通过fail指针调到别的前缀上去
+				while (cur.nexts[path] == null && cur != root) {
 					cur = cur.fail;
 				}
 				// 1) 现在来到的路径，是可以继续匹配的
 				// 2) 现在来到的节点，就是前缀树的根节点
-				cur = cur.nexts[index] != null ? cur.nexts[index] : root;
+				cur = cur.nexts[path] != null ? cur.nexts[path] : root;
+				//开始收集答案
 				follow = cur;
 				while (follow != root) {
+					//答案已经收集过了
 					if(follow.endUse) {
 						break;
 					}

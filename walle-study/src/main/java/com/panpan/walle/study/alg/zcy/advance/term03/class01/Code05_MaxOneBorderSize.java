@@ -1,7 +1,23 @@
 package com.panpan.walle.study.alg.zcy.advance.term03.class01;
 
+/**
+ * 给定一个N*N的矩阵matrix，只有0和1两种值，返回边框全是1的最大正方形的边长长度。
+ * 例如:
+ * 01111
+ * 01001
+ * 01001
+ * 01111
+ * 01011
+ * 其中边框全是1的最大正方形的大小为4*4，所以返回4。
+ */
 public class Code05_MaxOneBorderSize {
 
+	/**
+	 *
+	 * @param m
+	 * @param right right[i][j]指的是从right[i][j]位置到最右边有多少个连续的1
+	 * @param down  down[i][j]指的是从down[i][j]位置到最下面有多少个连续的1
+	 */
 	public static void setBorderMap(int[][] m, int[][] right, int[][] down) {
 		int r = m.length;
 		int c = m[0].length;
@@ -35,7 +51,8 @@ public class Code05_MaxOneBorderSize {
 		int[][] right = new int[m.length][m[0].length];
 		int[][] down = new int[m.length][m[0].length];
 		setBorderMap(m, right, down); // O(N^2); + 
-		
+
+		//依次尝试最大的正方形，如果找到的话就结束处理
 		for (int size = Math.min(m.length, m[0].length); size != 0; size--) {
 			if (hasSizeOfBorder(size, right, down)) {
 				return size;

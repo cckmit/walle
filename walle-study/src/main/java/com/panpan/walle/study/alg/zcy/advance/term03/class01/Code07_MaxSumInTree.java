@@ -3,6 +3,15 @@ package com.panpan.walle.study.alg.zcy.advance.term03.class01;
 import java.util.HashMap;
 import java.util.Stack;
 
+/**
+ * 给定一个二叉树的头节点head，路径的规定有以下三种不同的规定：
+ *
+ * 1）路径必须是头节点出发，到叶节点为止，返回最大路径和
+ *
+ * 2）路径可以从任何节点出发，但必须往下走到达任何节点，返回最大路径和
+ *
+ * 3）路径可以从任何节点出发，到任何节点，返回最大路径和
+ */
 public class Code07_MaxSumInTree {
 
 	public static class Node {
@@ -17,7 +26,15 @@ public class Code07_MaxSumInTree {
 
 	public static int maxSum = Integer.MIN_VALUE;
 
+	/**
+	 *  1）路径必须是头节点出发，到叶节点为止，返回最大路径和
+	 *
+	 * @param head
+	 * @return
+	 */
 	public static int maxPath(Node head) {
+		maxSum = Integer.MIN_VALUE;
+
 		p(head, 0);
 		return maxSum;
 	}
@@ -34,6 +51,12 @@ public class Code07_MaxSumInTree {
 		}
 	}
 
+	/**
+	 * 二叉树的递归套路
+	 *
+	 * @param head
+	 * @return
+	 */
 	public static int maxDis(Node head) {
 		if (head == null) {
 			return 0;
@@ -44,6 +67,7 @@ public class Code07_MaxSumInTree {
 	// x为头的整棵树上，最大路径和是多少，返回。
 	// 路径要求，一定从x出发，到叶节点，算做一个路径
 	public static int process2(Node x) {
+		//叶子节点是basecase
 		if (x.left == null && x.right == null) {
 			return x.value;
 		}

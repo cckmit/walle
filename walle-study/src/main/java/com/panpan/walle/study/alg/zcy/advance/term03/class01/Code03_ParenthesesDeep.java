@@ -1,7 +1,19 @@
 package com.panpan.walle.study.alg.zcy.advance.term03.class01;
 
+/**
+ * 括号有效配对是指：
+ * 1）任何一个左括号都能找到和其正确配对的右括号
+ * 2）任何一个右括号都能找到和其正确配对的左括号
+ * 返回一个括号字符串中，最长的括号有效子串的长度
+ */
 public class Code03_ParenthesesDeep {
 
+	/**
+	 * 是否是有效的括号
+	 *
+	 * @param str
+	 * @return
+	 */
 	public static boolean isValid(char[] str) {
 		if (str == null || str.length == 0) {
 			return false;
@@ -21,6 +33,12 @@ public class Code03_ParenthesesDeep {
 		return status == 0;
 	}
 
+	/**
+	 * 括号的最大深度
+	 *
+	 * @param s
+	 * @return
+	 */
 	public static int deep(String s) {
 		char[] str = s.toCharArray();
 		if (!isValid(str)) {
@@ -38,6 +56,12 @@ public class Code03_ParenthesesDeep {
 		return max;
 	}
 
+	/**
+	 * 最长的括号有效子串的长度
+	 *
+	 * @param s
+	 * @return
+	 */
 	public static int maxLength(String s) {
 		if (s == null || s.equals("")) {
 			return 0;
