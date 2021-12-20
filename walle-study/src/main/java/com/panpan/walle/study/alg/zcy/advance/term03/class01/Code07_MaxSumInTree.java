@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.advance.term03.class01;
 
+import io.swagger.models.auth.In;
+import jodd.util.MathUtil;
+
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -11,6 +14,8 @@ import java.util.Stack;
  * 2）路径可以从任何节点出发，但必须往下走到达任何节点，返回最大路径和
  *
  * 3）路径可以从任何节点出发，到任何节点，返回最大路径和
+ *
+ * 4) 附加；从任何节点出发，到叶子节点为止，返回最大路径和
  */
 public class Code07_MaxSumInTree {
 
@@ -28,6 +33,7 @@ public class Code07_MaxSumInTree {
 
 	/**
 	 *  1）路径必须是头节点出发，到叶节点为止，返回最大路径和
+	 *  解法1
 	 *
 	 * @param head
 	 * @return
@@ -40,6 +46,7 @@ public class Code07_MaxSumInTree {
 	}
 
 	public static void p(Node x, int pre) {
+		//只有到到叶子节点的时候才更新信息
 		if (x.left == null && x.right == null) {
 			maxSum = Math.max(maxSum, pre + x.value);
 		}
@@ -53,6 +60,7 @@ public class Code07_MaxSumInTree {
 
 	/**
 	 * 二叉树的递归套路
+	 * 解法2：
 	 *
 	 * @param head
 	 * @return
@@ -81,6 +89,157 @@ public class Code07_MaxSumInTree {
 		return x.value + next;
 	}
 
+
+	public static class Info2{
+		public int allTreeMaxSum;//整体最大路径和
+		public int fromHeadMaxSum;//必须从头结点出发，最大路径和
+
+		public Info2(int allTreeMaxSum, int fromHeadMaxSum) {
+			this.allTreeMaxSum = allTreeMaxSum;
+			this.fromHeadMaxSum = fromHeadMaxSum;
+		}
+	}
+
+	/**
+	 *  2）路径可以从任何节点出发，但必须往下走到达任何节点，返回最大路径和
+	 *
+	 * 1) X无关的时候，1，左树上的整体最大路径和 2，右树上的整体最大路径和
+	 * 2）X有关的时候，3，X自己 4，从X往左走 5，从X往右走
+ 	 * @param x
+	 * @return
+	 */
+	public static Info2 f2(Node x){
+		if (x == null){
+			return null;
+		}
+
+		Info2 leftInfo = f2(x.left);
+		Info2 rightInfo = f2(x.right);
+		int p1 = Integer.MIN_VALUE;
+		if (leftInfo != null){
+			p1 = leftInfo.allTreeMaxSum;
+		}
+		int p2 = Integer.MIN_VALUE;
+		if (rightInfo != null){
+			p2 = rightInfo.allTreeMaxSum;
+		}
+		int p3 = x.value;
+
+		int p4 = Integer.MIN_VALUE;
+		if (leftInfo != null){
+			p4 = x.value + leftInfo.fromHeadMaxSum;
+		}
+		int p5 = Integer.MIN_VALUE;
+		if (rightInfo != null){
+			p5 = x.value + rightInfo.fromHeadMaxSum;
+		}
+
+		//整棵树最大
+		int allTreeMaxSum  = Integer.MIN_VALUE;
+		allTreeMaxSum = Math.max(allTreeMaxSum, p1);
+		allTreeMaxSum = Math.max(allTreeMaxSum, p2);
+		allTreeMaxSum = Math.max(allTreeMaxSum, p3);
+		allTreeMaxSum = Math.max(allTreeMaxSum, p4);
+		allTreeMaxSum = Math.max(allTreeMaxSum, p5);
+
+		//当前节点出发最大
+		int fromHeadMaxSum = Integer.MIN_VALUE;
+		fromHeadMaxSum = Math.max(fromHeadMaxSum, p3);
+		fromHeadMaxSum = Math.max(fromHeadMaxSum, p4);
+		fromHeadMaxSum = Math.max(fromHeadMaxSum, p5);
+
+		return new Info2(allTreeMaxSum, fromHeadMaxSum);
+
+	}
+
+
+	/**
+	 *  2）路径可以从任何节点出发，但必须往下走到达任何节点，返回最大路径和
+	 *
+	 * 1) X无关的时候，1，左树上的整体最大路径和 2，右树上的整体最大路径和
+	 * 2）X有关的时候，3，X自己 4，从X往左走 5，从X往右走 6，既往左，也往右
+	 * @param x
+	 * @return
+	 */
+	public static Info2 f3(Node x){
+		if (x == null){
+			return null;
+		}
+
+		Info2 leftInfo = f3(x.left);
+		Info2 rightInfo = f3(x.right);
+		int p1 = Integer.MIN_VALUE;
+		if (leftInfo != null){
+			p1 = leftInfo.allTreeMaxSum;
+		}
+		int p2 = Integer.MIN_VALUE;
+		if (rightInfo != null){
+			p2 = rightInfo.allTreeMaxSum;
+		}
+		int p3 = x.value;
+
+		int p4 = Integer.MIN_VALUE;
+		if (leftInfo != null){
+			p4 = x.value + leftInfo.fromHeadMaxSum;
+		}
+		int p5 = Integer.MIN_VALUE;
+		if (rightInfo != null){
+			p5 = x.value + rightInfo.fromHeadMaxSum;
+		}
+		int p6 = Integer.MIN_VALUE;
+		if (leftInfo!=null && rightInfo != null){
+			p6 = x.value + leftInfo.fromHeadMaxSum + rightInfo.fromHeadMaxSum;
+		}
+
+		//整棵树最大
+		int allTreeMaxSum  = Integer.MIN_VALUE;
+		allTreeMaxSum = Math.max(allTreeMaxSum, p1);
+		allTreeMaxSum = Math.max(allTreeMaxSum, p2);
+		allTreeMaxSum = Math.max(allTreeMaxSum, p3);
+		allTreeMaxSum = Math.max(allTreeMaxSum, p4);
+		allTreeMaxSum = Math.max(allTreeMaxSum, p5);
+		allTreeMaxSum = Math.max(allTreeMaxSum, p6);
+
+		//当前节点出发最大
+		int fromHeadMaxSum = Integer.MIN_VALUE;
+		fromHeadMaxSum = Math.max(fromHeadMaxSum, p3);
+		fromHeadMaxSum = Math.max(fromHeadMaxSum, p4);
+		fromHeadMaxSum = Math.max(fromHeadMaxSum, p5);
+
+		return new Info2(allTreeMaxSum, fromHeadMaxSum);
+
+	}
+
+	/**
+	 * 4) 附加；从任何节点出发，到叶子节点为止，返回最大路径和
+	 *
+	 * @param head
+	 * @return
+	 */
+	public int f4(Node head){
+		f4Helper(head);
+		return maxSum;
+	}
+
+	private int f4Helper(Node head){
+		if (head.left == null && head.right == null){
+			maxSum = Math.max(maxSum, head.value);
+			return head.value;
+		}
+
+		int nextMax = Integer.MIN_VALUE;
+		if (head.left != null){
+			nextMax = f4Helper(head.left);
+		}
+		if (head.right != null){
+			nextMax = f4Helper(head.right);
+		}
+
+		int ans = head.value + nextMax;
+		maxSum = Math.max(maxSum, ans);
+		return ans;
+
+	}
 	public static class Inf {
 		public int headWalkToLeafMaxPathSum;
 
