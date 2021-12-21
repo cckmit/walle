@@ -3,6 +3,12 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class02;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+/**
+ * 接雨水问题的三维形式
+ *
+ * 如果给你一个二维数组，每一个值表示这一块地形的高度，
+ * 求整块地形能装下多少水。
+ */
 public class Code05_TrappingRainWaterII {
 
 	public static class Node {
@@ -39,7 +45,7 @@ public class Code05_TrappingRainWaterII {
 		// 小根堆
 		PriorityQueue<Node> heap = new PriorityQueue<>(new NodeComparator());
 		
-		
+		//依次放入4个边缘
 		for (int col = 0; col < M - 1; col++) {
 			isEnter[0][col] = true;
 			heap.add(new Node(heightMap[0][col], 0, col));

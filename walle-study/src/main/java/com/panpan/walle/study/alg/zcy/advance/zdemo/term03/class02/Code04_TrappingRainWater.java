@@ -77,6 +77,11 @@ public class Code04_TrappingRainWater {
 		return water;
 	}
 
+	/**
+	 * 思路：双指针，空间复杂度O(1)
+	 * @param arr
+	 * @return
+	 */
 	public static int water4(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return 0;
