@@ -1,5 +1,12 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class02;
 
+/**
+ * 给定一个有序数组arr，给定一个正数aim
+ *
+ * 1）返回累加和为aim的，所有不同二元组
+ *
+ * 2）返回累加和为aim的，所有不同三元组
+ */
 public class Code06_PrintUniquePairAndTriad {
 
 	public static void printUniquePair(int[] arr, int k) {

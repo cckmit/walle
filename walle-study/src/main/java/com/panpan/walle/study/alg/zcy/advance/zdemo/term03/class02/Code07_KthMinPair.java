@@ -3,6 +3,16 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class02;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * 长度为N的数组arr，一定可以组成N^2个数值对。
+ * 例如arr = [3,1,2]，
+ * 数值对有(3,3) (3,1) (3,2) (1,3) (1,1) (1,2) (2,3) (2,1) (2,2)，
+ * 也就是任意两个数都有数值对，而且自己和自己也算数值对。
+ * 数值对怎么排序？规定，第一维数据从小到大，第一维数据一样的，第二维数组也从小到大。所以上面的数值对排序的结果为：
+ * (1,1)(1,2)(1,3)(2,1)(2,2)(2,3)(3,1)(3,2)(3,3)
+ *
+ * 给定一个数组arr，和整数k，返回第k小的数值对。
+ */
 public class Code07_KthMinPair {
 
 	public static class Pair {
@@ -74,19 +84,48 @@ public class Code07_KthMinPair {
 		}
 		// 在无序数组中，找到第K小的数，返回值
 		// 第K小，以1作为开始
-		int fristNum = getMinKthByBFPRT(arr, ((k - 1) / N) + 1);
-		int lessFristNumSize = 0;
-		int fristNumSize = 0;
+		int firstNum = getMinKth(arr, (k-1)/N + 1);
+		//int firstNum = getMinKthByBFPRT(arr, ((k - 1) / N) + 1);
+		int lessFirstNumSize = 0;
+		int firstNumSize = 0;
 		for (int i = 0; i < N; i++) {
-			if (arr[i] < fristNum) {
-				lessFristNumSize++;
+			if (arr[i] < firstNum) {
+				lessFirstNumSize++;
 			}
-			if (arr[i] == fristNum) {
-				fristNumSize++;
+			if (arr[i] == firstNum) {
+				firstNumSize++;
 			}
 		}
-		int rest = k - (lessFristNumSize * N);
-		return new int[] { fristNum, getMinKthByBFPRT(arr, ((rest - 1) / fristNumSize) + 1) };
+		int rest = k - (lessFirstNumSize * N);
+		return new int[] { firstNum, getMinKthByBFPRT(arr, ((rest - 1) / firstNumSize) + 1) };
+	}
+
+	/**
+	 * 改写快排，时间复杂度O(N）
+	 * 含义：在无序数组arr中，如果排序，arr[index]是什么
+	 * @param arr
+	 * @param index
+	 * @return
+	 */
+	public static int getMinKth(int[] arr, int index){
+		int L = 0;
+		int R = arr.length - 1;
+		int pivot = 0;
+		int[] range = null;
+
+		while (L < R){
+			pivot = arr[L + (int)Math.random() * (R - L + 1)];
+			range = partition(arr, L, R, pivot);
+			if (index < range[0]){
+				R = range[0] - 1;
+			} else if (index > range[1]){
+				L = range[1] + 1;
+			} else {
+				return pivot;
+			}
+		}
+
+		return arr[L];
 	}
 
 	// 利用bfprt算法求解，是O(N)的过程

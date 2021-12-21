@@ -3,6 +3,9 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term01.class03;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+/**
+ * bfprt算法
+ */
 public class Code01_FindMinKth {
 
 	public static class MaxHeapComparator implements Comparator<Integer> {
