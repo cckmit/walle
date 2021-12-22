@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.basic.zdemo.class02;
 
 import java.util.Stack;
 
+/**
+ * 1）如何用栈结构实现队列结构
+ */
 public class Code06_TwoStacksImplementQueue {
 
 	public static class TwoStacksQueue {

@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.basic.zdemo.class02;
 
+/**
+ * 环形数组
+ */
 public class Code04_RingArray {
 
 	public static class MyQueue {
