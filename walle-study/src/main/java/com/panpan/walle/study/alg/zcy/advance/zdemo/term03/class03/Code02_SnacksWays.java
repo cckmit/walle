@@ -52,6 +52,7 @@ public class Code02_SnacksWays {
 
 	public static int ways3(int[] arr, int w) {
 		int N = arr.length;
+		//dp[i][j]指的是选择放入0...i的物品，体积恰好是j,有多少种方法
 		int[][] dp = new int[N][w + 1];
 		for (int i = 0; i < N; i++) {
 			dp[i][0] = 1;
