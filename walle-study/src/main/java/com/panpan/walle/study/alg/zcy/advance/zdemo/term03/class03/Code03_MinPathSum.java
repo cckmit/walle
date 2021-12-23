@@ -1,5 +1,12 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class03;
 
+/**
+ * <p>给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
+ *
+ * @see <a href="https://leetcode-cn.com/problems/minimum-path-sum/">64. 最小路径和</a>
+ *
+ */
+
 public class Code03_MinPathSum {
 
 	public static int minPathSum1(int[][] m) {
@@ -10,12 +17,15 @@ public class Code03_MinPathSum {
 		int col = m[0].length;
 		int[][] dp = new int[row][col];
 		dp[0][0] = m[0][0];
+		//初始化第一列
 		for (int i = 1; i < row; i++) {
 			dp[i][0] = dp[i - 1][0] + m[i][0];
 		}
+		//初始化第一行
 		for (int j = 1; j < col; j++) {
 			dp[0][j] = dp[0][j - 1] + m[0][j];
 		}
+		//可能是从上面或者左面走过来，取二者中小的
 		for (int i = 1; i < row; i++) {
 			for (int j = 1; j < col; j++) {
 				dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + m[i][j];
@@ -45,8 +55,12 @@ public class Code03_MinPathSum {
 		}
 		return arr[less - 1];
 	}
-	
-	
+
+	/**
+	 * 二维空间压缩成一维空间， 滚动数组
+	 * @param m
+	 * @return
+	 */
 	public static int minPathSum3(int[][] m) {
 		if (m == null || m.length == 0 || m[0] == null || m[0].length == 0) {
 			return 0;

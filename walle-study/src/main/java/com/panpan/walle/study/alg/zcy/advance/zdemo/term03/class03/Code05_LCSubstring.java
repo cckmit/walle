@@ -1,5 +1,10 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class03;
 
+/**
+ * 最大公共子串
+ *
+ * {@link Code04_LCSubsequence}
+ */
 public class Code05_LCSubstring {
 
 	public static String lcst1(String str1, String str2) {
@@ -24,11 +29,13 @@ public class Code05_LCSubstring {
 
 	public static int[][] getdp(char[] str1, char[] str2) {
 		int[][] dp = new int[str1.length][str2.length];
+		//初始化第一列
 		for (int i = 0; i < str1.length; i++) {
 			if (str1[i] == str2[0]) {
 				dp[i][0] = 1;
 			}
 		}
+		//初始化第一行
 		for (int j = 1; j < str2.length; j++) {
 			if (str1[0] == str2[j]) {
 				dp[0][j] = 1;
