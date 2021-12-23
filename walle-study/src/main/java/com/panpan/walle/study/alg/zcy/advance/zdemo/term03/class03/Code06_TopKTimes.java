@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.PriorityQueue;
 
+/**
+ * 获取词频最高的前K个单词
+ *
+ * 思路：哈希表+小根堆
+ */
 public class Code06_TopKTimes {
 
 	public static class Node {
@@ -21,7 +26,7 @@ public class Code06_TopKTimes {
 
 		@Override
 		public int compare(Node o1, Node o2) {
-			return o2.times - o1.times;
+			return o1.times - o2.times;
 		}
 
 	}
@@ -38,6 +43,7 @@ public class Code06_TopKTimes {
 			map.put(str, map.get(str) + 1);
 		}
 		topK = Math.min(arr.length, topK);
+		//大小为K的小根堆
 		PriorityQueue<Node> heap = new PriorityQueue<>(new NodeComparator());
 		for (Entry<String, Integer> entry : map.entrySet()) {
 			Node cur = new Node(entry.getKey(), entry.getValue());
@@ -46,6 +52,7 @@ public class Code06_TopKTimes {
 			} else {
 				if (heap.peek().times < cur.times) {
 					heap.poll();
+					heap.add(cur);
 				}
 			}
 
