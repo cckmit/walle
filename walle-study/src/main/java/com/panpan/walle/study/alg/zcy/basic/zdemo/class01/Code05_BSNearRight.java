@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.basic.zdemo.class01;
 
 import java.util.Arrays;
 
+/**
+ * 二分查找 <= 最右的位置
+ */
 public class Code05_BSNearRight {
 
 	// 在arr上，找满足<=value的最右位置

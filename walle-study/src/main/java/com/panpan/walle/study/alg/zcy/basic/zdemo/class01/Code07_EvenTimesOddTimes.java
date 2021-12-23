@@ -1,5 +1,9 @@
 package com.panpan.walle.study.alg.zcy.basic.zdemo.class01;
 
+/**
+ * 1) 一个数组中有1种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这种数
+ * 1) 一个数组中有2种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这种数
+ */
 public class Code07_EvenTimesOddTimes {
 
 	// arr中，只有一种数，出现奇数次

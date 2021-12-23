@@ -2,6 +2,9 @@ package com.panpan.walle.study.alg.zcy.basic.zdemo.class01;
 
 import java.util.Arrays;
 
+/**
+ * 二分查找 >= 最左的位置
+ */
 public class Code05_BSNearLeft {
 
 	// 在arr上，找满足>=value的最左位置
@@ -11,7 +14,7 @@ public class Code05_BSNearLeft {
 		int index = -1; // 记录最左的对号
 		while (L <= R) {
 			int mid = L + ((R - L) >> 1);
-			if (arr[mid] >= value) {
+			if (arr[mid] >= value) {//相等的条件下，向左逼近
 				index = mid;
 				R = mid - 1;
 			} else {

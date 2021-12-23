@@ -2,6 +2,11 @@ package com.panpan.walle.study.alg.zcy.basic.zdemo.class02;
 
 import java.util.ArrayList;
 
+/**
+ * 翻转链表
+ *
+ * pre,next指针
+ */
 public class Code01_ReverseList {
 
 	public static class Node {
@@ -41,7 +46,7 @@ public class Code01_ReverseList {
 		while (head != null) {
 			next = head.next;
 			head.next = pre;
-			head.last = next;
+			head.last = next;//比单链表多一条指针
 			pre = head;
 			head = next;
 		}

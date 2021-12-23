@@ -61,19 +61,19 @@ public class Code07_KthMinPair {
 		// O(N*logN)
 		Arrays.sort(arr);	
 		// 第K小的数值对，第一维数字，是什么   是arr中
-		int fristNum = arr[(k - 1) / N];
-		int lessFristNumSize = 0;// 数出比fristNum小的数有几个
-		int fristNumSize = 0; // 数出==fristNum的数有几个
+		int firstNum = arr[(k - 1) / N];
+		int lessFirstNumSize = 0;// 数出比fristNum小的数有几个
+		int firstNumSize = 0; // 数出==fristNum的数有几个
 		// <= fristNum
-		for (int i = 0; i < N && arr[i] <= fristNum; i++) {
-			if (arr[i] < fristNum) {
-				lessFristNumSize++;
+		for (int i = 0; i < N && arr[i] <= firstNum; i++) {
+			if (arr[i] < firstNum) {
+				lessFirstNumSize++;
 			} else {
-				fristNumSize++;
+				firstNumSize++;
 			}
 		}
-		int rest = k - (lessFristNumSize * N);
-		return new int[] { fristNum, arr[(rest - 1) / fristNumSize] };
+		int rest = k - (lessFirstNumSize * N);
+		return new int[] { firstNum, arr[(rest - 1) / firstNumSize] };
 	}
 
 	// O(N)的复杂度，你肯定蒙了
