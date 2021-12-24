@@ -3,6 +3,10 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class04;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 双向链表节点结构和二叉树节点结构是一样的，如果你把last认为是left，next认为是right的话。
+ * 给定一个搜索二叉树的头节点head，请转化成一条有序的双向链表，并返回链表的头节点。
+ */
 public class Code02_BSTtoDoubleLinkedList {
 
 	public static class Node {

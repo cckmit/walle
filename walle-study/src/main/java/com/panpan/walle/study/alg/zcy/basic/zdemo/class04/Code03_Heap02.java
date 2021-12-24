@@ -5,6 +5,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
+/**
+ * 堆实现（支持对数据进行修改）
+ */
 public class Code03_Heap02 {
 
 	public static class MyHeap<T> {
