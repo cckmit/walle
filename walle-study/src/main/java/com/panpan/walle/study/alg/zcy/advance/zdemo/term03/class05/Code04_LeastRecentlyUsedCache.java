@@ -2,6 +2,10 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class05;
 
 import java.util.HashMap;
 
+/**
+ * LRU内存替换算法的实现
+ * 思路：哈希表，双向链表
+ */
 public class Code04_LeastRecentlyUsedCache {
 
 	// 
@@ -111,12 +115,13 @@ public class Code04_LeastRecentlyUsedCache {
 				node.value = value;
 				nodeList.moveNodeToTail(node);
 			} else { // 这是一个新加的记录，有可能出现替换
+				if (keyNodeMap.size() == capacity) {
+					removeMostUnusedCache();
+				}
+
 				Node<K, V> newNode = new Node<K, V>(key, value);
 				keyNodeMap.put(key, newNode);
 				nodeList.addNode(newNode);
-				if (keyNodeMap.size() == capacity + 1) {
-					removeMostUnusedCache();
-				}
 			}
 		}
 

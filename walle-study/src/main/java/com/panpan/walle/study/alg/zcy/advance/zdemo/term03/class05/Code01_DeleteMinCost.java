@@ -116,35 +116,44 @@ public class Code01_DeleteMinCost {
 		if (s1.length() == 0 || s2.length() == 0){
 			return s2.length();
 		}
-
 		char[] str2 = s2.toCharArray();
 		char[] str1 = s1.toCharArray();
 		int M = str2.length;
 		int N = str1.length;
 		int[][] dp = new int[M][N];
-		int ans = M;
+		int ans = M;//最差的情况是str2全部删除，变成str1的空子串
 
-		for (int start = 0; start < N; start++){
+		for (int start = 0; start < N; start++){//str1开始的列数
 			dp[0][start] = str2[0] == str1[start] ? 0 : M;
 			for (int row = 1; row < M; row++){
-				dp[row][start] = (str2[row] == str1[start] || dp[row-1][start] != M) ? row: M;
+				//1,当前字符相等（str2[row] == str1[start]）或者之前已经有字符相等了（dp[row-1][start] != M）
+				//则只需要把不相等的字符都删除了即可；2，否则不可能做到，置为M
+				dp[row][start] = (str2[row] == str1[start]
+						|| dp[row-1][start] != M) ? row: M;
 			}
 			ans = Math.min(ans, dp[M-1][start]);
 			//以上把dp[...][start...start]信息填好
-			//以下把dp[...][start...end]信息填好
-			for (int end = start+1; end < N && end -start < M;end++){
+			//以下把dp[...][start+1...N-1]信息填好
+			for (int end = start+1; end < N && end -start < M;end++){//end-start<M,str2如果是10个字符，不可能通过删除得到一个12长度的字符
+				//0...first-1行是不用管的，因为str2的字符数量比str1[start,end]少，不可能通过删除得到
+				//由于这些格子永远也用不到，也不需要都填充为M
 				int first = end - start;
+				//左上角的值（dp[first-1][end-1]）的必须是能对上，并且当前值能对的上（str2[first] == str1[end]）
 				dp[first][end] = (str2[first] == str1[end] && dp[first-1][end-1] != M) ? 0 :M;
 
+				//标准的编辑距离问题
 				for (int row = first+1; row < M; row++){
 					dp[row][end] = M;
+					//str2[0...row-1]可以转换成str1[start,end]，则只需要把str2[row]删除即可
 					if (dp[row-1][end] != M){
-						dp[row][end] = dp[row-1][end] + 1;
+						dp[row][end] = dp[row-1][end] + 1;//+1指的是删除一个字符
 					}
+					//最后一个字符相等的情况，并且str2[0...row-1]可以转换成str1[start,end]
 					if (dp[row-1][end-1] != M && str2[row] == str1[end]){
 						dp[row][end] = Math.min(dp[row][end], dp[row-1][end-1]);
 					}
 				}
+				//处理完最后一行，收集一次答案
 				ans = Math.min(ans, dp[M-1][end]);
 			}
 		}

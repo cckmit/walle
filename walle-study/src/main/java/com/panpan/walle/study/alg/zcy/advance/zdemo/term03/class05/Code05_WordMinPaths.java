@@ -8,16 +8,31 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
+/**
+ * 给定两个字符串，记为start和to，再给定一个字符串列表list，list中一定包含to list中没有重复字符串，所有的字符串都是小写的。
+ * 规定: start每次只能改变一个字符，最终的目标是彻底变成to，但是每次变成的新字符串必须在list 中存在。
+ * 请返回所有最短的变换路径。
+ * 【举例】
+ * start="abc",end="cab",list={"cab","acc","cbc","ccc","cac","cbb","aab","abb"}
+ * 转换路径的方法有很多种，但所有最短的转换路径如下:
+ * abc -> abb -> aab -> cab
+ * abc -> abb -> cbb -> cab
+ * abc -> cbc -> cac -> cab
+ * abc -> cbc -> cbb -> cab
+ */
 public class Code05_WordMinPaths {
 
-	public static List<List<String>> findMinPaths(String start, String to,
+	public static List<List<String>> findMinPaths(String start, String end,
 			List<String> list) {
 		list.add(start);
+		//生成邻居表 K-字符串，V-通过变换一个位置，可以得到的字符串
 		HashMap<String, ArrayList<String>> nexts = getNexts(list);
+		//求所有的字符串到start的最短距离是多少，宽度优先遍历（BFS）
 		HashMap<String, Integer> distances = getDistances(start, nexts);
 		LinkedList<String> pathList = new LinkedList<>();
 		List<List<String>> res = new ArrayList<>();
-		getShortestPaths(start, to, nexts, distances, pathList, res);
+		//深度优先遍历（DFS）
+		getShortestPaths(start, end, nexts, distances, pathList, res);
 		return res;
 	}
 
@@ -48,38 +63,40 @@ public class Code05_WordMinPaths {
 		return res;
 	}
 
+	//宽度优先遍历（BFS）
 	public static HashMap<String, Integer> getDistances(String start,
 			HashMap<String, ArrayList<String>> nexts) {
 		HashMap<String, Integer> distances = new HashMap<>();
 		distances.put(start, 0);
 		Queue<String> queue = new LinkedList<String>();
 		queue.add(start);
-		HashSet<String> set = new HashSet<String>();
-		set.add(start);
+		//是否已经处理过
+		HashSet<String> seen = new HashSet<String>();
+		seen.add(start);
 		while (!queue.isEmpty()) {
 			String cur = queue.poll();
 			for (String next : nexts.get(cur)) {
-				if (!set.contains(next)) {
+				if (!seen.contains(next)) {
 					distances.put(next, distances.get(cur) + 1);
 					queue.add(next);
-					set.add(next);
+					seen.add(next);
 				}
 			}
 		}
 		return distances;
 	}
 
-	private static void getShortestPaths(String cur, String to,
+	private static void getShortestPaths(String cur, String end,
 			HashMap<String, ArrayList<String>> nexts,
 			HashMap<String, Integer> distances, LinkedList<String> path,
 			List<List<String>> res) {
 		path.add(cur);
-		if (to.equals(cur)) {
-			res.add(new LinkedList<String>(path));
+		if (end.equals(cur)) {
+			res.add(new LinkedList<>(path));
 		} else {
 			for (String next : nexts.get(cur)) {
 				if (distances.get(next) == distances.get(cur) + 1) {
-					getShortestPaths(next, to, nexts, distances, path, res);
+					getShortestPaths(next, end, nexts, distances, path, res);
 				}
 			}
 		}
