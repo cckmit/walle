@@ -3,6 +3,14 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class04;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * 每个信封都有长和宽两个维度的数据，A信封如果想套在B信封里面，A信封必须在长和宽上都小于B信封才行。
+ * 如果给你一批信封，返回最大的嵌套层数
+ *
+ * 思路：
+ * 1）按照长度从小到大排序，宽度从大到小排序
+ * 2）把宽度单独拎出来，计算最长递增子序列
+ */
 public class Code05_EnvelopesProblem {
 
 	public static class Envelope {

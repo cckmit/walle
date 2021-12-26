@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class04;
 
+/**
+ * 给定一个数组arr，返回子数组的最大累加和。
+ */
 public class Code06_SubArrayMaxSum {
 
 	public static int maxSum(int[] arr) {

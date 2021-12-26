@@ -1,5 +1,9 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class04;
 
+/**
+ * 给定一个整型矩阵，返回子矩阵的最大累计和。
+ * 时间复杂度O(N^3)
+ */
 public class Code07_SubMatrixMaxSum {
 
 	public static int maxSum(int[][] m) {

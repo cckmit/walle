@@ -1,5 +1,10 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class05;
 
+/**
+ * 求完全二叉树节点的个数
+ *
+ * 要求时间复杂度低于O(N)
+ */
 public class Code03_CompleteTreeNodeNumber {
 
 	public static class Node {

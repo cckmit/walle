@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class04;
 
+/**
+ * 最长递增子序列问题的O(N*logN)的解法
+ */
 public class Code04_LIS {
 
 	public static int[] lis1(int[] arr) {
@@ -51,18 +54,24 @@ public class Code04_LIS {
 		return generateLIS(arr, dp);
 	}
 
+	/**
+	 * 辅助数组方案 时间复杂度O(N*logN）
+	 * @param arr
+	 * @return
+	 */
 	public static int[] getdp2(int[] arr) {
 		int[] dp = new int[arr.length];
 		int[] ends = new int[arr.length];
-		ends[0] = arr[0];
+		ends[0] = arr[0];//ends[i]表示长度为i+1的的子序列，最大值的最小值是多少
 		dp[0] = 1;
-		int right = 0;
+		int right = 0;//有效区域的最右边界；right往右无效区域
 		int l = 0;
 		int r = 0;
 		int m = 0;
 		for (int i = 1; i < arr.length; i++) {
 			l = 0;
 			r = right;
+			//二分查询大于当前值最左的位置
 			while (l <= r) {
 				m = (l + r) / 2;
 				if (arr[i] > ends[m]) {

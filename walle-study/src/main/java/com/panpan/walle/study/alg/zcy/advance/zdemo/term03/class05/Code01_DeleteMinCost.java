@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * 给定两个字符串s1和s2，问s2最少删除多少字符可以成为s1的子串？
+ * 比如 s1 = "abcde"，s2 = "axbc"
+ * 返回1。s2删掉'x'就是s1的子串了。
+ */
 public class Code01_DeleteMinCost {
 
 	// 题目：
@@ -57,6 +62,7 @@ public class Code01_DeleteMinCost {
 		char[] str2 = s2.toCharArray();
 		for (int start = 0; start < s1.length(); start++) {
 			for (int end = start + 1; end <= s1.length(); end++) {
+				//substring方法是左闭右开
 				ans = Math.min(ans, distance(str2, s1.substring(start, end).toCharArray()));
 			}
 		}
@@ -79,24 +85,70 @@ public class Code01_DeleteMinCost {
 		// 这要求str2[i] == s1sub[j]才有这种可能, 然后str2[0..i-1]变成s1sub[0..j-1]即可
 		// 也就是str2[i] == s1sub[j] 的条件下，dp[i][j] = dp[i-1][j-1]
 		dp[0][0] = str2[0] == s1sub[0] ? 0 : Integer.MAX_VALUE;
+		//初始化列，因为不允许插入行为，所以插入行为设置成Integer.MAX_VALUE
 		for (int j = 1; j < col; j++) {
 			dp[0][j] = Integer.MAX_VALUE;
 		}
+		//初始化行
+		//如果str2[i-1]可以通过删除到达s1sub[0],那么str2[i]只要再把str2[i]删除就可以了
+		//如果str2[i] == s2sub[0], 只要把str2[0...i-1]删除即可
 		for (int i = 1; i < row; i++) {
 			dp[i][0] = (dp[i - 1][0] != Integer.MAX_VALUE || str2[i] == s1sub[0]) ? i : Integer.MAX_VALUE;
 		}
 		for (int i = 1; i < row; i++) {
 			for (int j = 1; j < col; j++) {
 				dp[i][j] = Integer.MAX_VALUE;
+				//如果str2[0...i-1]可以转换成s1sub[j], 那么只要把str2[i]位置删除即可
 				if (dp[i - 1][j] != Integer.MAX_VALUE) {
 					dp[i][j] = dp[i - 1][j] + 1;
 				}
+				//如果str2[i]和s1sub[j]相等，并且str2[0...i-]可以转换成s1sub[0...j-1],也可以选择str2[0...i-1]=>s1sub[0...j-1]，再复制最后一个字符
 				if (str2[i] == s1sub[j] && dp[i - 1][j - 1] != Integer.MAX_VALUE) {
 					dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1]);
 				}
 			}
 		}
 		return dp[row - 1][col - 1];
+	}
+
+	//解法二的优化
+	public static int minCost3(String s1, String s2) {
+		if (s1.length() == 0 || s2.length() == 0){
+			return s2.length();
+		}
+
+		char[] str2 = s2.toCharArray();
+		char[] str1 = s1.toCharArray();
+		int M = str2.length;
+		int N = str1.length;
+		int[][] dp = new int[M][N];
+		int ans = M;
+
+		for (int start = 0; start < N; start++){
+			dp[0][start] = str2[0] == str1[start] ? 0 : M;
+			for (int row = 1; row < M; row++){
+				dp[row][start] = (str2[row] == str1[start] || dp[row-1][start] != M) ? row: M;
+			}
+			ans = Math.min(ans, dp[M-1][start]);
+			//以上把dp[...][start...start]信息填好
+			//以下把dp[...][start...end]信息填好
+			for (int end = start+1; end < N && end -start < M;end++){
+				int first = end - start;
+				dp[first][end] = (str2[first] == str1[end] && dp[first-1][end-1] != M) ? 0 :M;
+
+				for (int row = first+1; row < M; row++){
+					dp[row][end] = M;
+					if (dp[row-1][end] != M){
+						dp[row][end] = dp[row-1][end] + 1;
+					}
+					if (dp[row-1][end-1] != M && str2[row] == str1[end]){
+						dp[row][end] = Math.min(dp[row][end], dp[row-1][end-1]);
+					}
+				}
+				ans = Math.min(ans, dp[M-1][end]);
+			}
+		}
+		return ans;
 	}
 
 	// 以下的代码仅为了测试使用
@@ -144,6 +196,14 @@ public class Code01_DeleteMinCost {
 		for (int i = 0; i < testTime; i++) {
 			String[] test = generateTwoStrings();
 			if (minCost1(test[0], test[1]) != minCost2(test[0], test[1])) {
+				pass = false;
+				System.out.println(test[0]);
+				System.out.println(test[1]);
+				System.out.println(minCost1(test[0], test[1]));
+				System.out.println(minCost2(test[0], test[1]));
+				break;
+			}
+			if (minCost1(test[0], test[1]) != minCost3(test[0], test[1])) {
 				pass = false;
 				System.out.println(test[0]);
 				System.out.println(test[1]);
