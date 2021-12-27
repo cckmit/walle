@@ -95,11 +95,13 @@ public class Code05_WordMinPaths {
 			res.add(new LinkedList<>(path));
 		} else {
 			for (String next : nexts.get(cur)) {
+				//往更远的路径走，不要走回头路
 				if (distances.get(next) == distances.get(cur) + 1) {
 					getShortestPaths(next, end, nexts, distances, path, res);
 				}
 			}
 		}
+		//撤销path.add(cur)的现场，开始尝试其他的路径
 		path.pollLast();
 	}
 
