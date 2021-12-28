@@ -1,5 +1,12 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class06;
 
+/**
+ * 给定一个只由 0(假)、1(真)、&(逻辑与)、|(逻辑或)和^(异或)五种字符组成 的字符串express，再给定一个布尔值 desired。返回express能有多少种组合 方式，可以达到desired的结果。
+ * 【举例】
+ * express="1^0|0|1"，desired=false
+ * 只有 1^((0|0)|1)和 1^(0|(0|1))的组合可以得到 false，返回 2。 express="1"，desired=false
+ * 无组合则可以得到false，返回0
+ */
 public class Code02_ExpressionNumber {
 
 	public static boolean isValid(char[] exp) {
@@ -86,8 +93,8 @@ public class Code02_ExpressionNumber {
 	public static int dpLive(String express, boolean desired) {
 		char[] str = express.toCharArray();
 		int N = str.length;
-		int[][] tMap = new int[N][N];
-		int[][] fMap = new int[N][N];
+		int[][] tMap = new int[N][N];//true  map[i][j] => map[L][R]
+		int[][] fMap = new int[N][N];//false
 		for (int i = 0; i < N; i += 2) {
 			tMap[i][i] = str[i] == '1' ? 1 : 0;
 			fMap[i][i] = str[i] == '0' ? 1 : 0;
