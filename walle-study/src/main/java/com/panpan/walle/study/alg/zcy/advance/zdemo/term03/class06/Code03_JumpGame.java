@@ -1,5 +1,10 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class06;
 
+/**
+ * 给出一组正整数arr，你从第0个数向最后一个数，
+ * 每个数的值表示你从这个位置可以向右跳跃的最大长度
+ * 计算如何以最少的跳跃次数跳到最后一个数。
+ */
 public class Code03_JumpGame {
 
 	public static int jump(int[] arr) {
@@ -14,7 +19,7 @@ public class Code03_JumpGame {
 				step++;
 				cur = next;
 			}
-			next = Math.max(next, i + arr[i]);
+			next = Math.max(next, i + arr[i]);//如果再跳一步，最远能到哪
 		}
 		return step;
 	}
