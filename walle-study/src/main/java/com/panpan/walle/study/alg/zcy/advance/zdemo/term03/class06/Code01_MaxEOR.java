@@ -1,5 +1,11 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class06;
 
+/**
+ * 一个数组的异或和是指数组中所有的数异或在一起的结果
+ * 给定一个数组arr，求最大子数组异或和。
+ *
+ * 思路：异或和辅助数组，前缀树
+ */
 public class Code01_MaxEOR {
 
 	public static int maxXorSubarray1(int[] arr) {
@@ -54,7 +60,7 @@ public class Code01_MaxEOR {
 		// eori,和 ？ ^  最大的结果（返回）
 		public int maxXor(int eori) {
 			Node cur = head;
-			int res = 0;
+			int res = 0;//返回的结果
 			for (int move = 31; move >= 0; move--) {
 				int path = (eori >> move) & 1;
 				// 期待的路
