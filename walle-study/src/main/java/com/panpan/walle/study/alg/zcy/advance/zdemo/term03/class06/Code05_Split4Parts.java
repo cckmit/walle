@@ -3,6 +3,15 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class06;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * 给定一个正数数组arr，返回该数组能不能分成4个部分，并且每个部分的累加和相等，切分位置的数不要。
+ * 例如:
+ * arr=[3, 2, 4, 1, 4, 9, 5, 10, 1, 2, 2] 返回true
+ * 三个切割点下标为2, 5, 7. 切出的四个子数组为[3,2], [1,4], [5], [1,2,2]，
+ * 累加和都是5
+ *
+ * 思路：前缀和+哈希表
+ */
 public class Code05_Split4Parts {
 
 	public static boolean canSplits1(int[] arr) {
