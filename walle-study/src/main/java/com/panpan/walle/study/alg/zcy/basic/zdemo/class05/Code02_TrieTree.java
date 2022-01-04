@@ -5,6 +5,9 @@ import java.util.HashMap;
 // 该程序完全正确
 public class Code02_TrieTree {
 
+	/**
+	 * 基于数组的实现
+	 */
 	public static class Node1 {
 		public int pass;
 		public int end;
@@ -98,6 +101,9 @@ public class Code02_TrieTree {
 		}
 	}
 
+	/**
+	 * 基于哈希表的实现
+	 */
 	public static class Node2 {
 		public int pass;
 		public int end;

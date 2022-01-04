@@ -27,6 +27,14 @@ public class Code03_PartitionAndQuickSort {
 		return lessEqual;
 	}
 
+	/**
+	 * 荷兰国旗问题
+	 *
+	 * @param arr
+	 * @param L
+	 * @param R
+	 * @return
+	 */
 	public static int[] netherlandsFlag(int[] arr, int L, int R) {
 		if (L > R) {
 			return new int[] { -1, -1 };

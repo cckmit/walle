@@ -2,6 +2,11 @@ package com.panpan.walle.study.alg.zcy.basic.zdemo.class04;
 
 import java.util.PriorityQueue;
 
+/**
+ * 已知一个                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             。几乎有序是指，如果把数组排好顺序的话，每个元素移动的距离一定不超过k，并且k相对于数组长度来说是比较小的。
+ *
+ * 请选择一个合适的排序策略，对这个数组进行排序。
+ */
 public class Code05_SortArrayDistanceLessK {
 
 	public void sortedArrDistanceLessK(int[] arr, int k) {
