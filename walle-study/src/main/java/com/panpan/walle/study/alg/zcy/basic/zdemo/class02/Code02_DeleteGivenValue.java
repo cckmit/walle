@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.basic.zdemo.class02;
 
+/**
+ * 从链表中删除指定的值
+ */
 public class Code02_DeleteGivenValue {
 
 	public static class Node {
@@ -11,7 +14,15 @@ public class Code02_DeleteGivenValue {
 		}
 	}
 
+	/**
+	 * 链表中删除指定值
+	 *
+	 * @param head
+	 * @param num
+	 * @return
+	 */
 	public static Node removeValue(Node head, int num) {
+		//被删除的节点可能在表头
 		while (head != null) {
 			if (head.value != num) {
 				break;

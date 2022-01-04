@@ -1,5 +1,11 @@
 package com.panpan.walle.study.alg.zcy.basic.zdemo.class12;
 
+/**
+ * 给定数组arr，arr中所有的值都为正数且不重复
+ * 每个值代表一种面值的货币，每种面值的货币可以使用任意张
+ * 再给定一个整数 aim，代表要找的钱数
+ * 求组成 aim 的方法数
+ */
 public class Code09_CoinsWay {
 
 	// arr中都是正数且无重复值，返回组成aim的方法数

@@ -3,6 +3,9 @@ package com.panpan.walle.study.alg.zcy.basic.zdemo.class02;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 2）如何用队列结构实现栈结构
+ */
 public class Code07_TwoQueueImplementStack {
 
 	public static class TwoQueueStack<T> {

@@ -21,7 +21,6 @@
         <module>walle-infrastructure</module>
         <module>walle-study</module>
         <module>walle-schedule</module>
-        <module>walle-jjkj</module>
     </modules>
 
     <properties>
@@ -31,7 +30,7 @@
         <!-- mysql -->
         <mysql.version>5.1.40</mysql.version>
         <!-- hutool -->
-        <hutool.version>5.7.14</hutool.version>
+        <hutool.version>5.7.17</hutool.version>
         <fastjson.version>1.2.70</fastjson.version>
         <knife4j-version>2.0.8</knife4j-version>
         <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>

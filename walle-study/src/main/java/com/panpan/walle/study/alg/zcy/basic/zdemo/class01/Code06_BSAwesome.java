@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.basic.zdemo.class01;
 
+/**
+ * 局部最小值
+ */
 public class Code06_BSAwesome {
 
 	public static int getLessIndex(int[] arr) {
