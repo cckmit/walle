@@ -2,6 +2,11 @@ package com.panpan.walle.study.alg.zcy.basic.zdemo.class06;
 
 import java.util.Stack;
 
+/**
+ * 判断一个链表是否是回文
+ * 1）栈 空间复杂度O(N)
+ * 2) 栈 空间复杂度O(N/2)
+ */
 public class Code02_IsPalindromeList {
 
 	public static class Node {

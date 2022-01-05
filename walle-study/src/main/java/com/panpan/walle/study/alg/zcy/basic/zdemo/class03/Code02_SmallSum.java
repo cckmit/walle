@@ -34,12 +34,13 @@ public class Code02_SmallSum {
 	}
 
 	public static int merge(int[] arr, int L, int m, int r) {
-		int[] help = new int[r - L + 1];
+		int[] help = new int[r - L + 1];//排序之后的数组
 		int i = 0;
 		int p1 = L;
 		int p2 = m + 1;
 		int res = 0;
 		while (p1 <= m && p2 <= r) {
+			//收集答案
 			res += arr[p1] < arr[p2] ? (r - p2 + 1) * arr[p1] : 0;
 			help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
 		}
