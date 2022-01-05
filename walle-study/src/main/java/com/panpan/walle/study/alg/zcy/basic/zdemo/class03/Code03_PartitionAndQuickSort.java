@@ -95,8 +95,8 @@ public class Code03_PartitionAndQuickSort {
 		}
 		swap(arr, L + (int) (Math.random() * (R - L + 1)), R);
 		int[] equalArea = netherlandsFlag(arr, L, R);
-		process1(arr, L, equalArea[0] - 1);
-		process1(arr, equalArea[1] + 1, R);
+		process3(arr, L, equalArea[0] - 1);
+		process3(arr, equalArea[1] + 1, R);
 	}
 
 	// for test
