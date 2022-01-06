@@ -1,28 +1,31 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class08;
 
+/**
+ * 给定一个字符串，如果可以在任意位置添加字符，最少添加几个能让字符串整体都是回文串。
+ */
 public class Code06_PalindromeMinAdd {
 
-	public static String getPalindrome1(String str) {
-		if (str == null || str.length() < 2) {
-			return str;
+	public static String getPalindrome1(String s) {
+		if (s == null || s.length() < 2) {
+			return s;
 		}
-		char[] chas = str.toCharArray();
-		int[][] dp = getDP(chas);
-		char[] res = new char[chas.length + dp[0][chas.length - 1]];
+		char[] str = s.toCharArray();
+		int[][] dp = getDP(str);
+		char[] res = new char[str.length + dp[0][str.length - 1]];
 		int i = 0;
-		int j = chas.length - 1;
+		int j = str.length - 1;
 		int resl = 0;
 		int resr = res.length - 1;
 		while (i <= j) {
-			if (chas[i] == chas[j]) {
-				res[resl++] = chas[i++];
-				res[resr--] = chas[j--];
+			if (str[i] == str[j]) {
+				res[resl++] = str[i++];
+				res[resr--] = str[j--];
 			} else if (dp[i][j - 1] < dp[i + 1][j]) {
-				res[resl++] = chas[j];
-				res[resr--] = chas[j--];
+				res[resl++] = str[j];
+				res[resr--] = str[j--];
 			} else {
-				res[resl++] = chas[i];
-				res[resr--] = chas[i++];
+				res[resl++] = str[i];
+				res[resr--] = str[i++];
 			}
 		}
 		return String.valueOf(res);
