@@ -1,5 +1,12 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class08;
 
+/**
+ * 现有n1+n2种面值的硬币，其中前n1种为普通币，可以取任意枚，后n2种为纪念币， 每种最多只能取一枚，每种硬币有一个面值，问能用多少种方法拼出m的面值?
+ *
+ * 思路： 两次动态规划
+ * 第一次 枚举优化
+ * 第二次 经典背包问题
+ */
 public class Code02_MoneyWays {
 
 	public static int moneyWays(int[] arbitrary, int[] onlyone, int money) {
