@@ -21,10 +21,18 @@ public class V2exAlg {
                 {1,1,1,0,1},
                 {1,0,0,1,1,1},
                 {0,0,0,0,1,1,1}
-
         };
-
+//        int N = 5000;
+//        int[][] matrix = new int[N][N];
+//        Random random = new Random();
+//        for (int col = 0; col < N; col++){
+//            for (int row = col+1; row < N; row++){
+//                matrix[row][col] = random.nextInt(10) > 5 ? 1 : 0;
+//            }
+//        }
+        long start = System.currentTimeMillis();
         List<Integer> ans = f(matrix);
+        System.out.println("用时总共：" + (System.currentTimeMillis()-start)+"ms");
         System.out.println(ans);
     }
     public static List<Integer> f(int[][] matrix){
@@ -36,9 +44,8 @@ public class V2exAlg {
             nodes[i] = new Node(i);
         }
 
-
-
         //构建节点关联关系
+        //long start = System.currentTimeMillis();
         for (int col = 0; col < N; col++){
             for (int row = col+1; row < N; row++){
                 if (matrix[row][col] == 1){
@@ -47,6 +54,7 @@ public class V2exAlg {
                 }
             }
         }
+        //System.out.println("用时2：" + (System.currentTimeMillis()-start)+"ms");
 
         //构建大根堆，按照邻接数量从大到小排序
         MyHeap<Node> queue = new MyHeap<>(new Comparator<Node>() {
@@ -56,10 +64,18 @@ public class V2exAlg {
             }
         });
         //所有节点加入队列
+        List<Integer> ans = new LinkedList<>();
+        //start = System.currentTimeMillis();
         for (Node node: nodes){
+            if (node.nexts.size() == 0){
+                ans.add(node.index);
+                continue;
+            }
             queue.push(node);
         }
+        //System.out.println("用时3：" + (System.currentTimeMillis()-start)+"ms");
 
+        //start = System.currentTimeMillis();
         while (!queue.isEmpty() && queue.peek().nexts.size() > 0){
             Node node = queue.pop();
             for (Node nextItem: node.nexts){
@@ -68,9 +84,9 @@ public class V2exAlg {
                 queue.resign(nextItem);
             }
         }
+        //System.out.println("用时4：" + (System.currentTimeMillis()-start)+"ms");
 
         //收集答案
-        List<Integer> ans = new LinkedList<>();
         while (!queue.isEmpty()){
             ans.add(queue.pop().index);
         }
