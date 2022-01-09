@@ -1,5 +1,12 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term03.class08;
 
+/**
+ * 给定一个正数N，表示你在纸上写下1~N所有的数字
+ *
+ * 返回在书写的过程中，一共写下了多少个1
+ *
+ * 数位DP问题，考察概率极小
+ */
 public class Code03_OneNumber {
 
 	public static int solution1(int num) {
@@ -28,13 +35,19 @@ public class Code03_OneNumber {
 		if (num < 1) {
 			return 0;
 		}
+		// num = 13626
+		// len = 5位数
 		int len = getLenOfNum(num);
 		if (len == 1) {
 			return 1;
 		}
+		//tmp1 = 10000
 		int tmp1 = powerBaseOf10(len - 1);
+		//num最高位first=1
 		int first = num / tmp1;
+		//最高位是1的个数
 		int firstOneNum = first == 1 ? num % tmp1 + 1 : tmp1;
+		//其他为是1的个数
 		int otherOneNum = first * (len - 1) * (tmp1 / 10);
 		return firstOneNum + otherOneNum + solution2(num % tmp1);
 	}

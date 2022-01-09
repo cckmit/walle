@@ -5,6 +5,11 @@ import java.util.Comparator;
 
 /**
  * 安排会议问题
+ *
+ * 一些项目要占用一个会议室宣讲，会议室不能同时容纳两个项目的宣讲。
+ * 给你每一个项目开始的时间和结束的时间
+ * 你来安排宣讲的日程，要求会议室进行的宣讲的场次最多。
+ * 返回最多的宣讲场次。
  */
 public class Code04_BestArrange {
 
@@ -50,6 +55,12 @@ public class Code04_BestArrange {
 		return ans;
 	}
 
+	/**
+	 * 按照结束时间从小到大排序，依次安排
+	 *
+	 * @param programs
+	 * @return
+	 */
 	public static int bestArrange2(Program[] programs) {
 		Arrays.sort(programs, new ProgramComparator());
 		int timeLine = 0;
@@ -63,6 +74,9 @@ public class Code04_BestArrange {
 		return result;
 	}
 
+	/**
+	 * 按照结束时间，从小到大排序
+	 */
 	public static class ProgramComparator implements Comparator<Program> {
 
 		@Override
