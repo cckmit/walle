@@ -11,6 +11,7 @@ public class Code06_PalindromeMinAdd {
 		}
 		char[] str = s.toCharArray();
 		int[][] dp = getDP(str);
+		//根据DP还原出字符串
 		char[] res = new char[str.length + dp[0][str.length - 1]];
 		int i = 0;
 		int j = str.length - 1;
@@ -32,6 +33,7 @@ public class Code06_PalindromeMinAdd {
 	}
 
 	public static int[][] getDP(char[] str) {
+		//dp[i][j]指的是str[i..j]如果要变成回文，至少需要添加多少个字符
 		int[][] dp = new int[str.length][str.length];
 		for (int j = 1; j < str.length; j++) {
 			dp[j - 1][j] = str[j - 1] == str[j] ? 0 : 1;

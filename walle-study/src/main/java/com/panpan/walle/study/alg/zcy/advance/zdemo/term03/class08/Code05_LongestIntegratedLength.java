@@ -40,6 +40,12 @@ public class Code05_LongestIntegratedLength {
 		return true;
 	}
 
+	/**
+	 * 时间复杂度 O(N^2)
+	 *
+	 * @param arr
+	 * @return
+	 */
 	public static int getLIL2(int[] arr) {
 		if (arr == null || arr.length == 0) {
 			return 0;

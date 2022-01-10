@@ -1,7 +1,9 @@
 package com.panpan.walle.study.alg.zcy.basic.zdemo.class11;
 
 /**
- * 经典背包问题
+ * 0-1背包问题
+ *
+ * 完全背包问题，限制次数背包问题可以修改得到
  */
 public class Code07_Knapsack {
 

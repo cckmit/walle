@@ -13,8 +13,14 @@ public class Code04_ReverseStackUsingRecursive {
 		stack.push(i);
 	}
 
+	/**
+	 * 返回栈底元素
+	 *
+	 * @param stack
+	 * @return
+	 */
 	public static int f(Stack<Integer> stack) {
-		int result = stack.pop();
+		int result = stack.pop();//每次使用系统栈保存栈顶元素
 		if (stack.isEmpty()) {
 			return result;
 		} else {
