@@ -1,5 +1,10 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class02;
 
+/**
+ * 给定一个数组arr，从左到右表示昨天从早到晚股票的价格。作为一个事后诸葛亮，你想知道如果只做一次交易，且每次交易只买卖一股，返回能挣到的最大钱数
+ *
+ * 思路： 每次都比较和左侧最小值的差值
+ */
 public class Code01_BestTimetoBuyandSellStock1 {
 
 	public int maxProfit(int[] prices) {

@@ -1,5 +1,16 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class01;
 
+/**
+ * 给定一个二维数组matrix，可以从任何位置出发，每一步可以走向上、下、左、右，四个方向。返回最大递增链的长度。
+ * 例子：
+ * matrix =
+ * 5  4  3
+ * 3  1  2
+ * 2  1  3
+ * 从最中心的1出发，是可以走出1 2 3 4 5的链的，而且这是最长的递增链。所以返回长度5
+ *
+ * 思路： 暴力递归，dp
+ */
 public class Code01_LongestIncreasingPath {
 
 	public static int maxPath(int[][] matrix) {

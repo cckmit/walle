@@ -2,6 +2,12 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class01;
 
 import java.util.TreeSet;
 
+/**
+ * 给定一个数组arr，再给定一个k值
+ * 返回累加和小于等于k，但是离k最近的子数组累加和
+ *
+ * 思路： 前缀和，有序表
+ */
 public class Code02_MaxSubArraySumLessOrEqualK {
 
 	// 请返回arr中，求个子数组的累加和，是<=K的，并且是最大的。

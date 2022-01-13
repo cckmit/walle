@@ -17,12 +17,12 @@ public class SecretUtil {
     private static String enc(String s){
         String ret ;
         try{
-            ret = aes.encryptBase64(s);
+            ret = aes.encryptHex(s);
         } catch (Exception e){
             e.printStackTrace();
             ret = "";
         }
-        return ret;
+        return ret.toUpperCase(Locale.ROOT);
     }
 
     private static String den(String s){
@@ -144,25 +144,30 @@ public class SecretUtil {
                 decrypt(f.get(obj));
             }
         }
-
     }
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException {
-        ReqVo reqVo = new ReqVo();
-        reqVo.setValue("hello");
-        reqVo.setClearValue("hello11111");
-        reqVo.setSenList(Arrays.asList("111","2222"));
-        reqVo.setStrSet(new HashSet(Arrays.asList("111","2222")));
-        reqVo.setClazz(new Clazz("aaaa"));
-        reqVo.setClazzList(Arrays.asList(new Clazz("aaaa"),new Clazz("bbbb")));
-        encrypt(reqVo);
+//        ReqVo reqVo = new ReqVo();
+//        reqVo.setValue("hello");
+//        reqVo.setClearValue("hello11111");
+//        reqVo.setSenList(Arrays.asList("111","2222"));
+//        reqVo.setStrSet(new HashSet(Arrays.asList("111","2222")));
+//        reqVo.setClazz(new Clazz("aaaa"));
+//        reqVo.setClazzList(Arrays.asList(new Clazz("aaaa"),new Clazz("bbbb")));
+//        encrypt(reqVo);
+//
+//        System.out.println("加密后结果");
+//        System.out.println(reqVo);
+//
+//        decrypt(reqVo);
+//        System.out.println("解密后结果");
+//        System.out.println(reqVo);
 
-        System.out.println("加密后结果");
-        System.out.println(reqVo);
+        for (int i = 0; i < 1000; i++){
+            Long key = 0x7f98938fe846fef3L;
 
-        decrypt(reqVo);
-        System.out.println("解密后结果");
-        System.out.println(reqVo);
+            System.out.println(i ^ key);
+        }
         }
 }
 

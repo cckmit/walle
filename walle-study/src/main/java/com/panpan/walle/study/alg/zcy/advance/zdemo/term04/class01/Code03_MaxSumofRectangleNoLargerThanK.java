@@ -2,6 +2,13 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class01;
 
 import java.util.TreeSet;
 
+/**
+ * 给定一个二维数组matrix，再给定一个k值
+ * 返回累加和小于等于k，但是离k最近的子矩阵累加和
+ *
+ * 思路：矩阵压缩
+ * {@link Code02_MaxSubArraySumLessOrEqualK}
+ */
 public class Code03_MaxSumofRectangleNoLargerThanK {
 
 	public static int maxSumSubmatrix(int[][] matrix, int k) {
