@@ -1,5 +1,12 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class02;
 
+/**
+ * 给定一个矩阵matrix，先从左上角开始，每一步只能往右或者往下走，
+ * 走到右下角。然后从右下角出发，每一步只能往上或者往左走，再回到左上角。
+ * 任何一个位置的数字，只能获得一遍。返回最大路径和。
+ *
+ * 思路：两个小人A和B，同时向下走和向右走
+ */
 public class Code06_CherryPickup {
 
 	// 从matrix左上角，走到右下角，过程中只能向右或者向下
