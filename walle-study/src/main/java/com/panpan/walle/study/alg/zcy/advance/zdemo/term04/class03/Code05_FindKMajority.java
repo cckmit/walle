@@ -5,11 +5,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 
+/**
+ * 1)给定一个数组arr，如果有某个数出现次数超过了数组长度的一半，打印这个数，如果没有不打印
+ *
+ * 2)给定一个数组arr和整数k，arr长度为N，如果有某些数出现次数超过了N/K，打印这些数，如果没有不打印
+ */
 public class Code05_FindKMajority {
 
 	public static void printHalfMajor(int[] arr) {
-		int cand = 0;
-		int HP = 0;
+		int cand = 0;//候选人，candidate
+		int HP = 0; //血量，不小于0；大于0是，cand有效
 		for (int i = 0; i < arr.length; i++) {
 			if (HP == 0) {
 				cand = arr[i];

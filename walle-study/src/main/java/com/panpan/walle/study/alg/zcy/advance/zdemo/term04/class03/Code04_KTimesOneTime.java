@@ -1,11 +1,18 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class03;
 
-// 这个代码废掉了，因为我写了一个更猛的
-// 更猛的链接：https://github.com/algorithmzuo/algorithmbasic2020/blob/master/src/class02/Code03_KM.java
-// 更猛的原因，因为上面链接里的代码解决了以下这个问题：
-// 一个数组中，只有一个数出现k次，其他所有数出现m次，怎么找到这个出现了k次的数，已知k<m，要求时间复杂度O(N)
-// 可以看到，本题就是更猛问题的一个特例，而且都是O(N)就很好了
-// 讲解在“体系学习班第2节”
+/**
+ *  这个代码废掉了，因为我写了一个更猛的
+ *  更猛的链接：https://github.com/algorithmzuo/algorithmbasic2020/blob/master/src/class02/Code03_KM.java
+ *  {@link Code04_KTimesMTimes}
+ *  更猛的原因，因为上面链接里的代码解决了以下这个问题：
+ *  一个数组中，只有一个数出现k次，其他所有数出现m次，怎么找到这个出现了k次的数，已知k<m，要求时间复杂度O(N)
+ *  可以看到，本题就是更猛问题的一个特例，而且都是O(N)就很好了
+ *  讲解在“体系学习班第2节”
+  */
+
+/**
+ * 给定一个数组arr，已知除了一种数只出现1次之外，剩下所有的数都出现了k次，如何使用O(1)的额外空间，找到这个数。
+ */
 public class Code04_KTimesOneTime {
 
 	public static int onceNum(int[] arr, int k) {

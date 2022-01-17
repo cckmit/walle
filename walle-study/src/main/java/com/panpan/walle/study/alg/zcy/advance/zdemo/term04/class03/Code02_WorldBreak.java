@@ -2,6 +2,13 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class03;
 
 import java.util.HashSet;
 
+/**
+ * 假设所有字符都是小写字母.   长字符串是str
+ * arr是去重的单词表, 每个单词都不是空字符串且可以使用任意次
+ * 使用arr中的单词有多少种拼接str的方式，返回方法数.
+ *
+ * 思路：前缀树， dp
+ */
 public class Code02_WorldBreak {
 	/*
 	 * 
@@ -68,8 +75,8 @@ public class Code02_WorldBreak {
 			map.add(s);
 		}
 		int N = str.length();
-		int[] dp = new int[N + 1];
-		dp[N] = 1;
+		int[] dp = new int[N + 1]; //dp[i],指的是用arr组合成str[i...]有多少种组合方案
+		dp[N] = 1;//组成空字符串的方案数
 		for (int i = N - 1; i >= 0; i--) {
 			for (int end = i; end < N; end++) {
 				if (map.contains(str.substring(i, end + 1))) {

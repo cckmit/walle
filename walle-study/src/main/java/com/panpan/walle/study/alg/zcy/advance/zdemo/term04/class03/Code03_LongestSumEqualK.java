@@ -2,6 +2,14 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class03;
 
 import java.util.HashMap;
 
+/**
+ * 给定一棵二叉树的头节点head，和一个数K
+ * 路径的定义:
+ * 可以从任何一个点开始，但是只能往下走，往下可以走到任何节点停止
+ * 返回路径累加和为K的所有路径中，最长的路径最多有几个节点？
+ *
+ * 思路：前缀和，DFS
+ */
 public class Code03_LongestSumEqualK {
 
 	public static class Node {
