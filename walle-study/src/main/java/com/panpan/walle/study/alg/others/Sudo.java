@@ -1,53 +1,41 @@
 package com.panpan.walle.study.alg.others;
 
-import java.util.*;
+import com.alibaba.fastjson.JSON;
 
-/**
- * 高阶数独问题
- */
 public class Sudo {
-    public static void sudo_9(int[][] matrix){
-        List<List<Integer>> candList = new ArrayList<>();
-        //初始化候选词为全量
-        for (int i = 0; i < 9; i++){
-            candList.add(new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9)));
+    public static void f(int[][] m){
+        int[] cands = {1,2,3,4,5,6,7,8,9};
+
+        g(m, cands, 0);
+    }
+
+    private static void g(int[][] m, int[] cands, int i){
+        if (i == cands.length){
+            System.out.println("cands=" + JSON.toJSONString(cands));
+            return;
         }
 
-        //获取可用的候选词
-        for (int i = 0; i < 9; i++){
-            int r = i / 3;
-            int c = i % 3;
-            for (int col = c * 3; col < (c+1)*3; col++){
-                for (int row = r * 3; row < (r+1)*3; row++){
-                    if (matrix[row][col] > 0){
-                        candList.get(i).remove(matrix[row][col]);
-                    }
-                }
+        for (int j = i; j < cands.length; j++){
+            swap(cands, i, j);
+            int mValue = m[i/3][i%3];
+            if (mValue == 0 || mValue == cands[i]) {
+                g(m, cands, i + 1);
             }
+            swap(cands, j, i);
         }
-
-        int[][] bigRow0 = getAvailableBigRow(matrix, 0);
-        int[][] bigRow1 = getAvailableBigRow(matrix, 1);
-        int[][] bigRow2 = getAvailableBigRow(matrix, 2);
-
     }
 
-    private static int[][] getAvailableBigRow(int[][] matrix, int i) {
-        int[][] bigCol0 = getAvailableBigCol(matrix, 0);
-        int[][] bigCol1 = getAvailableBigCol(matrix, 1);
-        int[][] bigCol2 = getAvailableBigCol(matrix, 2);
-
-        return null;
-
+    private static void swap(int[] arr, int i, int j){
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 
-    private static int[][] getAvailableBigCol(int[][] matrix, int i) {
-        return null;
+    public static void main(String[] args) {
+        int[][] m = new int[][]{
+                {1,0,3},
+                {0,0,0},
+                {7,9,8}};
+        f(m);
     }
-
-
-    private static boolean isOk(int[][] matrix) {
-        return false;
-    }
-
 }
