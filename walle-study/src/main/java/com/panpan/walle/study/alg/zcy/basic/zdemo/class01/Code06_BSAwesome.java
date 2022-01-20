@@ -9,9 +9,17 @@ public class Code06_BSAwesome {
 		if (arr == null || arr.length == 0) {
 			return -1; // no exist
 		}
-		if (arr.length == 1 || arr[0] < arr[1]) {
+
+		//只有一个元素
+		if (arr.length == 1) {
 			return 0;
 		}
+
+		//处理两端的情况
+		if (arr[0] < arr[1]){
+			return 0;
+		}
+
 		if (arr[arr.length - 1] < arr[arr.length - 2]) {
 			return arr.length - 1;
 		}
