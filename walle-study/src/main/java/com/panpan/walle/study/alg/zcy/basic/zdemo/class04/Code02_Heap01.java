@@ -51,7 +51,7 @@ public class Code02_Heap01 {
 
 		private void heapify(int[] arr, int index, int heapSize) {
 			int left = index * 2 + 1;
-			while (left < heapSize) {
+			while (left < heapSize) {//heapSize越界限制，parent,left, right PK
 				//父节点下沉
 				int largest = left + 1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;
 				largest = arr[largest] > arr[index] ? largest : index;

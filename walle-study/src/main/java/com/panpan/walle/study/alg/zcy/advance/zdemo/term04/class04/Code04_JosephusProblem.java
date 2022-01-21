@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class04;
 
+/**
+ * 约瑟夫环问题
+ */
 public class Code04_JosephusProblem {
 
 	public static class Node {
