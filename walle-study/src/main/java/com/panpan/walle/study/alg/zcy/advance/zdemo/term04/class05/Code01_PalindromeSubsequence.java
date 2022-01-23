@@ -1,5 +1,8 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class05;
 
+/**
+ * 给定一个字符串str，求最长回文子序列长度
+ */
 public class Code01_PalindromeSubsequence {
 
 	public static int maxLen1(String str) {
