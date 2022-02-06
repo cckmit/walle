@@ -3,10 +3,16 @@ package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class07;
 import java.util.HashSet;
 import java.util.TreeSet;
 
+/**
+ * 给定一个非负数组arr，和一个正数m
+ *  返回arr的所有子序列中累加和%m之后的最大值。
+ */
 public class Code04_SubsquenceMaxModM {
 
 	/*
 	 * 给定一个非负数组arr，和一个正数m。 返回arr的所有子序列中累加和%m之后的最大值。
+	 *
+	 * 暴力枚举所有可能性
 	 * 
 	 */
 
@@ -29,6 +35,13 @@ public class Code04_SubsquenceMaxModM {
 		}
 	}
 
+	/**
+	 * sum规模不太大的情况
+	 *
+	 * @param arr
+	 * @param m
+	 * @return
+	 */
 	public static int max2(int[] arr, int m) {
 		int sum = 0;
 		int N = arr.length;
@@ -58,6 +71,13 @@ public class Code04_SubsquenceMaxModM {
 
 	}
 
+	/**
+	 * m规模不是很大的情况
+	 *
+	 * @param arr
+	 * @param m
+	 * @return
+	 */
 	public static int max3(int[] arr, int m) {
 		int N = arr.length;
 		boolean[][] dp = new boolean[N][m];
