@@ -47,10 +47,13 @@ public class Code01_PalindromeSubsequence {
 			return 0;
 		}
 		char[] str = s.toCharArray();
+		//dp[i][j]指的是str[i..j]最大回文子串
 		int[][] dp = new int[str.length][str.length];
+		//只有一个字符，最大回文子串都是1
 		for (int i = 0; i < str.length; i++) {
 			dp[i][i] = 1;
 		}
+		//如果有两个字符，如果两个字符相同，res=2, 否则，res=1
 		for (int i = 0; i < str.length - 1; i++) {
 			dp[i][i + 1] = str[i] == str[i + 1] ? 2 : 1;
 		}
