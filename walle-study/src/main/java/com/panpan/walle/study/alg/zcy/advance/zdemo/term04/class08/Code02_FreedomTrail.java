@@ -1,17 +1,33 @@
 package com.panpan.walle.study.alg.zcy.advance.zdemo.term04.class08;
 
+import cn.hutool.core.util.RandomUtil;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * 514. 自由之路
+ *
+ * {@link  com.panpan.walle.study.alg.leetcode.Problem_0514_FindRotateSteps}
+ */
 public class Code02_FreedomTrail {
 
 	public static int dial(int i1, int i2, int size) {
 		return Math.min(Math.abs(i1 - i2), Math.min(i1, i2) + size - Math.max(i1, i2));
 	}
 
+	public static int dial2(int i1, int i2, int size) {
+
+		int l = i1 < i2 ? i1: i2;
+		int h = i1 >= i2 ? i1: i2;
+
+		return Math.min(h-l, l+size-h);
+	}
+
 	public static int findRotateSteps1(String r, String k) {
 		char[] ring = r.toCharArray();
 		int rsize = ring.length;
+		//每一个字符对应的位置列表
 		HashMap<Character, ArrayList<Integer>> map = new HashMap<>();
 		for (int i = 0; i < rsize; i++) {
 			if (!map.containsKey(ring[i])) {
@@ -39,6 +55,7 @@ public class Code02_FreedomTrail {
 		}
 		int ans = Integer.MAX_VALUE;
 		// key[keyIndex]
+		//依次尝试该字符出现的每一个位置
 		for (int curStrIndex : map.get(key[keyIndex])) {
 			int step = dial(preStrIndex, curStrIndex, rsize) + 1
 					+ minSteps1(curStrIndex, keyIndex + 1, key, map, rsize);
@@ -87,4 +104,21 @@ public class Code02_FreedomTrail {
 
 	// 彻底动态规划的方法请同学们自己改出
 
+
+	public static void main(String[] args) {
+		for(int i =0; i < 100;i++){
+			int i1 = RandomUtil.randomInt(0,100);
+			int i2 = RandomUtil.randomInt(0,100);
+
+			int r1 = dial(i1, i2, 100);
+			int r2 = dial2(i1, i2, 100);
+
+			if (r1 != r2){
+				System.out.println("oops!");
+				break;
+			}
+		}
+
+		System.out.println("finished!");
+	}
 }

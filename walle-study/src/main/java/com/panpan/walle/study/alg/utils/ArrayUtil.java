@@ -1,5 +1,7 @@
 package com.panpan.walle.study.alg.utils;
 
+import cn.hutool.core.util.StrUtil;
+
 import java.util.Arrays;
 
 public class ArrayUtil {
@@ -71,11 +73,22 @@ public class ArrayUtil {
             return;
         }
 
+
+        int maxLen = 0;
+        for(int[] a: array) {
+            for (int e : a) {
+                maxLen = Math.max(maxLen, String.valueOf(e).length());
+            }
+        }
         for(int[] a: array){
             for(int e: a){
-                System.out.printf("%d ", e);
+                System.out.printf(StrUtil.format("%{}d", maxLen+3), e);
             }
             System.out.println();
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.printf(StrUtil.format("%{}d", 10), 4);
     }
 }
