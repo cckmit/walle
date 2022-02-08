@@ -10,7 +10,7 @@
         <version>2.3.7.RELEASE</version>
     </parent>
 
-    <groupId>com.panpan.walle</groupId>
+    <groupId>com.zaqbest.walle</groupId>
     <artifactId>walle-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -37,28 +37,28 @@
         <nacos-discovery-spring-boot.version>0.2.1</nacos-discovery-spring-boot.version>
         <nacos.client.version>0.6.2</nacos.client.version>
         <nacos.dubbo.version>0.0.2</nacos.dubbo.version>
-        <junit.version>4.12</junit.version>
+        <junit-jupiter.version>5.7.1</junit-jupiter.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.panpan.walle</groupId>
+                <groupId>com.zaqbest.walle</groupId>
                 <artifactId>walle-infrastructure</artifactId>
                 <version>${walle.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.panpan.walle</groupId>
+                <groupId>com.zaqbest.walle</groupId>
                 <artifactId>walle-controller</artifactId>
                 <version>${walle.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.panpan.walle</groupId>
+                <groupId>com.zaqbest.walle</groupId>
                 <artifactId>walle-schedule</artifactId>
                 <version>${walle.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.panpan.walle</groupId>
+                <groupId>com.zaqbest.walle</groupId>
                 <artifactId>walle-app</artifactId>
                 <version>${walle.version}</version>
             </dependency>
@@ -154,6 +154,12 @@
                 <scope>test</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
@@ -165,10 +171,22 @@
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
