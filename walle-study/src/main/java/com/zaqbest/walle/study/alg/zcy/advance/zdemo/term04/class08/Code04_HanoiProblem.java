@@ -1,5 +1,21 @@
 package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term04.class08;
 
+/**
+ * 汉诺塔游戏的要求把所有的圆盘从左边都移到右边的柱子上，给定一个整型数组arr，
+ * 其中只含有1、2和3，代表所有圆盘目前的状态，1代表左柱，2代表中柱，3代表右柱，
+ * arr[i]的值代表第i+1个圆盘的位置。 比如，arr=[3,3,2,1]，
+ * 代表第1个圆盘在右柱上、第2个圆盘在右柱上、第3个圆盘在中 柱上、第4个圆盘在左柱上
+ * 如果arr代表的状态是最优移动轨迹过程中出现的状态，返回arr这种状态是最优移动轨迹中的第几个状态;
+ * 如果arr代表的状态不是最优移动轨迹过程中出现的状态，则返回- 1。
+ *
+ * 补充知识
+ * 汉诺塔 最优步数为 2^n-1
+ *
+ * 总流程
+ * 1）1..N-1 从 from->other
+ * 2) N 从 from -> to
+ * 3) 1..N-1 从other->to
+ */
 public class Code04_HanoiProblem {
 
 	public static int step1(int[] arr) {
@@ -27,6 +43,9 @@ public class Code04_HanoiProblem {
 			if (rest == -1) {
 				return -1;
 			}
+			//1)0..i-1 从 from->other, 2^i-1
+			//2)i from->to, 需要一步
+			// 总共需要 2^i-1+1
 			return (1 << i) + rest;
 		}
 	}
