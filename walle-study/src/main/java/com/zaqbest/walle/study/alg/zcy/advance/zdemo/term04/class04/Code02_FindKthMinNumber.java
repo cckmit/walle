@@ -7,6 +7,8 @@ import java.util.Arrays;
  * A是长度为m、元素从小到大排好序了
  * B是长度为n、元素从小到大排好序了
  * 希望从A和B数组中，找出最大的k个数字
+ *
+ * {@link com.zaqbest.walle.study.alg.leetcode.Problem_0002_FindMedianSortedArrays}
  */
 public class Code02_FindKthMinNumber {
 
