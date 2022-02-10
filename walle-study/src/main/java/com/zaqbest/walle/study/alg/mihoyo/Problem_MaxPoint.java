@@ -51,12 +51,12 @@ public class Problem_MaxPoint {
             point += heap.poll().point;
         }
 
-        return 2 * point - pointAll;
+        return 2 * point - pointAll; // point - (pointALl - point)
     }
 
     public static void main(String[] args) {
-        int[] t = {1,1,1,2,2,3,3};
-        int[] w = {1,1,1,3,1,5,4};
+        int[] t = {1,1,1,2,2,3,3,5,6,6};
+        int[] w = {1,1,1,3,1,5,4,1,9,1};
 
         System.out.println(maxPoint(t, w));
     }
