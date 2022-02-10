@@ -58,7 +58,7 @@ public class Problem_MaxLenghtContains1807 {
         System.out.println(maxLength(s));
         s = "111x180777777777777777";
         System.out.println(maxLength(s));
-        s = "111x180x777777777777777";
+        s = "s1807b1881800777777q";
         System.out.println(maxLength(s));
     }
 }
