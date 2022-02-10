@@ -6,37 +6,37 @@ public class TreeNodeUtil {
     /**
      * 创建一棵树
      *
-     * @param data
+     * @param nums
      * @return
      */
-    public static TreeNode createTree(Integer[] data){
-        TreeNode root;
-
-        if (data.length == 0)
+    public static TreeNode createTree(Integer[] nums){
+        if(nums==null||nums.length==0)
             return null;
+        int len=nums.length;
+        int index=0;
+        TreeNode head=new TreeNode(nums[index]);
+        Deque<TreeNode> nodeQueue = new LinkedList<>();
+        nodeQueue.offer(head);
+        TreeNode cur;
+        while (index<len){
+            index++;
+            if (index>=len)return head;
+            cur=nodeQueue.poll();
+            Integer left=nums[index];
+            if (left!=null){
+                cur.left=new TreeNode(left);
+                nodeQueue.offer(cur.left);
+            }
 
-        Queue<TreeNode> queue = new LinkedList<>();
-        root = new TreeNode(data[0]);
-        queue.add(root);
-        int curIndex = 1;
-
-        while (!queue.isEmpty() && curIndex < data.length){
-            TreeNode curNode = queue.remove();
-
-            Integer n =  data[curIndex++];
-            curNode.left = n == null ? null : new TreeNode(n);
-
-            if (curNode.left != null) queue.add(curNode.left);
-
-            //右子树可能没有数据了，需要处理越界
-            if (curIndex < data.length){
-                n =  data[curIndex++];
-                curNode.right = n == null ? null : new TreeNode(n);
-                if (curNode.right != null) queue.add(curNode.right);
+            index++;
+            if (index>=len)return head;
+            Integer right=nums[index];
+            if (right!=null){
+                cur.right=new TreeNode(right);
+                nodeQueue.offer(cur.right);
             }
         }
-
-        return root;
+        return head;
     }
 
     /**

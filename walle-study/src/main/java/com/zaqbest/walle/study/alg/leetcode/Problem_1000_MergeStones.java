@@ -18,7 +18,7 @@ public class Problem_1000_MergeStones{
         return process1(0, n - 1, 1, stones, K, presum);
     }
 
-    // part >= 1
+    // part >= 1, 最终要合并成多少个部分
     // arr[L..R]  一定要弄出part份，返回最低代价
     // arr、K、presum（前缀累加和数组，求i..j的累加和，就是O(1)了）
     public static int process1(int L, int R, int part, int[] arr, int K, int[] presum) {
@@ -31,12 +31,13 @@ public class Problem_1000_MergeStones{
             if (next == -1) {
                 return -1;
             } else {
+                //现将所有部分合并成K个部分的成本，再加上所有K部分合并起来的成本
                 return next + presum[R + 1] - presum[L];
             }
         } else { // P > 1
             int ans = Integer.MAX_VALUE;
             // L...mid是第1块，剩下的是part-1块
-            for (int mid = L; mid < R; mid += K - 1) {
+            for (int mid = L; mid < R; mid += K - 1) {//此处写错mid++也是可以的，只是多了些无效的计算
                 // L..mid(一份)   mid+1...R(part - 1)
                 int next1 = process1(L, mid, 1, arr, K, presum);
                 int next2 = process1(mid + 1, R, part - 1, arr, K, presum);
@@ -48,6 +49,13 @@ public class Problem_1000_MergeStones{
         }
     }
 
+    /**
+     * 增加了记忆化搜索的版本（没有本质区别）
+     * 
+     * @param stones
+     * @param K
+     * @return
+     */
     public static int mergeStones2(int[] stones, int K) {
         int n = stones.length;
         if ((n - 1) % (K - 1) > 0) {

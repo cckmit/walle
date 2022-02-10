@@ -11,15 +11,21 @@ import java.util.PriorityQueue;
  * 2)被项目经理润色出来的时间点
  * 3)项目优先级
  * 4)项目花费的时间
+ *
  * 项目经理们可以提交项目给程序员们，程序员可以做这些项目。
- * 比如长度为4的数组[1, 3, 2, 2]，表示1号项目经理提的，被项目经理润色出来的时间点是3，优先级2，花 费程序员2个时间。
+ * 比如长度为4的数组[1, 3, 2, 2]，表示1号项目经理提的，被项目经理润色出来的时间点是3，优先级2，花费程序员2个时间。
  * 所以给一个N*4的矩阵，就可以代表N个项目。
  *
- * 给定一个正数pm，表示项目经理的数量，每个项目经理只负责自己的那些项目，并且一次只能提交一个项目 给程序员们，这个提交的项目做完了，才能再次提交。
- * 经理对项目越喜欢，就会越早提交。一个项目优先级越高越被喜欢;如果优先级一样，花费时间越少越喜欢; 如果还一样，被项目经理润色出来的时间点越早越喜欢。
+ * 给定一个正数pm，表示项目经理的数量，每个项目经理只负责自己的那些项目，并且一次只能提交一个项目给程序员们，这个提交的项目做完了，才能再次提交。
+ * 1) 经理对项目越喜欢，就会越早提交。
+ * 2 ) 一个项目优先级越高越被喜欢;
+ * 3) 如果优先级一样，花费时间越少越喜欢;
+ * 4) 如果还一样，被项目经理润色出来的时间点越早越喜欢。
  *
- * 给定一个正数sde，表示程序员的数量，所有经理提交了的项目，程序员会选自己喜欢的项目做，每个人做 完了一个项目，然后才会再来挑选。
- * 当程序员在挑选项目时，有自己的喜欢标准。一个项目花费时间越少越被喜欢;如果花费时间一样，该项目 的负责人编号越小越被喜欢。
+ * 给定一个正数sde(software development enginee)，表示程序员的数量，所有经理提交了的项目，程序员会选自己喜欢的项目做，每个人做 完了一个项目，然后才会再来挑选。
+ * 当程序员在挑选项目时，有自己的喜欢标准。
+ * 1) 一个项目花费时间越少越被喜欢;
+ * 2) 如果花费时间一样，该项目的负责人编号越小越被喜欢。
  *
  * 返回一个长度为N的数组，表示N个项目的结束时间。
  * 比如:
@@ -31,7 +37,7 @@ import java.util.PriorityQueue;
 public class Code01_SDEandPM {
 
 	public static class Program {
-		public int index; //项目的输入序号
+		public int index; //项目的输入序号,0,1,2,3,...
 		public int pm; //项目经理编号
 		public int start; //开始时间
 		public int rank; //优先级
@@ -61,7 +67,7 @@ public class Code01_SDEandPM {
 
 	}
 
-	// 大黑盒
+	// 大黑盒（最大大小为pmSize)
 	// 每一个pm，有自己的堆(PmLoveRule)
 	// 每一个pm的堆里有堆顶，所有的堆顶会再组成一个，程序员堆(程序员喜好)
 	// void add(...)  项目  pop()
@@ -128,6 +134,11 @@ public class Code01_SDEandPM {
 			return head;
 		}
 
+		/**
+		 * 向上移动的过程
+		 *
+		 * @param index
+		 */
 		private void heapInsert(int index) {
 			while (index != 0) {
 				int parent = (index - 1) / 2;
@@ -140,6 +151,11 @@ public class Code01_SDEandPM {
 			}
 		}
 
+		/**
+		 * 向下移动的过程
+		 *
+		 * @param index
+		 */
 		private void heapify(int index) {
 			int left = index * 2 + 1;
 			int right = index * 2 + 2;
@@ -148,9 +164,11 @@ public class Code01_SDEandPM {
 				if (sdeLoveRule(sdeHeap[left], sdeHeap[index]) < 0) {
 					best = left;
 				}
+				//是否有右节点
 				if (right < heapsize && sdeLoveRule(sdeHeap[right], sdeHeap[best]) < 0) {
 					best = right;
 				}
+				//已经不需要再向下移动了
 				if (best == index) {
 					break;
 				}
@@ -199,7 +217,7 @@ public class Code01_SDEandPM {
 		}
 		// 所有的项目，在最开始的时候，都在start堆中，被锁住
 		//
-		//
+		// 程序员队列
 		PriorityQueue<Integer> wakeQueue = new PriorityQueue<Integer>();
 		for (int i = 0; i < sdes; i++) {
 			wakeQueue.add(1);

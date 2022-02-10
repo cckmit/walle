@@ -2,6 +2,8 @@ package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term04.class08;
 
 /**
  * 10 正则匹配
+ *
+ * @see com.zaqbest.walle.study.alg.leetcode.Problem_0010_IsMatch
  */
 public class Code01_RegularExpressionMatch {
 
@@ -47,12 +49,15 @@ public class Code01_RegularExpressionMatch {
 		}
 		// ei + 1 位置是*
 		// 尝试  [ei][ei+1]共同的部分，匹配str可能的前缀
+		//s=aaaabc, e=a*bc
+		//1）while si依次为0,1,2,3, 分别尝试了0个a,1个a,2个a,3个a的情况
 		while (si != s.length && (e[ei] == s[si] || e[ei] == '.')) {
-			if (process(s, e, si, ei + 2)) {
+			if (process(s, e, si, ei + 2)) {//ei+2是跳过*
 				return true;
 			}
 			si++;
 		}
+		//2）这里si为4，尝试4个a的情况
 		return process(s, e, si, ei + 2);
 	}
 

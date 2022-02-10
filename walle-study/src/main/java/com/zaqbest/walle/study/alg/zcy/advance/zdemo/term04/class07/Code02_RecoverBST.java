@@ -3,8 +3,18 @@ package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term04.class07;
 import java.util.Stack;
 
 /**
- * 一棵二叉树原本是搜索二叉树，但是其中有两个节点调换了位置，使得这棵二叉树不再 是搜索二叉树，请找到这两个错误节点并返回。 已知二叉树中所有节点的值都不一样，给定二叉树的头节点 head，返回一个长度为2的 二叉树节点类型的数组errs，errs[0]表示一个错误节点， errs[1]表示另一个错误节 点。
- * 进阶: 如果在原问题中得到了这两个错误节点，我们当然可以通过交换两个节点的节点值的方 式让整棵二叉树重新成为搜索二叉树。 但现在要求你不能这么做，而是在结构上完全交换两个节点的位置，请实现调整的函数
+ * 一棵二叉树原本是搜索二叉树，但是其中有两个节点调换了位置，使得这棵二叉树不再是搜索二叉树，请找到这两个错误节点并返回。
+ * 已知二叉树中所有节点的值都不一样，给定二叉树的头节点 head，
+ * 返回一个长度为2的 二叉树节点类型的数组errs，errs[0]表示一个错误节点， errs[1]表示另一个错误节点。
+ *
+ * 思路：
+ * 先序遍历，第一个错误的第一个节点；最后一次错误的，后一个节点
+ *
+ * 进阶: 如果在原问题中得到了这两个错误节点，我们当然可以通过交换两个节点的节点值的方 式让整棵二叉树重新成为搜索二叉树。
+ * 但现在要求你不能这么做，而是在结构上完全交换两个节点的位置，请实现调整的函数
+ *
+ *
+ * {@link com.zaqbest.walle.study.alg.leetcode.Problem_0099_RecoverTree}
  */
 public class Code02_RecoverBST {
 
@@ -32,8 +42,8 @@ public class Code02_RecoverBST {
 			} else {
 				head = stack.pop();
 				if (pre != null && pre.value > head.value) {
-					errs[0] = errs[0] == null ? pre : errs[0];
-					errs[1] = head;
+					errs[0] = errs[0] == null ? pre : errs[0];//第一次错误的，第一个节点
+					errs[1] = head;//最后一次错误的，后一个节点
 				}
 				pre = head;
 				head = head.right;
