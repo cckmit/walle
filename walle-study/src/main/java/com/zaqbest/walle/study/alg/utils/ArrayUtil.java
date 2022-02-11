@@ -15,6 +15,7 @@ public class ArrayUtil {
         int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
+            arr[i] = Math.abs(arr[i]);
         }
         return arr;
     }
