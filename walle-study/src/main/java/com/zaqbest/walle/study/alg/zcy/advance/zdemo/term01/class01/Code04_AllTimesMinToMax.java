@@ -37,6 +37,7 @@ public class Code04_AllTimesMinToMax {
 			sums[i] = sums[i - 1] + arr[i];
 		}
 		int max = Integer.MIN_VALUE;
+		//单调栈，栈顶元素为目前的最小值
 		Stack<Integer> stack = new Stack<Integer>();
 		for (int i = 0; i < size; i++) {
 			while (!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
@@ -61,16 +62,17 @@ public class Code04_AllTimesMinToMax {
 	}
 
 	public static void main(String[] args) {
-		int testTimes = 2000000;
-		System.out.println("test begin");
-		for (int i = 0; i < testTimes; i++) {
-			int[] arr = gerenareRondomArray();
-			if (max1(arr) != max2(arr)) {
-				System.out.println("FUCK!");
-				break;
-			}
-		}
-		System.out.println("test finish");
+//		int testTimes = 2000000;
+//		System.out.println("test begin");
+//		for (int i = 0; i < testTimes; i++) {
+//			int[] arr = gerenareRondomArray();
+//			if (max1(arr) != max2(arr)) {
+//				System.out.println("FUCK!");
+//				break;
+//			}
+//		}
+//		System.out.println("test finish");
+		max2(new int[]{3,4,5,4});
 	}
 
 }

@@ -12,6 +12,10 @@ import java.util.PriorityQueue;
 // 洗杯子的机器洗完一个杯子时间为a，任何一个杯子自然挥发干净的时间为b。
 // 四个参数：arr, n, a, b
 // 假设时间点从0开始，返回所有人喝完咖啡并洗完咖啡杯的全部过程结束后，至少来到什么时间点。
+
+/**
+ * 业务限制模型
+ */
 public class Code06_Coffee {
 
 	// 方法一：暴力尝试方法
@@ -30,11 +34,12 @@ public class Code06_Coffee {
 		}
 		int time = Integer.MAX_VALUE;
 		for (int i = 0; i < arr.length; i++) {
-			int work = arr[i];
-			int pre = times[i];
-			drink[kth] = pre + work;
+			int work = arr[i];//i号咖啡机，制造一杯咖啡的时间
+			int pre = times[i];//i号咖啡机，可以被使用的最早时间
+			drink[kth] = pre + work;//喝完一杯咖啡的时间
 			times[i] = pre + work;
 			time = Math.min(time, forceMake(arr, times, kth + 1, drink, n, a, b));
+			//恢复现场
 			drink[kth] = 0;
 			times[i] = pre;
 		}

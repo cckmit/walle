@@ -1,5 +1,11 @@
 package com.zaqbest.walle.study.alg.zcy.basic.zdemo.class11;
 
+/**
+ * N皇后问题
+ *
+ * 进阶：
+ * 使用位运算，快速剪枝
+ */
 public class Code09_NQueens {
 
 	public static int num1(int n) {

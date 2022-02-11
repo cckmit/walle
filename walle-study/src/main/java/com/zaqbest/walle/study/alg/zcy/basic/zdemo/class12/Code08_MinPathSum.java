@@ -29,6 +29,12 @@ public class Code08_MinPathSum {
 		return dp[row - 1][col - 1];
 	}
 
+	/**
+	 * dp压缩空间技巧
+	 *
+	 * @param m
+	 * @return
+	 */
 	public static int minPathSum2(int[][] m) {
 		if (m == null || m.length == 0 || m[0] == null || m[0].length == 0) {
 			return 0;

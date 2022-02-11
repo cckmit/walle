@@ -126,34 +126,34 @@ public class Problem_DryClothes {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i< 1000; i++){
-            int[] arr = ArrayUtil.generateRandomArray(100, 1000);
-            int A = new Random().nextInt(10)+1;
-            int B = new Random().nextInt(10)+1;
-
-            int r2 = dry2(arr, A, B);
-            int r3 = dry3(arr, A, B);
-
-            if (r2 != r3){
-                System.out.println(r2);
-                System.out.println(r3);
-                System.out.println("==================");
-                System.out.println(JSON.toJSONString(arr));
-                System.out.println(A);
-                System.out.println(B);
-
-                break;
-            }
-        }
-
-//        int[] arr = {19, 57};
-//        int A = 1, B = 5;
+//        for (int i = 0; i< 1000; i++){
+//            int[] arr = ArrayUtil.generateRandomArray(100, 1000);
+//            int A = new Random().nextInt(10)+1;
+//            int B = new Random().nextInt(10)+1;
 //
-//        int r2 = dry2(arr, A, B);
-//        int r3 = dry3(arr, A, B);
+//            int r2 = dry2(arr, A, B);
+//            int r3 = dry3(arr, A, B);
 //
-//        System.out.println(r2);
-//        System.out.println(r3);
+//            if (r2 != r3){
+//                System.out.println(r2);
+//                System.out.println(r3);
+//                System.out.println("==================");
+//                System.out.println(JSON.toJSONString(arr));
+//                System.out.println(A);
+//                System.out.println(B);
+//
+//                break;
+//            }
+//        }
+
+        int[] arr = {17, 13};
+        int A = 6, B = 9;
+
+        int r2 = dry2(arr, A, B);
+        int r3 = dry3(arr, A, B);
+
+        System.out.println(r2);
+        System.out.println(r3);
 
 
     }
