@@ -14,6 +14,16 @@ public class Code02_ZeroLeftOneStringNumber {
 		return process(1, n);
 	}
 
+	/**
+	 * 最左边一位必须是1
+	 * 倒数第二位，
+	 * 如果是0，则f(n-2)必须是达标的
+	 * 如果是1，则f(n-1)必须是达标的
+	 *
+	 * @param i
+	 * @param n
+	 * @return
+	 */
 	public static int process(int i, int n) {
 		if (i == n - 1) {
 			return 2;
