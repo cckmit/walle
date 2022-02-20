@@ -1,5 +1,10 @@
 package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class02;
 
+/**
+ * 给定一个数组arr，给定一个正数k。
+ * 选出3个不重叠的子数组，每个子数组长度都是k，
+ * 返回最大的三子数组的最大和。
+ */
 public class Code04_MaximumSumof3NonOverlappingSubarrays {
 
 	public static int[] maxSumOfThreeSubarrays(int[] nums, int k) {

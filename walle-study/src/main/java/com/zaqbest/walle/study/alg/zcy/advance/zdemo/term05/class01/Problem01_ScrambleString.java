@@ -1,5 +1,8 @@
 package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class01;
 
+/**
+ * https://leetcode.com/problems/scramble-string/
+ */
 public class Problem01_ScrambleString {
 
 	public static boolean sameTypeSameNumber(char[] str1, char[] str2) {

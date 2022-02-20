@@ -1,5 +1,10 @@
 package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class02;
 
+/**
+ * 给定一棵二叉树的头节点head，如果在某一个节点x上放置相机，
+ * 那么x的父节点、x的所有子节点以及x都可以被覆盖。
+ * 返回如果要把所有数都覆盖，至少需要多少个相机。
+ */
 public class Code03_MinCameraCover {
 
 	public static class Node {
