@@ -2,6 +2,23 @@ package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class04;
 
 import java.util.Arrays;
 
+/**
+ * 一条直线上有居民点，邮局只能建在居民点上。
+ * 给定一个有序正数数组arr，每个值表示居民点的一维坐标，再给定一个正数 num，表示邮局数量。
+ * 选择num个居民点建立num个 邮局，使所有的居民点到最近邮局的总距离最短，返回最短的总距离
+ *
+ * 【举例】
+ * arr=[1,2,3,4,5,1000]，num=2。
+ * 第一个邮局建立在 3 位置，第二个邮局建立在 1000 位置。
+ * 那么 1 位置到邮局的距离 为 2，
+ * 2 位置到邮局距离为 1，
+ * 3 位置到邮局的距离为 0，
+ * 4 位置到邮局的距离为 1，
+ * 5 位置到邮局的距 离为 2，
+ * 1000 位置到邮局的距离为 0。
+ *
+ * 这种方案下的总距离为 6， 其他任何方案的总距离都不会 比该方案的总距离更短，所以返回6
+ */
 public class Code03_PostOfficeProblem {
 
 	public static int minDis1(int[] arr, int num) {
