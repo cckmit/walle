@@ -57,7 +57,7 @@ public class Code02_CandyProblem {
 
 	public static int rightCands(int[] arr, int left, int right) {
 		int n = right - left + 1;
-		return n + n * (n - 1) / 2;
+		return n + n * (n - 1) / 2; //就是等差数列，等价于(n+1)*n/2,
 	}
 
 	public static int candy2(int[] arr) {
