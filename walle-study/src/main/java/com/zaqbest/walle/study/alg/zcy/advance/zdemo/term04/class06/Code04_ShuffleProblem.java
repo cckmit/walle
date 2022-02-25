@@ -146,15 +146,16 @@ public class Code04_ShuffleProblem {
 	}
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 5000000; i++) {
-			int[] arr = generateArray();
-			wiggleSort(arr);
-			if (!isValidWiggle(arr)) {
-				System.out.println("ooops!");
-				printArray(arr);
-				break;
-			}
-		}
+//		for (int i = 0; i < 5000000; i++) {
+//			int[] arr = generateArray();
+//			wiggleSort(arr);
+//			if (!isValidWiggle(arr)) {
+//				System.out.println("ooops!");
+//				printArray(arr);
+//				break;
+//			}
+//		}
+		shuffle(new int[]{1,2,3,4,5,6,7,8,9,10});
 	}
 
 }

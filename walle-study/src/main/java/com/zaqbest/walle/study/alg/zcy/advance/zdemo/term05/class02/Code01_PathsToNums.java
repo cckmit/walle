@@ -31,9 +31,9 @@ public class Code01_PathsToNums {
 	}
 
 	public static void pathsToDistans(int[] paths) {
-		int cap = 0;
+		int cap = 0;//首都
 		for (int start = 0; start != paths.length; start++) {
-			if (paths[start] == start) {
+ 			if (paths[start] == start) {
 				cap = start;
 			} else if (paths[start] > -1) {
 				int curI = paths[start];
@@ -81,7 +81,7 @@ public class Code01_PathsToNums {
 			}
 		}
 		disArr[0] = 1;
-	}
+   	}
 
 	public static void printArray(int[] arr) {
 		if (arr == null || arr.length == 0) {

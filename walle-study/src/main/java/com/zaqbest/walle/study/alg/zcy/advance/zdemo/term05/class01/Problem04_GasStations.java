@@ -16,9 +16,11 @@ public class Problem04_GasStations {
 			return null;
 		}
 		int init = changeDisArrayGetInit(dis, oil);
+		//如果每一个节点都不能走到下一个节点，那么大家都是无能的。
 		return init == -1 ? new boolean[dis.length] : enlargeArea(dis, init);
 	}
 
+	//获取纯能数组（oil[i]-dis[i])只有该值>=0才可以出发，否则半路就歇菜了
 	public static int changeDisArrayGetInit(int[] dis, int[] oil) {
 		int init = -1;
 		for (int i = 0; i < dis.length; i++) {
@@ -44,7 +46,8 @@ public class Problem04_GasStations {
 			// 当前来到的start不在连通区域中，就扩充连通区域
 			if (dis[start] < need) { // 当前start无法接到连通区的头部
 				need -= dis[start];
-			} else { // 当前start可以接到连通区的头部，开始扩充连通区域的尾巴
+			} else {
+				// 当前start可以接到连通区的头部，开始扩充连通区域的尾巴
 				rest += dis[start] - need;
 				need = 0;
 				while (rest >= 0 && end != start) {
@@ -160,26 +163,30 @@ public class Problem04_GasStations {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("JJJ");
-		int max = 20;
-		for (int i = 0; i < 5000000; i++) {
-			int size = (int) (Math.random() * 20) + 2;
-			int[] dis = generateArray(size, max);
-			int[] oil = generateArray(size, max);
-			int[] dis1 = copyArray(dis);
-			int[] oil1 = copyArray(oil);
-			int[] dis2 = copyArray(dis);
-			int[] oil2 = copyArray(oil);
-			boolean[] res1 = stations(dis1, oil1);
-			boolean[] res2 = test(dis2, oil2);
-			if (!isEqual(res1, res2)) {
-				printArray(dis, oil);
-				printBooleanArray(res1);
-				printBooleanArray(res2);
-				System.out.println("what a fucking day!");
-				break;
-			}
-		}
+//		System.out.println("JJJ");
+//		int max = 20;
+//		for (int i = 0; i < 5000000; i++) {
+//			int size = (int) (Math.random() * 20) + 2;
+//			int[] dis = generateArray(size, max);
+//			int[] oil = generateArray(size, max);
+//			int[] dis1 = copyArray(dis);
+//			int[] oil1 = copyArray(oil);
+//			int[] dis2 = copyArray(dis);
+//			int[] oil2 = copyArray(oil);
+//			boolean[] res1 = stations(dis1, oil1);
+//			boolean[] res2 = test(dis2, oil2);
+//			if (!isEqual(res1, res2)) {
+//				printArray(dis, oil);
+//				printBooleanArray(res1);
+//				printBooleanArray(res2);
+//				System.out.println("what a fucking day!");
+//				break;
+//			}
+//		}
+
+		int[] dis = {1, 10, 4, 4, 5};
+		int[] oil = {4, 14, 1, 9, 10};
+		boolean[] res = stations(dis, oil);
 	}
 
 }

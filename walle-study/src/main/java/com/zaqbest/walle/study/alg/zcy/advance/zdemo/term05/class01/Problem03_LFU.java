@@ -167,13 +167,16 @@ public class Problem03_LFU {
 			if(capacity == 0) {
 				return;
 			}
+			//如果节点已经存在了，直接增加次数，移动即可
 			if (records.containsKey(key)) {
 				Node node = records.get(key);
 				node.value = value;
 				node.times++;
 				NodeList curNodeList = heads.get(node);
 				move(node, curNodeList);
+			//如果节点不存在
 			} else {
+				//如果当前cache已经满了，需要先淘汰一个key
 				if (size == capacity) {
 					Node node = headList.tail;
 					headList.deleteNode(node);

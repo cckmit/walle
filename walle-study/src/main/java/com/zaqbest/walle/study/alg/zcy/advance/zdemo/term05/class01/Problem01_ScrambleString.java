@@ -2,6 +2,11 @@ package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class01;
 
 /**
  * https://leetcode.com/problems/scramble-string/
+ *
+ * 旋变字符串问题
+ *
+ * 思路
+ * 1）不同的划分位置枚举
  */
 public class Problem01_ScrambleString {
 
