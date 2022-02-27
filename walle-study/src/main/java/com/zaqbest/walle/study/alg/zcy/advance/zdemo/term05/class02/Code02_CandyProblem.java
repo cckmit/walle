@@ -77,6 +77,7 @@ public class Code02_CandyProblem {
 				index++;
 			} else if (arr[index] < arr[index - 1]) {
 				next = nextMinIndex2(arr, index - 1);
+				//data[0] 需要的蜡烛数， date[1]为base
 				data = rightCandsAndBase(arr, index - 1, next++);
 				if (data[1] <= lbase) {
 					res += data[0] - data[1];

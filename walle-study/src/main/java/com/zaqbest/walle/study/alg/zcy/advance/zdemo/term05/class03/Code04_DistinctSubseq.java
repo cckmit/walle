@@ -2,6 +2,11 @@ package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class03;
 
 import java.util.Arrays;
 
+/**
+ * 给定一个字符串s，求s中有多少个字面值不相同的子序列。
+ *
+ * 从左往右的的尝试模型
+ */
 public class Code04_DistinctSubseq {
 
 	public static int distinctSubseq1(String s) {

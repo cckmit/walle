@@ -15,7 +15,9 @@ public class Code04_MaximumSumof3NonOverlappingSubarrays {
 		for (int i = 0; i < k; i++) {
 			sum += nums[i];
 		}
+		//range[i]指的是nums[i..i+k-1]的累加和
 		range[0] = sum;
+		//left[i]指的是0..i的范围内，最大的数组累加和的下标index
 		left[k - 1] = 0;
 		int max = sum;
 		for (int i = k; i < N; i++) {
