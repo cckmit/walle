@@ -2,6 +2,11 @@ package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class05;
 
 import java.util.HashMap;
 
+/**
+ * 给定无序数组 arr，返回其中最长的连续序列的长度
+ * 【举例】
+ * arr=[100,4,200,1,3,2]，最长的连续序列为[1,2,3,4]，所以返回4。
+ */
 public class Code02_LongestConsecutive {
 
 	public static int longestConsecutive(int[] arr) {

@@ -2,6 +2,19 @@ package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class05;
 
 import java.util.Stack;
 
+/**
+ * 给定一个二维数组matrix，其中的值不是0就是1，
+ * 其中，
+ * 内部全是1的所有子矩阵中，含有最多1的子矩阵中，含有几个1？
+ *
+ * 笔记
+ * 前置知识
+ * - 单调栈
+ * - 最大矩形面积
+ *
+ * 处理思路
+ * - 二维压缩成一维处理
+ */
 public class Code04_MaximalRectangle {
 
 	public static int maxRecSize(int[][] map) {

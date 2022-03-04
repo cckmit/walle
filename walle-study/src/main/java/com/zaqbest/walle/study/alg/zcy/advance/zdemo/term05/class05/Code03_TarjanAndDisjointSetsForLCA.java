@@ -1,7 +1,29 @@
 package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class05;
 
+import com.zaqbest.walle.study.alg.zcy.basic.zdemo.class08.Code07_lowestAncestor;
+
 import java.util.*;
 
+/**
+ * public class Query {
+ *     public Node o1;
+ *     public Node o2;
+ *     public Query(Node o1, Node o2) {
+ *         this.o1 = o1;
+ *         this.o2 = o2; }
+ * }
+ *
+ * 一个 Query 类的实例表示一条查询语句，表示想要查询 o1 节点和 o2 节点的最近公共 祖先 节点。
+ * 给定一棵二叉树的头节点 head，并给定所有的查询语句，即一个 Query 类型的数组 Query[] ques，请返回Node类型的数组Node[] ans，ans[i]代表ques[i]这条查询的答案， 即ques[i].o1和 ques[i].o2 的最近公共祖先。
+ * 【要求】
+ * 如果二叉树的节点数为 N，查询语句的条数为 M，整个处理过程的时间复杂度要求达到 O(N+M)。
+ *
+ * 笔记
+ * tarjan算法
+ *
+ *
+ * {@link Code07_lowestAncestor}
+ */
 public class Code03_TarjanAndDisjointSetsForLCA {
 
 	public static class Element<V> {

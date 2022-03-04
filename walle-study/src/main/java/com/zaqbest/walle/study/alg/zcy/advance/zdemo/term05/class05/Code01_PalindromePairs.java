@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * 给定字符串数组words，其中所有字符串都不同，如果words[i]+words[j]是回文串就记 录(i,j)，找到所有记录并返回
+ * 例子一:
+ * 输入：["abcd","dcba","lls","s","sssll"]
+ * 输出：[[0,1],[1,0],[3,2],[2,4]]
+ * 解释：输出的每一组数组，两个下标代表字符串拼接在一起，都是回文串
+ * abcddcba、 dcbaabcd 、 slls 、 llssssll
+ */
 public class Code01_PalindromePairs {
 
 	//   [ [0,1]   [3, 8]        ]  
