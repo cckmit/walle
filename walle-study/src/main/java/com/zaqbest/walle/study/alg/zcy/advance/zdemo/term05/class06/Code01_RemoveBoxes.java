@@ -11,6 +11,8 @@ package com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class06;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/remove-boxes
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ *
+ * 外部信息 简单化
  */
 public class Code01_RemoveBoxes {
 
@@ -20,7 +22,8 @@ public class Code01_RemoveBoxes {
 		int ans = process(boxes, 0, N - 1, 0, dp);
 		return ans;
 	}
-
+	//boxes[L..R]，前面还跟着K个boxes[L]
+	//前面的包袱和L..R所有数都消掉，最好得分是什么
 	public static int process(int[] boxes, int L, int R, int K, int[][][] dp) {
 		if (L > R) {
 			return 0;
@@ -28,7 +31,7 @@ public class Code01_RemoveBoxes {
 		if (dp[L][R][K] > 0) {
 			return dp[L][R][K];
 		}
-		int last = L;
+		int last = L; //last指定的最后一个相同的字符
 		while (last + 1 <= R && boxes[last + 1] == boxes[L]) {
 			last++;
 		}
