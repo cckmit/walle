@@ -6,7 +6,7 @@ package com.zaqbest.walle.study.alg.leetcode;
  *  dp 行列对应模型
  *
  * 最长公共子串问题
- * {@link com.zaqbest.walle.study.alg.zcy.advance.zdemo.term03.class03.Code05_LCSubstring}
+ * {@link com.zaqbest.walle.study.alg.zcy.training.zdemo.term03.class03.Code05_LCSubstring}
  */
 public class Problem_0718_FindLength {
     public static int findLength(int[] nums1, int[] nums2) {

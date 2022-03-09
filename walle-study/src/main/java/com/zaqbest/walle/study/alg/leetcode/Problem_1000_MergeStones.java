@@ -3,7 +3,7 @@ package com.zaqbest.walle.study.alg.leetcode;
 /**
  * 1000. 合并石头的最低成本
  *
- * {@link com.zaqbest.walle.study.alg.zcy.advance.zdemo.term04.class08.Code05_MinimumCostToMergeStones}
+ * {@link com.zaqbest.walle.study.alg.zcy.training.zdemo.term04.class08.Code05_MinimumCostToMergeStones}
  */
 public class Problem_1000_MergeStones{
     public static int mergeStones1(int[] stones, int K) {
