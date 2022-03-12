@@ -3,7 +3,7 @@ package com.zaqbest.walle.study.alg.leetcode;
 /**
  * 4. 寻找两个正序数组的中位数
  *
- * {@link com.zaqbest.walle.study.alg.zcy.advance.zdemo.term04.class04.Code02_FindKthMinNumber}
+ * {@link com.zaqbest.walle.study.alg.zcy.training.zdemo.term04.class04.Code02_FindKthMinNumber}
  */
 public class Problem_0002_FindMedianSortedArrays {
 

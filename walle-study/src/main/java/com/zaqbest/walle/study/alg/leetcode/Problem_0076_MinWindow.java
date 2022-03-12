@@ -8,7 +8,7 @@ package com.zaqbest.walle.study.alg.leetcode;
  * 1143. 最长公共子序列
  * {@link Problem_1143_LongestCommonSubsequence}
  *
- * {@link com.zaqbest.walle.study.alg.zcy.advance.zdemo.term05.class01.Problem02_MinWindowLength}
+ * {@link com.zaqbest.walle.study.alg.zcy.training.zdemo.term05.class01.Problem02_MinWindowLength}
  */
 public class Problem_0076_MinWindow {
     public static String minWindow(String s, String t) {

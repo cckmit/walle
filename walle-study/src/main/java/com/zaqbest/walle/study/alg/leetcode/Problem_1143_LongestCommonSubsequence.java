@@ -5,10 +5,10 @@ package com.zaqbest.walle.study.alg.leetcode;
  *
  * 最长公共子序列问题
  * {@link com.zaqbest.walle.study.alg.zcy.basic.zdemo.class12.Code05_LongestSubsequence}
- * {@link com.zaqbest.walle.study.alg.zcy.advance.zdemo.term03.class03.Code04_LCSubsequence}
+ * {@link com.zaqbest.walle.study.alg.zcy.training.zdemo.term03.class03.Code04_LCSubsequence}
  *
  * 最长公共子串问题
- * {@link com.zaqbest.walle.study.alg.zcy.advance.zdemo.term03.class03.Code05_LCSubstring}
+ * {@link com.zaqbest.walle.study.alg.zcy.training.zdemo.term03.class03.Code05_LCSubstring}
  *
  * 最小覆盖子串问题
  * {@link Problem_0076_MinWindow}

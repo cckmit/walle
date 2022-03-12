@@ -7,7 +7,7 @@ package com.zaqbest.walle.study.alg.leetcode;
  *
  * <p>
  * 正则匹配
- * {@link com.zaqbest.walle.study.alg.zcy.advance.zdemo.term04.class08.Code01_RegularExpressionMatch}
+ * {@link com.zaqbest.walle.study.alg.zcy.training.zdemo.term04.class08.Code01_RegularExpressionMatch}
  * </p>
  */
 public class Problem_0010_IsMatch {

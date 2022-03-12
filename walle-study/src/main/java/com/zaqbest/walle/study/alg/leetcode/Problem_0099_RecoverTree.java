@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * 99. 恢复二叉搜索树
  * <p>
- * {@link com.zaqbest.walle.study.alg.zcy.advance.zdemo.term04.class07.Code02_RecoverBST}
+ * {@link com.zaqbest.walle.study.alg.zcy.training.zdemo.term04.class07.Code02_RecoverBST}
  */
 public class Problem_0099_RecoverTree {
 
