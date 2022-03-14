@@ -44,14 +44,15 @@ public class Problem_0008_StringToInteger {
 		}
 		// s 到了第一个不是'0'字符的位置
 		int e = -1;
-		// 左<-右
+		// 左<-右，最左的不是数字字符的位置
 		for (int i = str.length() - 1; i >= (r ? 1 : 0); i--) {
 			if (str.charAt(i) < '0' || str.charAt(i) > '9') {
 				e = i;
 			}
 		}
 		// e 到了最左的 不是数字字符的位置
-		return (r ? String.valueOf(str.charAt(0)) : "") + str.substring(s, e == -1 ? str.length() : e);
+		return (r ? String.valueOf(str.charAt(0)) : "")  //符号位
+				+ str.substring(s, e == -1 ? str.length() : e); //有效数字，substring为[),左闭右开
 	}
 
 	public static boolean isValid(char[] chas) {

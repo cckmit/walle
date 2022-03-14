@@ -37,15 +37,17 @@ public class Problem_0004_MedianOfTwoSortedArrays {
 			return getUpMedian(shorts, 0, kth - 1, longs, 0, kth - 1);
 		}
 		if (kth > l) {
+			//扣掉短数组的最左边一个
 			if (shorts[kth - l - 1] >= longs[l - 1]) {
 				return shorts[kth - l - 1];
 			}
+			//扣掉长数组的最左边一个
 			if (longs[kth - s - 1] >= shorts[s - 1]) {
 				return longs[kth - s - 1];
 			}
 			return getUpMedian(shorts, kth - l, s - 1, longs, kth - s, l - 1);
 		}
-		// 第2段
+		// 第2段(扣掉左侧的数）
 		if (longs[kth - s - 1] >= shorts[s - 1]) {
 			return longs[kth - s - 1];
 		}
@@ -62,7 +64,7 @@ public class Problem_0004_MedianOfTwoSortedArrays {
 				return A[mid1];
 			}
 			if (((e1 - s1 + 1) & 1) == 1) { // 奇数长度
-				if (A[mid1] > B[mid2]) {
+				if (A[mid1] > B[mid2]) { //特殊处理下
 					if (B[mid2] >= A[mid1 - 1]) {
 						return B[mid2];
 					}

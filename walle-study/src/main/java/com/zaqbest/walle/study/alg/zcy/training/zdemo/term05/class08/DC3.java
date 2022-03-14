@@ -1,11 +1,38 @@
 package com.zaqbest.walle.study.alg.zcy.training.zdemo.term05.class08;
 
+import com.alibaba.fastjson.JSON;
+
+/**
+ * DC3算法求后缀数组
+ *
+ * 示例：
+ * 单词：mississippi
+ * sa=[10, 7, 4, 1, 0, 9, 8, 6, 3, 5, 2]
+ * rank=[5, 4, 11, 9, 3, 10, 8, 2, 7, 6, 1]
+ *
+ * sa的含义
+ * 10 指的是str[10..],排名第0位
+ * 7  指的是str[7..], 排名第1位
+ *
+ * rank的含义
+ * 5 指的是str[0..], 排名第5位
+ */
 public class DC3 {
 
-	public int[] sa;
+	public int[] sa;//后缀数组，Suffix Arra
 
-	public int[] rank;
+	public int[] rank;//名次数组
 
+	/**
+	 * 主调用方法
+	 *
+	 * 调用约定
+	 * - nums中的数字必须大于0
+	 * - max为数组中最大的数
+	 *
+	 * @param nums
+	 * @param max
+	 */
 	public DC3(int[] nums, int max) {
 		sa = sa(nums, max);
 		rank = rank();
@@ -21,7 +48,9 @@ public class DC3 {
 	}
 
 	private int[] skew(int[] nums, int n, int K) {
+		//n0指的是0,3,6总共有多少个数
 		int n0 = (n + 2) / 3, n1 = (n + 1) / 3, n2 = n / 3, n02 = n0 + n2;
+		//s12内容为[1,2,4,5,7,8,10]
 		int[] s12 = new int[n02 + 3], sa12 = new int[n02 + 3];
 		for (int i = 0, j = 0; i < n + (n0 - n1); ++i) {
 			if (0 != i % 3) {
@@ -120,4 +149,17 @@ public class DC3 {
 		return ans;
 	}
 
+	public static void main(String[] args) {
+		String s = "mississippi";
+		int[] nums = new int[s.length()];
+		int max = 0;
+		for (int i = 0, j = 0; i < s.length(); i++){
+			nums[j++] = s.charAt(i);
+			max = Math.max(max, s.charAt(i));
+		}
+
+		DC3 dc3 = new DC3(nums, max);
+		System.out.println(JSON.toJSONString(dc3.sa));
+		System.out.println(JSON.toJSONString(dc3.rank));
+	}
 }
